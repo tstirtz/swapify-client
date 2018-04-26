@@ -1,0 +1,27 @@
+form{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+label{
+    display: block;
+    text-align: center;
+    margin: 5px;
+}
+
+input{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+button{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
