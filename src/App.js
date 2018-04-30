@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Dashboard from './dashboard/dashboard';
 import LandingPage from './landing-page/landing-page';
 import SignUpForm from './landing-page/sign-up-form';
-import LoginForm from './landing-page/login-form'
+import LoginForm from './landing-page/login-form';
 import './App.css';
 
 export default function App(){
