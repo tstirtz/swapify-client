@@ -1,34 +1,39 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { store, setFirstName, setLastName, setEmail, setUsername, setPassword } from './redux-actions.test';
+
 import './sign-up-form.css';
+import App from '../App';
+import {API_BASE_URL}  from './../config';
 
-const {API_BASE_URL} = require('./../config');
 
-
-export default class SignUpForm extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      firstName: '',
-      lastName: '',
-      email: '',
-      username: '',
-      password: '',
-      error: '',
-    }
-  }
+export class SignUpForm extends React.Component{
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     firstName: '',
+  //     lastName: '',
+  //     email: '',
+  //     username: '',
+  //     password: '',
+  //     error: '',
+  //   }
+  // }
   signUp() {
     console.log('signUp function called');
-    const newUser ={
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      email: this.state.email,
-      username: this.state.username,
-      password: this.state.password,
-    }
+    // const newUser ={
+    //   firstName: store.getState().userInfo.user.first,
+    //   lastName: store.getState().userInfo.user.last,
+    //   email: store.getState().userInfo.user.email,
+    //   username: store.getState().userInfo.user.username,
+    //   password: store.getState().userInfo.user.password,
+    // }
+    const newUser = store.getState().userInfo.user;
+    console.log(newUser);
     console.log(JSON.stringify(newUser));
     fetch(`${API_BASE_URL}/sign-up`, {
       body: JSON.stringify(newUser),
-      cache: 'default',
+      // cache: 'default',
       // credentials: 'include',
       headers: {
         'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
@@ -37,7 +42,7 @@ export default class SignUpForm extends React.Component{
       method: 'POST',
       mode: 'cors',
       redirect: 'follow',
-      referrer: 'no-referrer',
+      // referrer: 'no-referrer',
     }).then(response => response.json())
     .then((res) => {
       // if(!res.ok){
@@ -51,42 +56,47 @@ export default class SignUpForm extends React.Component{
 }
 
   handleFirstNameChange(event){
-    this.setState({firstName: event.target.value});
+    this.props.dispatch(setFirstName(event.target.value));
+    console.log(store.getState().userInfo.user);
   }
 
   handleLastNameChange(event){
-    this.setState({lastName: event.target.value});
+    this.props.dispatch(setLastName(event.target.value));
+    console.log(store.getState().userInfo.user);
   }
 
   handleEmailChange(event){
-    this.setState({email: event.target.value});
+    this.props.dispatch(setEmail(event.target.value));
+    console.log(store.getState().userInfo);
   }
 
   handleUsernameChange(event){
-    this.setState({username: event.target.value});
+    this.props.dispatch(setUsername(event.target.value));
+    console.log(store.getState().userInfo);
   }
 
   handlePasswordChange(event){
-    this.setState({password: event.target.value});
+    this.props.dispatch(setPassword(event.target.value));
+    console.log(store.getState().userInfo.user);
   }
 
   render() {
     return(
       <form id='sign-up-form' onSubmit={e => {e.preventDefault(); this.signUp()}} >
         <label htmlFor='firstName'>First Name</label>
-        <input id='firstName' value={this.state.firstName} onChange={e => this.handleFirstNameChange(e)} />
+        <input id='firstName' value={this.props.firstName} onChange={e => this.handleFirstNameChange(e)} />
 
         <label htmlFor='lastName'>Last Name</label>
-        <input id='lastName' value={this.state.lastName} onChange={e => this.handleLastNameChange(e)} />
+        <input id='lastName' value={this.props.lastName} onChange={e => this.handleLastNameChange(e)} />
 
         <label htmlFor='email'>Email Address</label>
-        <input id='email' value={this.state.email} onChange={e => this.handleEmailChange(e)} />
+        <input id='email' value={this.props.email} onChange={e => this.handleEmailChange(e)} />
 
         <label htmlFor='userName'>Username</label>
-        <input id='userName' value={this.state.username} onChange={e => this.handleUsernameChange(e)} />
+        <input id='userName' value={this.props.username} onChange={e => this.handleUsernameChange(e)} />
 
         <label htmlFor='password'>Password</label>
-        <input id='password' value={this.state.password} onChange={e => this.handlePasswordChange(e)} />
+        <input id='password' value={this.props.password} onChange={e => this.handlePasswordChange(e)} />
 
         <label htmlFor='confirmPassword'>Confirm Password</label>
         <input id='confirmPassword' />
@@ -96,3 +106,13 @@ export default class SignUpForm extends React.Component{
     );
   }
 }
+
+const mapStateToProps = state => ({
+  firstName: state.user.first,
+  lastName: state.user.last,
+  email: state.user.email,
+  username: state.user.username,
+  password: state.user.password,
+});
+
+export default connect()(SignUpForm);
