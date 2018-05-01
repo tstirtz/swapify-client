@@ -12,11 +12,27 @@ const initialState = {
   },
   pending: false,
 }
-
+export const SIGN_UP = 'SIGN_UP';
 export function signUp(user){
   return {
-    type: 'signUp',
-    payload: Promise.resolve(true),
+    type: SIGN_UP,
+    async payload(){
+      let response = await fetch(`${API_BASE_URL}/sign-up`, {
+        body: JSON.stringify(user),
+        // cache: 'default',
+        // credentials: 'include',
+        headers: {
+          'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
+          'content-type': 'application/json',
+        },
+        method: 'POST',
+        mode: 'cors',
+        redirect: 'follow',
+        // referrer: 'no-referrer',
+      })
+      let data = await response.json();
+      return data;
+    }
     // payload: async fetch(`${API_BASE_URL}/sign-up`, {
     //   body: JSON.stringify(user),
     //   // cache: 'default',
@@ -92,14 +108,14 @@ export const userInfoReducer = (state=initialState, action) => {
 }
 
 export function signUpReducer(state=initialState, action){
-  if(action.type === 'signUp_PENDING'){
-    return Object.assign({}, state, {pending: true});
+  if(action.type === 'SIGN_UP_PENDING'){
+    return Object.assign({}, state, {...state, pending: true});
   }
-  if(action.type === 'signUp_FULFILLED'){
-    return Object.assign({}, state, {pending: false});
+  if(action.type === 'SIGN_UP_FULFILLED'){
+    return Object.assign({}, state, {...state, pending: false});
   }
-  if (action.type === 'signUp_REJECTED'){
-    return Object.assign({}, state, {error: 'action.payload'});
+  if (action.type === 'SIGN_UP_REJECTED'){
+    return Object.assign({}, state, {...state, error: 'action.payload'});
   }
   return state;
 }
