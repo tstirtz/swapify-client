@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { store, setFirstName, setLastName, setEmail, setUsername, setPassword } from './redux-actions.test';
+import { store, setFirstName, setLastName, setEmail, setUsername, setPassword, signUp } from './redux-actions.test';
 
 import './sign-up-form.css';
 import App from '../App';
@@ -19,42 +19,45 @@ export class SignUpForm extends React.Component{
   //     error: '',
   //   }
   // }
-  signUp() {
-    console.log('signUp function called');
-    // const newUser ={
-    //   firstName: store.getState().userInfo.user.first,
-    //   lastName: store.getState().userInfo.user.last,
-    //   email: store.getState().userInfo.user.email,
-    //   username: store.getState().userInfo.user.username,
-    //   password: store.getState().userInfo.user.password,
-    // }
+//   signUp() {
+//     console.log('signUp function called');
+//     // const newUser ={
+//     //   firstName: store.getState().userInfo.user.first,
+//     //   lastName: store.getState().userInfo.user.last,
+//     //   email: store.getState().userInfo.user.email,
+//     //   username: store.getState().userInfo.user.username,
+//     //   password: store.getState().userInfo.user.password,
+//     // }
+//     const newUser = store.getState().userInfo.user;
+//     console.log(newUser);
+//     console.log(JSON.stringify(newUser));
+//     fetch(`${API_BASE_URL}/sign-up`, {
+//       body: JSON.stringify(newUser),
+//       // cache: 'default',
+//       // credentials: 'include',
+//       headers: {
+//         'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
+//         'content-type': 'application/json',
+//       },
+//       method: 'POST',
+//       mode: 'cors',
+//       redirect: 'follow',
+//       // referrer: 'no-referrer',
+//     }).then(response => response.json())
+//     .then((res) => {
+//       // if(!res.ok){
+//       //   return Promise.reject(new Error(res.statusText));
+//       // }
+//       console.log(res);
+//       return res;
+//     }).then(user => {
+//       return Promise.resolve(console.log(user))
+//     }).catch(err => console.log(err))
+// }
+  handleFormSubmit(){
     const newUser = store.getState().userInfo.user;
-    console.log(newUser);
-    console.log(JSON.stringify(newUser));
-    fetch(`${API_BASE_URL}/sign-up`, {
-      body: JSON.stringify(newUser),
-      // cache: 'default',
-      // credentials: 'include',
-      headers: {
-        'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
-        'content-type': 'application/json',
-      },
-      method: 'POST',
-      mode: 'cors',
-      redirect: 'follow',
-      // referrer: 'no-referrer',
-    }).then(response => response.json())
-    .then((res) => {
-      // if(!res.ok){
-      //   return Promise.reject(new Error(res.statusText));
-      // }
-      console.log(res);
-      return res;
-    }).then(user => {
-      return Promise.resolve(console.log(user))
-    }).catch(err => console.log(err))
-}
-
+    this.props.dispatch(signUp(newUser));
+  }
   handleFirstNameChange(event){
     this.props.dispatch(setFirstName(event.target.value));
     console.log(store.getState().userInfo.user);
@@ -82,7 +85,7 @@ export class SignUpForm extends React.Component{
 
   render() {
     return(
-      <form id='sign-up-form' onSubmit={e => {e.preventDefault(); this.signUp()}} >
+      <form id='sign-up-form' onSubmit={e => {e.preventDefault(); this.handleFormSubmit()}} >
         <label htmlFor='firstName'>First Name</label>
         <input id='firstName' value={this.props.firstName} onChange={e => this.handleFirstNameChange(e)} />
 
