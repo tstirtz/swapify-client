@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { store, setFirstName, setLastName, setEmail, setUsername, setPassword, signUp } from './redux-actions.test';
+import { store } from '../store';
+import { setFirstName, setLastName, setEmail, setUsername, setPassword, signUp } from '../actions/sign-up';
 
 import './sign-up-form.css';
-import App from '../App';
-import {API_BASE_URL}  from './../config';
 
 
 export class SignUpForm extends React.Component{
