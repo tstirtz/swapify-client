@@ -6,6 +6,7 @@ module.exports = {
     ],
     "rules": {
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+       "promise/catch-or-return": "error",
     },
     "plugins": [
         "react",
