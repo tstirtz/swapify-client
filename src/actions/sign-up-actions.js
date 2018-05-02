@@ -1,4 +1,3 @@
-import promiseMiddleware from 'redux-promise-middleware';
 const {API_BASE_URL} = require('./../config');
 
 export const SIGN_UP = 'SIGN_UP';
