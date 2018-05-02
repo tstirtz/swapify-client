@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import promiseMiddleware from 'redux-promise-middleware';
-import { SET_FIRST_NAME, SET_LAST_NAME, SET_EMAIL, SET_USERNAME, SET_PASSWORD } from '../actions/sign-up';
+import { SET_FIRST_NAME, SET_LAST_NAME, SET_EMAIL, SET_USERNAME, SET_PASSWORD } from '../actions/sign-up-actions';
 
 const initialState = {
   user: {
