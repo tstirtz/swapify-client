@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 import { store } from '../store';
-import { setFirstName, setLastName, setEmail, setUsername, setPassword, signUp } from '../actions/sign-up';
+import { setFirstName, setLastName, setEmail, setUsername, setPassword, signUp } from '../actions/sign-up-actions';
 
 import './sign-up-form.css';
 
@@ -84,37 +86,63 @@ export class SignUpForm extends React.Component{
 
   render() {
     return(
-      <form id='sign-up-form' onSubmit={e => {e.preventDefault(); this.handleFormSubmit()}} >
-        <label htmlFor='firstName'>First Name</label>
-        <input id='firstName' value={this.props.firstName} onChange={e => this.handleFirstNameChange(e)} />
-
-        <label htmlFor='lastName'>Last Name</label>
-        <input id='lastName' value={this.props.lastName} onChange={e => this.handleLastNameChange(e)} />
-
-        <label htmlFor='email'>Email Address</label>
-        <input id='email' value={this.props.email} onChange={e => this.handleEmailChange(e)} />
-
-        <label htmlFor='userName'>Username</label>
-        <input id='userName' value={this.props.username} onChange={e => this.handleUsernameChange(e)} />
-
-        <label htmlFor='password'>Password</label>
-        <input id='password' value={this.props.password} onChange={e => this.handlePasswordChange(e)} />
-
-        <label htmlFor='confirmPassword'>Confirm Password</label>
-        <input id='confirmPassword' />
-
-        <button type='submit' htmlFor='sign-up-form'>Submit</button>
-      </form>
+      <div className= "sign-up">
+          <h2>Sign up</h2>
+        <form id="sign-up-form" onSubmit={e => {e.preventDefault(); this.handleFormSubmit()}} >
+          <TextField
+            id="firstName"
+            floatingLabelText="First Name"
+            type="text"
+            value={this.props.firstName}
+            onChange={e => this.handleFirstNameChange(e)}
+          /><br />
+          <TextField
+            id="lastName"
+            floatingLabelText="Last Name"
+            type="text"
+            value={this.props.lastName}
+            onChange={e => this.handleLastNameChange(e)}
+          /><br />
+          <TextField
+            id="email"
+            floatingLabelText="Email"
+            type="text"
+            value={this.props.email}
+            onChange={e => this.handleEmailChange(e)}
+          /><br />
+          <TextField
+            id="userName"
+            floatingLabelText="Username"
+            type="text"
+            value={this.props.username}
+            onChange={e => this.handleUsernameChange(e)}
+          /><br />
+          <TextField
+            id="password"
+            floatingLabelText="Password"
+            type="password"
+            value={this.props.password}
+            onChange={e => this.handlePasswordChange(e)}
+          /><br />
+          <TextField
+            id="confirmPassword"
+            floatingLabelText="Confirm Password"
+            type="password"
+          /><br />
+          <RaisedButton className="submit-button" type="submit" htmlFor="sign-up-form" label="Submit" primary={true} />
+          {/* <button type='submit' htmlFor='sign-up-form'>Submit</button> */}
+        </form>
+      </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  firstName: state.user.first,
-  lastName: state.user.last,
-  email: state.user.email,
-  username: state.user.username,
-  password: state.user.password,
+  firstName: state.userInfo.user.first,
+  lastName: state.userInfo.user.last,
+  email: state.userInfo.user.email,
+  username: state.userInfo.user.username,
+  password: state.userInfo.user.password,
 });
 
-export default connect()(SignUpForm);
+export default connect(mapStateToProps)(SignUpForm);
