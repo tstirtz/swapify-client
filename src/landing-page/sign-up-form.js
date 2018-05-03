@@ -25,9 +25,11 @@ export class SignUpForm extends React.Component{
     };
     console.log(newUser);
     this.props.dispatch(signUp(newUser));
+    this.props.reset();
   }
 
   render() {
+    console.log(store.getState());
     return(
       <div className="sign-up">
         <h2>Sign up</h2>
