@@ -24,32 +24,32 @@ export function signUp(user){
   }
 }
 
-export const SET_FIRST_NAME = 'SET_FIRST_NAME';
-export const setFirstName = value => ({
-  type: SET_FIRST_NAME,
-  value,
-});
-
-export const SET_LAST_NAME = 'SET_LAST_NAME';
-export const setLastName = value => ({
-  type: SET_LAST_NAME,
-  value,
-});
-
-export const SET_EMAIL = 'SET_EMAIL';
-export const setEmail = value => ({
-  type: SET_EMAIL,
-  value,
-});
-
-export const SET_USERNAME = 'SET_USERNAME';
-export const setUsername = value => ({
-  type: SET_USERNAME,
-  value,
-});
-
-export const SET_PASSWORD = 'SET_PASSWORD';
-export const setPassword = value => ({
-  type: SET_PASSWORD,
-  value
-});
+// export const SET_FIRST_NAME = 'SET_FIRST_NAME';
+// export const setFirstName = value => ({
+//   type: SET_FIRST_NAME,
+//   value,
+// });
+//
+// export const SET_LAST_NAME = 'SET_LAST_NAME';
+// export const setLastName = value => ({
+//   type: SET_LAST_NAME,
+//   value,
+// });
+//
+// export const SET_EMAIL = 'SET_EMAIL';
+// export const setEmail = value => ({
+//   type: SET_EMAIL,
+//   value,
+// });
+//
+// export const SET_USERNAME = 'SET_USERNAME';
+// export const setUsername = value => ({
+//   type: SET_USERNAME,
+//   value,
+// });
+//
+// export const SET_PASSWORD = 'SET_PASSWORD';
+// export const setPassword = value => ({
+//   type: SET_PASSWORD,
+//   value
+// });
