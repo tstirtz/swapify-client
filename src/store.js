@@ -6,6 +6,5 @@ import { userInfoReducer, signUpReducer } from './reducers/sign-up-reducer';
 
 export const store = createStore(combineReducers({
   form: formReducer,
-  userInfo: userInfoReducer,
   signUp: signUpReducer,
-}), applyMiddleware(promiseMiddleware()));
+}),applyMiddleware(promiseMiddleware()));
