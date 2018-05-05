@@ -1,21 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Field, reduxForm } from 'redux-form';
 import { store } from '../store';
-import { setFirstName, setLastName, setEmail, setUsername, setPassword, signUp } from '../actions/sign-up-actions';
 import renderTextField from './materialUI-text-field';
 import validate from '../validators';
 
 import './sign-up-form.css';
-//
-// function ErrorMessage(error){
-//     if (error){
-//       return (<p>{store.getState().signUp.response}</p>);
-//     }
-//     return null;
-// }
+
 export class SignUpForm extends React.Component{
   constructor(props) {
     super(props);
