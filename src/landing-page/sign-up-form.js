@@ -9,12 +9,20 @@ import renderTextField from './materialUI-text-field';
 import validate from '../validators';
 
 import './sign-up-form.css';
-
+//
+// function ErrorMessage(error){
+//     if (error){
+//       return (<p>{store.getState().signUp.response}</p>);
+//     }
+//     return null;
+// }
 export class SignUpForm extends React.Component{
   constructor(props) {
     super(props);
   }
+  componentWillUpdate(){
 
+  }
   handleFormSubmit(values){
     const newUser = {
       first: values.first,
@@ -24,12 +32,23 @@ export class SignUpForm extends React.Component{
       username: values.username,
     };
     console.log(newUser);
-    this.props.dispatch(signUp(newUser));
+    this.props.dispatch(signUp(newUser))
+    .then((response) => {
+      console.log(response);
+      console.log(store.getState());
+      this.forceUpdate();
+    })
     this.props.reset();
   }
 
   render() {
     console.log(store.getState());
+    let statusCode = store.getState().signUp.statusCode;
+    let message;
+    if (statusCode >= 400){
+      message = (<p>{store.getState().signUp.response}</p>);
+    }
+
     return(
       <div className="sign-up">
         <h2>Sign up</h2>
@@ -69,6 +88,9 @@ export class SignUpForm extends React.Component{
             component={renderTextField}
             label="Confirm Password"
           />
+          <div>
+            {message}
+          </div>
           <RaisedButton
             className="submit-button"
             type="submit"
