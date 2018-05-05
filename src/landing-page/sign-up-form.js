@@ -4,6 +4,7 @@ import { Field, reduxForm } from 'redux-form';
 import { store } from '../store';
 import renderTextField from './materialUI-text-field';
 import validate from '../validators';
+import { signUp } from '../actions/sign-up-actions';
 
 import './sign-up-form.css';
 
