@@ -18,10 +18,16 @@ export class LoginForm extends React.Component {
     this.props.dispatch(login(userCredentials))
     .then(res => {
       console.log(res); console.log(store.getState());
+      this.forceUpdate();
     });
-
+    this.props.reset();
   }
   render(){
+      const status = store.getState().login.statusText;
+      let message;
+      if( status === 'Unauthorized'){
+        message = (<p>Incorrect username or password</p>);
+      }
       return(
         <div className="redux-form-container">
           <h2>Login</h2>
@@ -39,6 +45,9 @@ export class LoginForm extends React.Component {
               component={renderTextField}
               label="Password"
             />
+            <div>
+              {message}
+            </div>
             <RaisedButton
               className="submit-button"
               type="submit"
