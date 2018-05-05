@@ -9,12 +9,6 @@ import { signUp } from '../actions/sign-up-actions';
 import './sign-up-form.css';
 
 export class SignUpForm extends React.Component{
-  constructor(props) {
-    super(props);
-  }
-  componentWillUpdate(){
-
-  }
   handleFormSubmit(values){
     const newUser = {
       first: values.first,
