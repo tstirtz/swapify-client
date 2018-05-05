@@ -24,7 +24,7 @@ describe('<SignUpForm>', ()=> {
       wrapper.find('input[name="first"]').simulate("change", {target: {val: 'Test'}})
       expect(wrapper).toMatchSnapshot();
     });
-
+  });
 describe('validate function', () => {
     it('Should set error for a missing field', () => {
       const values = {
