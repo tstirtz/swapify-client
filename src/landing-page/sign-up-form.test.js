@@ -1,13 +1,29 @@
-import {shallow} from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import React from 'react';
+import TestRenderer from 'react-test-renderer';
+import { Provider } from 'react-redux';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SignUpForm from './sign-up-form';
 import validate from '../validators';
+import { store } from '../store';
 
-describe('<SignUpForm', ()=> {
+describe('<SignUpForm>', ()=> {
     it('Should render without crashing',() =>{
         shallow(<SignUpForm />);
     });
-});
+
+    xit('Should update input', () => {
+      const wrapper = mount(
+         <Provider store={store}>
+          <MuiThemeProvider>
+            <SignUpForm />
+           </MuiThemeProvider>
+         </Provider>
+      );
+
+      wrapper.find('input[name="first"]').simulate("change", {target: {val: 'Test'}})
+      expect(wrapper).toMatchSnapshot();
+    });
 
 describe('validate function', () => {
     it('Should set error for a missing field', () => {
@@ -36,7 +52,7 @@ describe('validate function', () => {
 
     });
 
-    it('Should set error password and confirmPassword are not equal', () => {
+    it('Should set error when password and confirmPassword are not equal', () => {
       const values = {
         first: 'Test',
         last: 'Test',
