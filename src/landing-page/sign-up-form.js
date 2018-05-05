@@ -6,7 +6,7 @@ import renderTextField from './materialUI-text-field';
 import validate from '../validators';
 import { signUp } from '../actions/sign-up-actions';
 
-import './sign-up-form.css';
+import './login-signup-form.css';
 
 export class SignUpForm extends React.Component{
   handleFormSubmit(values){

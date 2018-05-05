@@ -6,7 +6,7 @@ import validate from '../validators';
 import { login } from '../actions/login-action';
 import { store } from '../store';
 
-import './sign-up-form.css';
+import './login-signup-form.css';
 
 export class LoginForm extends React.Component {
   handleLoginSubmit(credentials){
