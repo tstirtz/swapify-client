@@ -36,7 +36,7 @@ export class SignUpForm extends React.Component{
     }
 
     return(
-      <div className="sign-up">
+      <div className="redux-form-container">
         <h2>Sign up</h2>
         <form
           id="sign-up-form"
