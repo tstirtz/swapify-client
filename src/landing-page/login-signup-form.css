@@ -37,3 +37,11 @@ form .submit-button{
   margin-top: 30px;
   margin-bottom: 15px;
 }
+.error-message{
+  text-align: center;
+  color: red;
+  margin-top: 25px;
+}
+.error-message > p{
+  margin: 0px;
+}
