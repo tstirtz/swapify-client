@@ -74,7 +74,9 @@ export class SignUpForm extends React.Component{
             component={renderTextField}
             label="Confirm Password"
           />
-          <div>
+          <div
+            className="error-message"
+          >
             {message}
           </div>
           <RaisedButton
