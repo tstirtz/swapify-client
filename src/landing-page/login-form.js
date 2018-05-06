@@ -1,6 +1,7 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Field, reduxForm } from 'redux-form';
+import { Link } from 'react-router-dom';
 import renderTextField from './materialUI-text-field';
 import validate from '../validators';
 import { login } from '../actions/login-action';
@@ -42,20 +43,26 @@ export class LoginForm extends React.Component {
             />
             <Field
               name="password"
+              type="password"
               component={renderTextField}
               label="Password"
             />
             <div>
               {message}
             </div>
-            <RaisedButton
-              className="submit-button"
-              type="submit"
-              htmlFor="loginForm"
-              label="Submit"
-              primary={true}
-              disabled={this.props.pristine || this.props.submitting}
-            />
+            <Link
+              to="/search"
+              className="link-component"
+            >
+              <RaisedButton
+                className="submit-button"
+                type="submit"
+                htmlFor="loginForm"
+                label="Submit"
+                primary={true}
+                disabled={this.props.pristine || this.props.submitting}
+              />
+            </Link>
           </form>
         </div>
       );
