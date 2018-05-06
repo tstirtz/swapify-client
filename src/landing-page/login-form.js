@@ -1,7 +1,7 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Field, reduxForm } from 'redux-form';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import renderTextField from './materialUI-text-field';
 import validate from '../validators';
 import { login } from '../actions/login-action';
@@ -25,9 +25,13 @@ export class LoginForm extends React.Component {
   }
   render(){
       const status = store.getState().login.statusText;
+      const jwt = store.getState().login.jwt;
       let message;
       if( status === 'Unauthorized'){
         message = (<p>Incorrect username or password</p>);
+      }
+      if( jwt  && jwt != "undefined" ){
+        return <Redirect to='/search' />
       }
       return(
         <div className="redux-form-container">
@@ -47,22 +51,19 @@ export class LoginForm extends React.Component {
               component={renderTextField}
               label="Password"
             />
-            <div>
+            <div
+              className="error-message"
+            >
               {message}
             </div>
-            <Link
-              to="/search"
-              className="link-component"
-            >
-              <RaisedButton
-                className="submit-button"
-                type="submit"
-                htmlFor="loginForm"
-                label="Submit"
-                primary={true}
-                disabled={this.props.pristine || this.props.submitting}
+            <RaisedButton
+              className="submit-button"
+              type="submit"
+              htmlFor="loginForm"
+              label="Submit"
+              primary={true}
+              disabled={this.props.pristine || this.props.submitting}
               />
-            </Link>
           </form>
         </div>
       );
