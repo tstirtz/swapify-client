@@ -12,6 +12,7 @@ const renderTextField = ({
     hintText={label}
     floatingLabelText={label}
     errorText={touched && error}
+    className="mui-text-field"
     {...input}
     type={type}
   />
