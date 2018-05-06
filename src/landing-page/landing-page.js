@@ -4,9 +4,9 @@ import SignUpButton from './sign-up-button';
 
 export default function LandingPage(){
     return(
-        <div className="signUp-login-buttons">
-            <SignUpButton />
-            <LoginButton />
-        </div>
+      <div className="signUp-login-buttons">
+        <SignUpButton />
+        <LoginButton />
+      </div>
     );
 }
