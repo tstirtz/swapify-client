@@ -25,9 +25,7 @@ export function login(credentials) {
               ? 'Incorrect username or password'
               : 'Unable to login, please try again';
           return Promise.reject(
-             new SubmissionError({
-              _error: message
-            })
+             new SubmissionError(message)
           );
         });
         // let data = await response;
