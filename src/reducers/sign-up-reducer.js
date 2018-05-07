@@ -18,7 +18,7 @@ export default function signUpReducer(state=initialState, action){
     return Object.assign({}, state, {...state, pending: false, statusCode: `${action.payload.code}`, response: `${action.payload.message}`});
   }
   if (action.type === 'SIGN_UP_REJECTED'){
-    return Object.assign({}, state, {...state, error: `${action.payload}`});
+    return Object.assign({}, state, {...state, error: `${action.payload.errors}`});
   }
   return state;
 }
