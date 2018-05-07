@@ -1,10 +1,13 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Field, reduxForm } from 'redux-form';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { store } from '../store';
 import renderTextField from './materialUI-text-field';
 import validate from '../validators';
 import { signUp } from '../actions/sign-up-actions';
+import { login } from '../actions/login-action';
 
 import './login-signup-form.css';
 
@@ -22,19 +25,25 @@ export class SignUpForm extends React.Component{
     .then((response) => {
       console.log(response);
       console.log(store.getState());
-      this.forceUpdate();
-    })
+      // this.forceUpdate();
+    }).then(() => this.props.dispatch(login({username: values.username, password: values.password})))
+    .catch(err => {
+      console.log(err);
+      console.log(store.getState());
+    });
     this.props.reset();
   }
 
   render() {
     console.log(store.getState());
-    let statusCode = store.getState().signUp.statusCode;
+    const { jwt, statusCode, error } = this.props;
     let message;
-    if (statusCode >= 400){
-      message = (<p>{store.getState().signUp.response}</p>);
+    if (error){
+      message = (<p>{error}</p>);
     }
-
+    if( jwt  && jwt != "undefined" ){
+      return <Redirect to='/search' />
+    }
     return(
       <div className="redux-form-container">
         <h2>Sign up</h2>
@@ -93,7 +102,19 @@ export class SignUpForm extends React.Component{
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    statusCode: state.login.statusCode,
+    jwt: state.login.jwt,
+    error: state.signUp.error,
+  }
+}
+
+const SignUpWithStore = connect(
+  mapStateToProps
+)(SignUpForm);
+
 export default reduxForm({
   form: 'signUpForm',
   validate
-})(SignUpForm);
+})(SignUpWithStore);
