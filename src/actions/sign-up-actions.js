@@ -1,11 +1,13 @@
-const {API_BASE_URL} = require('./../config');
+import { SubmissionError } from 'redux-form';
+import {API_BASE_URL} from './../config';
+import { normalizeResponseError } from './utils';
 
 export const SIGN_UP = 'SIGN_UP';
 export function signUp(user){
   return {
     type: SIGN_UP,
-    async payload(){
-      let response = await fetch(`${API_BASE_URL}/sign-up`, {
+    payload(){
+      return fetch(`${API_BASE_URL}/sign-up`, {
         body: JSON.stringify(user),
         // cache: 'default',
         // credentials: 'include',
@@ -17,9 +19,21 @@ export function signUp(user){
         mode: 'cors',
         redirect: 'follow',
         // referrer: 'no-referrer',
-      })
-      let data = await response.json();
-      return data;
+      }).then(res => normalizeResponseError(res))
+      .then(res => res.json())
+      .catch(err => {
+        const {reason, message, location} = err;
+          if (reason === 'ValidationError') {
+            // Convert ValidationErrors into SubmissionErrors for Redux Form
+            return Promise.reject(
+              new SubmissionError(message)
+            );
+          }
+      });
+      //normalizeError
+      // let data = await response.json();
+      // console.log(data);
+      // return data;
     }
   }
 }
