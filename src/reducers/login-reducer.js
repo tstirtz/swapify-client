@@ -12,7 +12,7 @@ export default function loginReducer(state=initialState, action){
     return Object.assign({}, state, {...state, pending: false, id: `${action.payload.id}`, jwt: `${action.payload.jwt}`, status: `${action.payload.status}`, statusText: `${action.payload.statusText}`});
   }
   if (action.type === 'LOGIN_REJECTED') {
-    return Object.assign({}, state, {...state, error: `${action.payload}`})
+    return Object.assign({}, state, {...state, error: `${action.payload.message}`})
   }
   return state;
 }
