@@ -2,6 +2,7 @@ import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Field, reduxForm } from 'redux-form';
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import renderTextField from './materialUI-text-field';
 import validate from '../validators';
 import { login } from '../actions/login-action';
@@ -19,15 +20,13 @@ export class LoginForm extends React.Component {
     this.props.dispatch(login(userCredentials))
     .then(res => {
       console.log(res); console.log(store.getState());
-      this.forceUpdate();
-    });
+    }).catch(err => {console.log(err)});
     this.props.reset();
   }
   render(){
-      const status = store.getState().login.statusText;
-      const jwt = store.getState().login.jwt;
+      const { status, jwt, error } = this.props;
       let message;
-      if( status === 'Unauthorized'){
+      if( error ){
         message = (<p>Incorrect username or password</p>);
       }
       if( jwt  && jwt != "undefined" ){
@@ -63,14 +62,26 @@ export class LoginForm extends React.Component {
               label="Submit"
               primary={true}
               disabled={this.props.pristine || this.props.submitting}
-              />
+            />
           </form>
         </div>
       );
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    status: state.login.statusText,
+    jwt: state.login.jwt,
+    error: state.login.error,
+  }
+}
+
+const loginProps = connect(
+  mapStateToProps
+)(LoginForm);
+
 export default reduxForm({
   form: 'loginForm',
   validate
-})(LoginForm);
+})(loginProps);
