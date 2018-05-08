@@ -45,7 +45,12 @@ export default class Dashboard extends React.Component{
     return(
       <div>
         <div className='sub-header'>
-          <h2>My Books</h2>
+          <h2
+            className='sub-heading'
+          >
+            My Books
+          </h2>
+          {this.state.addBookForm && <BooksToSwap />}
           <FontIcon
             onClick={this.renderForm}
             className='fas fa-plus render-form-button'
@@ -53,7 +58,7 @@ export default class Dashboard extends React.Component{
             style={{fontSize: "18px"}}
           />
         </div>
-        {this.state.addBookForm && <BooksToSwap />}
+        {/* {this.state.addBookForm && <BooksToSwap />} */}
         <List>
           {this.state.books.map( book => {
             return(
