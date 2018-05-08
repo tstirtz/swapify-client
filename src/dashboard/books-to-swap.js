@@ -36,6 +36,7 @@ export class BooksToSwap extends React.Component{
   render(){
     return(
       <div className='add-book-form'>
+        <h3>Add Book</h3>
         <form
           id="bookToSwapForm"
           onSubmit={this.props.handleSubmit(values => this.dispatchAction(values))}
