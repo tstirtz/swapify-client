@@ -1,0 +1,11 @@
+.signUp-login-buttons{
+  display: flex;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-between;
+}
+.button{
+  width: 150px;
+  text-align: center;
+}
