@@ -1,6 +1,8 @@
 import React from 'react';
 import {List, ListItem} from 'material-ui/List';
+import { cyan500 } from 'material-ui/styles/colors';
 import Divider from 'material-ui/Divider';
+import FontIcon from 'material-ui/FontIcon';
 import BooksToSwap from './books-to-swap';
 import { API_BASE_URL } from '../config';
 
@@ -43,6 +45,10 @@ export default class Dashboard extends React.Component{
                 key={book._id}
               >
                 <ListItem
+                  leftIcon={<FontIcon
+                    className="fas fa-book"
+                    color={cyan500}
+                  />}
                   primaryText={book.title}
                   secondaryText={book.author}
                 />
