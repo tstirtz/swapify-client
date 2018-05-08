@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
@@ -28,11 +28,13 @@ export class App extends React.Component {
             docked={false}
             onRequestChange={() => this.props.dispatch(navAction(!this.props.open))}
           >
-            <MenuItem onClick={this.handleNav}>My Books</MenuItem>
+            <Link to={`/${this.props.username}/dashboard`}>
+              <MenuItem onClick={this.handleNav}>My Books</MenuItem>
+            </Link>
           </Drawer>
           <main>
             <Route exact path='/' component={LandingPage} />
-            <Route exact path='/dashboard' component={Dashboard} />  {/*need to add variable route*/}
+            <Route exact path='/:username/dashboard' component={Dashboard} />
             <Route exact path='/login-form' component={LoginForm} />
             <Route exact path='/sign-up-form' component={SignUpForm} />
             <Route exact path='/search' component={SearchPage} />
@@ -46,6 +48,7 @@ export class App extends React.Component {
 function mapStateToProps(state) {
   return {
     open: state.nav.open,
+    username: state.login.username,
   }
 }
 
