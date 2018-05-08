@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import promiseMiddleware from 'redux-promise-middleware';
 import { signUp, setFirstName, setLastName, setEmail, setUsername, setPassword } from '../actions/sign-up-actions';
+import { SubmissionError } from 'redux-form';
 import { store } from '../store';
 
 xit('signUp', async () => {
@@ -19,7 +20,9 @@ xit('signUp', async () => {
 
 it("sets fulfilled when promise is resolved", () => {
   const action = signUp();
-  action.payload = Promise.reject("an error");
+  action.payload = Promise.reject(
+    new SubmissionError("an error")
+  );
 
   return store.dispatch(action).catch(() => {
     expect(store.getState().signUp.error).toEqual("an error");
