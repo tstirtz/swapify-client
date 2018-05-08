@@ -6,11 +6,25 @@ import TextField from 'material-ui/TextField';
 import { grey400, grey500 } from 'material-ui/styles/colors';
 import FontIcon from 'material-ui/FontIcon';
 // import renderTextField from '../landing-page/materialUI-text-field';
-import validate from '../validators';
+// import { validateAddBook } from '../validators';
 import { addNeededBook } from '../actions/books-to-swap-action';
 import { store } from '../store';
 
 import './books-to-swap.css';
+
+const validate = values => {
+  const errors = {}
+  const requiredFields = [
+    'title',
+    'author',
+  ]
+  requiredFields.forEach(field => {
+    if (!values[field]) {
+      errors[field] = 'Required'
+    }
+  });
+  return errors;
+}
 
 const renderTextField = ({
   input,
@@ -72,6 +86,7 @@ export class BooksToSwap extends React.Component{
             primary={true}
             disabled={this.props.pristine || this.props.submitting}
           />
+          {this.props.response !== undefined && <p>{`${this.props.response}`}</p>}
         </form>
       </div>
     )
@@ -85,6 +100,7 @@ function mapStateToProps(state) {
     title: "Placeholder",
     author: "Placeholder",
     userId: state.login.id,
+    response: state.bookToSwap.response
   }
 }
 
