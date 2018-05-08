@@ -2,10 +2,29 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
-import renderTextField from '../landing-page/materialUI-text-field';
+import TextField from 'material-ui/TextField';
+// import renderTextField from '../landing-page/materialUI-text-field';
 import validate from '../validators';
 import { addNeededBook } from '../actions/books-to-swap-action';
 import { store } from '../store';
+
+import './books-to-swap.css';
+
+const renderTextField = ({
+  input,
+  label,
+  type,
+  meta: { touched, error },
+}) => (
+  <TextField
+    hintText={label}
+    floatingLabelText={label}
+    errorText={touched && error}
+    className="text-field"
+    {...input}
+    type={type}
+  />
+);
 
 export class BooksToSwap extends React.Component{
   dispatchAction(values){
@@ -16,7 +35,7 @@ export class BooksToSwap extends React.Component{
   }
   render(){
     return(
-      <div>
+      <div className='add-book-form'>
         <form
           id="bookToSwapForm"
           onSubmit={this.props.handleSubmit(values => this.dispatchAction(values))}
@@ -34,7 +53,7 @@ export class BooksToSwap extends React.Component{
             type="text"
           />
           <RaisedButton
-            className="submit-button"
+            className="add-button"
             type="submit"
             htmlFor="bookToSwapForm"
             label="Add"
