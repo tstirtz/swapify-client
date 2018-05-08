@@ -7,6 +7,7 @@ import renderTextField from './materialUI-text-field';
 import validate from '../validators';
 import { login } from '../actions/login-action';
 import { store } from '../store';
+import { saveAuthToken } from '../local-storage';
 
 import './login-signup-form.css';
 
@@ -19,7 +20,10 @@ export class LoginForm extends React.Component {
     console.log('handleLoginSubmit called');
     this.props.dispatch(login(userCredentials))
     .then(res => {
-      console.log(res); console.log(store.getState());
+      console.log(res);
+      console.log(store.getState());
+      saveAuthToken(this.props.jwt);
+      console.log(localStorage.getItem('authToken'));
     }).catch(err => {console.log(err)});
     this.props.reset();
   }
