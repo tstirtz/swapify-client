@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box;
+}
 .sub-header{
   display: flex;
   justify-content: space-between;
@@ -46,8 +49,20 @@ input{
   box-shadow: 3px 3px 20px #1a1a1a;
 }
 h3{
+  display: inline-block;
+  width: 25%;
   color: white;
   text-align: center;
+  margin-left: 37.5%;
+}
+.form-header{
+  display: flex;
+  justify-content: space-between;
+}
+.close-button{
+  margin-top: 10px;
+  margin-right: 10px;
+  color: grey;
 }
 
 @media screen and (max-width: 659px){
