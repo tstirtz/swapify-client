@@ -4,11 +4,15 @@ import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
 import renderTextField from '../landing-page/materialUI-text-field';
 import validate from '../validators';
+import { addNeededBook } from '../actions/books-to-swap-action';
+import { store } from '../store';
 
 export class BooksToSwap extends React.Component{
   dispatchAction(values){
     console.log("dispatchAction called");
     console.log(values);
+    this.props.dispatch(addNeededBook(values));
+    console.log(store.getState());
   }
   render(){
     return(
