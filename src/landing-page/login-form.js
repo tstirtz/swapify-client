@@ -23,6 +23,7 @@ export class LoginForm extends React.Component {
       console.log(res);
       console.log(store.getState());
       saveAuthToken(this.props.jwt);
+      localStorage.setItem('userId', this.props.userId);
       console.log(localStorage.getItem('authToken'));
     }).catch(err => {console.log(err)});
     this.props.reset();
@@ -78,6 +79,7 @@ function mapStateToProps(state) {
     status: state.login.statusText,
     jwt: state.login.jwt,
     error: state.login.error,
+    userId: state.login.id,
   }
 }
 
