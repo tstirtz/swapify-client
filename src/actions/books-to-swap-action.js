@@ -24,9 +24,7 @@ export const addNeededBook = (values, id) => ({
           ? 'Already exists as a needed book'
           : 'Unable to create book, please try again';
         console.log(message);
-      // return Promise.reject(
-      //    new SubmissionError(message)
-      // );
+        return message;
     });
   }
 });
