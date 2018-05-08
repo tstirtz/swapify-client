@@ -3,6 +3,8 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
+import { grey400, grey500 } from 'material-ui/styles/colors';
+import FontIcon from 'material-ui/FontIcon';
 // import renderTextField from '../landing-page/materialUI-text-field';
 import validate from '../validators';
 import { addNeededBook } from '../actions/books-to-swap-action';
@@ -37,7 +39,15 @@ export class BooksToSwap extends React.Component{
   render(){
     return(
       <div className='add-book-form'>
-        <h3>Add Book</h3>
+        <div className='form-header'>
+          <h3>Add Book</h3>
+          <FontIcon
+            className="far fa-window-close close-button"
+            color={grey400}
+            hoverColor={grey500}
+            onClick={this.props.addBookForm()}
+          />
+        </div>
         <form
           id="bookToSwapForm"
           onSubmit={this.props.handleSubmit(values => this.dispatchAction(values))}
