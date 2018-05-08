@@ -6,12 +6,17 @@ import FontIcon from 'material-ui/FontIcon';
 import BooksToSwap from './books-to-swap';
 import { API_BASE_URL } from '../config';
 
+import './books-to-swap.css';
+
 export default class Dashboard extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      books: []
+      books: [],
+      addBookForm: false,
     };
+
+    this.renderForm = this.renderForm.bind(this);
   }
   componentDidMount() {
     return fetch(`${API_BASE_URL}/user-books/${localStorage.getItem('userId')}`, {
@@ -33,11 +38,22 @@ export default class Dashboard extends React.Component{
       return message;
     })
   }
+  renderForm(){
+    this.setState({addBookForm: !this.state.addBookForm})
+  }
   render(){
     return(
       <div>
-        <h1>This is the Dashboard</h1>
-        <BooksToSwap />
+        <div className='sub-header'>
+          <h2>My Books</h2>
+          <FontIcon
+            onClick={this.renderForm}
+            className='fas fa-plus render-form-button'
+            hoverColor={cyan500}
+            style={{fontSize: "18px"}}
+          />
+        </div>
+        {this.state.addBookForm && <BooksToSwap />}
         <List>
           {this.state.books.map( book => {
             return(
