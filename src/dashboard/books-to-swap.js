@@ -32,6 +32,7 @@ export class BooksToSwap extends React.Component{
     console.log(values);
     this.props.dispatch(addNeededBook(values, this.props.userId))
       .then(res => console.log(store.getState()));
+    this.props.reset();
   }
   render(){
     return(
@@ -59,6 +60,7 @@ export class BooksToSwap extends React.Component{
             htmlFor="bookToSwapForm"
             label="Add"
             primary={true}
+            // onClick={this.props.addBookForm(false)}
             // disabled={this.props.pristine || this.props.submitting}
           />
         </form>
