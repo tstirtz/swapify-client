@@ -25,4 +25,18 @@ const validate = values => {
   return errors
 }
 
+// export const validateAddBook = values => {
+//   const errors = {}
+//   const requiredFields = [
+//     'title',
+//     'author',
+//   ]
+//   requiredFields.forEach(field => {
+//     if (!values[field]) {
+//       errors[field] = 'Required'
+//     }
+//   });
+//   return errors;
+// }
+
 export default validate;
