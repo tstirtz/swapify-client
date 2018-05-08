@@ -11,8 +11,8 @@ export class BooksToSwap extends React.Component{
   dispatchAction(values){
     console.log("dispatchAction called");
     console.log(values);
-    this.props.dispatch(addNeededBook(values));
-    console.log(store.getState());
+    this.props.dispatch(addNeededBook(values, this.props.userId))
+      .then(res => console.log(store.getState()));
   }
   render(){
     return(
@@ -53,6 +53,7 @@ function mapStateToProps(state) {
     // author: state.addBook.author,
     title: "Placeholder",
     author: "Placeholder",
+    userId: state.login.id,
   }
 }
 
