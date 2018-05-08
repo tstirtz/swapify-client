@@ -1,8 +1,16 @@
 import React from 'react';
+import {List, ListItem} from 'material-ui/List';
+import Divider from 'material-ui/Divider';
 import BooksToSwap from './books-to-swap';
 import { API_BASE_URL } from '../config';
 
 export default class Dashboard extends React.Component{
+  constructor(props){
+    super(props)
+    this.state = {
+      books: []
+    };
+  }
   componentDidMount() {
     return fetch(`${API_BASE_URL}/user-books/${localStorage.getItem('userId')}`, {
       method: 'GET',
@@ -12,8 +20,10 @@ export default class Dashboard extends React.Component{
       },
       mode: 'cors',
     })
-    .then(res => {
-      console.log(res.json());
+    .then(res => res.json())
+    .then(jsonData => {
+      console.log(jsonData);
+      jsonData.map(book => this.setState({ books: [...this.state.books, book] }));
     })
     .catch(err => {
       console.log(err);
@@ -26,6 +36,22 @@ export default class Dashboard extends React.Component{
       <div>
         <h1>This is the Dashboard</h1>
         <BooksToSwap />
+        <List>
+          {this.state.books.map( book => {
+            return(
+              <div
+                key={book._id}
+              >
+                <ListItem
+                  primaryText={book.title}
+                  secondaryText={book.author}
+                />
+                <Divider />
+              </div>
+            )
+          })
+          }
+        </List>
       </div>
     );
   }
