@@ -36,12 +36,12 @@ export class SignUpForm extends React.Component{
 
   render() {
     console.log(store.getState());
-    const { jwt, statusCode, error } = this.props;
+    const { jwt, error } = this.props;
     let message;
     if (error){
       message = (<p>{error}</p>);
     }
-    if( jwt  && jwt != "undefined" ){
+    if( jwt  && jwt !== "undefined" ){
       return <Redirect to='/search' />
     }
     return(

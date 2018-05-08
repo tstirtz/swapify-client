@@ -24,12 +24,12 @@ export class LoginForm extends React.Component {
     this.props.reset();
   }
   render(){
-      const { status, jwt, error } = this.props;
+      const {jwt, error } = this.props;
       let message;
       if( error ){
         message = (<p>Incorrect username or password</p>);
       }
-      if( jwt  && jwt != "undefined" ){
+      if( jwt  && jwt !== "undefined" ){
         return <Redirect to='/search' />
       }
       return(

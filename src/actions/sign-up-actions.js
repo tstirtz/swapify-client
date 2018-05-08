@@ -22,7 +22,7 @@ export function signUp(user){
       }).then(res => normalizeResponseError(res))
       .then(res => res.json())
       .catch(err => {
-        const {reason, message, location} = err;
+        const {reason, message} = err;
           if (reason === 'ValidationError') {
             // Convert ValidationErrors into SubmissionErrors for Redux Form
             return Promise.reject(
