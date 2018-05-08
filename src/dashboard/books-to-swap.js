@@ -60,7 +60,7 @@ export class BooksToSwap extends React.Component{
             htmlFor="bookToSwapForm"
             label="Add"
             primary={true}
-            // onClick={this.props.addBookForm(false)}
+            onClick={this.props.addBookForm()}
             // disabled={this.props.pristine || this.props.submitting}
           />
         </form>
