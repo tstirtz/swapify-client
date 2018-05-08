@@ -46,7 +46,11 @@ export class SignUpForm extends React.Component{
     }
     return(
       <div className="redux-form-container">
-        <h2>Sign up</h2>
+        <h2
+          className='sign-up-heading'
+        >
+          Sign up
+        </h2>
         <form
           id="sign-up-form"
           onSubmit={this.props.handleSubmit(values => this.handleFormSubmit(values))}
