@@ -1,0 +1,28 @@
+h2{
+  display: inline-block;
+  width: 100px;
+  font-size: 16px;
+  color: white;
+  /* margin-left: 20px; */
+}
+
+.add-button{
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+.mui-text-field{
+  width: 30%;
+}
+
+.sub-header{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.plus-sign{
+  align-self: center;
+}
