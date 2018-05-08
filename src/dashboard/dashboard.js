@@ -50,7 +50,7 @@ export default class Dashboard extends React.Component{
           >
             My Books
           </h2>
-          {this.state.addBookForm && <BooksToSwap />}
+          {this.state.addBookForm && <BooksToSwap addBookForm={() => this.renderForm} />}
           <FontIcon
             onClick={this.renderForm}
             className='fas fa-plus render-form-button'
