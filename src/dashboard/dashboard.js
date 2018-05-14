@@ -46,7 +46,7 @@ export default class Dashboard extends React.Component{
       <div>
         <div className='sub-header'>
           <h2
-            className='sub-heading'
+            className='sub-header-title'
           >
             My Books
           </h2>
