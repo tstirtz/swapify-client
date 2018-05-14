@@ -86,7 +86,8 @@ export class BooksToSwap extends React.Component{
             primary={true}
             disabled={this.props.pristine || this.props.submitting}
           />
-          {this.props.response !== undefined && <p>{`${this.props.response}`}</p>}
+          {this.props.response !== undefined &&
+            <p className='add-book-response'>{`${this.props.response}`}</p>}
         </form>
       </div>
     )
