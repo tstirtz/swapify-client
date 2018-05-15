@@ -1,9 +1,8 @@
-import { SubmissionError } from 'redux-form';
 import { normalizeResponseError } from './utils';
 import { API_BASE_URL } from '../config';
 
 export const BOOKS_TO_SWAP = 'BOOKS_TO_SWAP';
-export const addNeededBook = (values, id) => ({
+export const addBookToSwap = (values, id) => ({
   type: BOOKS_TO_SWAP,
   payload() {
     return fetch(`${API_BASE_URL}/book-to-swap`, {
