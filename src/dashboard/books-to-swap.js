@@ -7,8 +7,8 @@ import { grey400, grey500 } from 'material-ui/styles/colors';
 import FontIcon from 'material-ui/FontIcon';
 // import renderTextField from '../landing-page/materialUI-text-field';
 // import { validateAddBook } from '../validators';
-import { addNeededBook } from '../actions/books-to-swap-action';
-import { store } from '../store';
+import { addBookToSwap } from '../actions/books-to-swap-action';
+import { getUserBooks } from '../actions/get-user-books-action';
 
 import './books-to-swap.css';
 
@@ -43,12 +43,20 @@ const renderTextField = ({
 );
 
 export class BooksToSwap extends React.Component{
+  constructor(props){
+    super(props)
+
+    this.dispatchAction = this.dispatchAction.bind(this);
+  }
   dispatchAction(values){
-    console.log("dispatchAction called");
-    console.log(values);
-    this.props.dispatch(addNeededBook(values, this.props.userId))
-      .then(res => console.log(store.getState()));
-    this.props.reset();
+    this.props.dispatch(addBookToSwap(values, this.props.userId))
+      .then(() => {
+        this.props.reset();
+        this.props.dispatch(getUserBooks());
+        if(this.props.response !== 'Already exists as a needed book') {
+          this.props.toggleBookForm();
+        }
+      });
   }
   render(){
     return(
@@ -59,7 +67,7 @@ export class BooksToSwap extends React.Component{
             className="far fa-window-close close-button"
             color={grey400}
             hoverColor={grey500}
-            onClick={this.props.addBookForm()}
+            onClick={this.props.toggleBookForm}
           />
         </div>
         <form
@@ -86,7 +94,7 @@ export class BooksToSwap extends React.Component{
             primary={true}
             disabled={this.props.pristine || this.props.submitting}
           />
-          {this.props.response !== undefined &&
+          {this.props.response === 'Already exists as a needed book' &&
             <p className='add-book-response'>{`${this.props.response}`}</p>}
         </form>
       </div>
@@ -96,8 +104,6 @@ export class BooksToSwap extends React.Component{
 
 function mapStateToProps(state) {
   return {
-    // title: state.addBook.title,
-    // author: state.addBook.author,
     title: "Placeholder",
     author: "Placeholder",
     userId: state.login.id,
