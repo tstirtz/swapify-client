@@ -7,6 +7,7 @@ import loginReducer from './reducers/login-reducer';
 import navReducer from './reducers/nav-reducer';
 import addBookToSwapReducer from './reducers/books-to-swap-reducer';
 import getUserBooksReducer from './reducers/get-user-books-reducer';
+import getAllBooksReducer from './reducers/get-all-books-reducer';
 
 export const store = createStore(combineReducers({
   form: formReducer,
@@ -15,4 +16,5 @@ export const store = createStore(combineReducers({
   nav: navReducer,
   bookToSwap: addBookToSwapReducer,
   userBooks: getUserBooksReducer,
+  allBooks: getAllBooksReducer,
 }),applyMiddleware(promiseMiddleware(), logger));
