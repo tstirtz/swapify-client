@@ -6,9 +6,9 @@ export const getAllBooks = () => ({
   type: GET_ALL_BOOKS,
   payload() {
     return fetch(`${API_BASE_URL}/search`, {
-      'method': 'GET',
-      'mode': 'cors',
-      'header': {
+      method: 'GET',
+      mode: 'cors',
+      headers: {
         'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
         'Accept': 'application/json, application/xml, text/plain, text/html, *.*'
       }
