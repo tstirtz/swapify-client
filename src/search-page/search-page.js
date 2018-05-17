@@ -4,10 +4,9 @@ import TextField from 'material-ui/TextField';
 import {List, ListItem} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import FontIcon from 'material-ui/FontIcon';
-import Badge from 'material-ui/Badge';
-import IconButton from 'material-ui/IconButton';
 import { cyan500, pinkA200 } from 'material-ui/styles/colors';
 import { getAllBooks } from '../actions/get-all-books-action';
+import MessageModal from './message-modal';
 
 import './search-page.css';
 
@@ -16,19 +15,20 @@ export class SearchPage extends React.Component{
     super(props)
     this.state = {
       // books: this.props.books,
-      search: ''
+      search: '',
+      modalRendered: false,
     }
   }
   componentDidMount(){
     this.props.dispatch(getAllBooks());
   }
-  // filterResults(value){
-  //   return this.props.books.filter(book => {
-  //     return book.title.toLowerCase().indexOf(value.toLowerCase()) !== -1;
-  //   });
-  // }
+
   updateSearch(event){
     this.setState({search: event.target.value})
+  }
+  toggleModal(){
+    console.log(this);
+    this.setState({modalRendered: !this.state.modalRendered});
   }
   render(){
     console.log(this.props.books);
@@ -53,7 +53,6 @@ export class SearchPage extends React.Component{
                   leftIcon={<FontIcon
                     className="fas fa-book"
                     color={cyan500}
-                    innerDivStyle={{width: "50%"}}
                   />}
                   primaryText={
                     <p className="result-text">{book.title}</p>
@@ -63,6 +62,7 @@ export class SearchPage extends React.Component{
                   }
                   rightIcon={
                     <FontIcon
+                      onClick={this.toggleModal.bind(this)}
                       className="far fa-envelope"
                       color={cyan500}
                       hoverColor={pinkA200}
@@ -86,6 +86,12 @@ export class SearchPage extends React.Component{
             fullWidth={true}
           /><br />
         </div>
+        {this.state.modalRendered === true &&
+          <MessageModal
+            modalState={this.state.modalRendered}
+            closeModal={() => this.toggleModal()}
+          />
+        }
         {list}
       </div>
     );
