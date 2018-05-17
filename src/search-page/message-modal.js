@@ -17,6 +17,7 @@ export default class MessageModal extends React.Component{
       <FlatButton
         label='Cancel'
         primary={true}
+        onClick={this.close}
       />,
       <FlatButton
         label='Send'
@@ -26,7 +27,7 @@ export default class MessageModal extends React.Component{
     return (
       <div>
         <Dialog
-          title="Message Owner"
+          title="Message The Owner"
           titleStyle={{
             fontSize: "18px",
             width: "80%",
@@ -40,6 +41,7 @@ export default class MessageModal extends React.Component{
         >
           <TextField
             name="message-field"
+            hintText="Want to swap?"
             fullWidth={true}
             multiLine={true}
             inputStyle={{
