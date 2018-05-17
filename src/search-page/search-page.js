@@ -4,7 +4,9 @@ import TextField from 'material-ui/TextField';
 import {List, ListItem} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import FontIcon from 'material-ui/FontIcon';
-import { cyan500 } from 'material-ui/styles/colors';
+import Badge from 'material-ui/Badge';
+import IconButton from 'material-ui/IconButton';
+import { cyan500, pinkA200 } from 'material-ui/styles/colors';
 import { getAllBooks } from '../actions/get-all-books-action';
 
 import './search-page.css';
@@ -47,12 +49,24 @@ export class SearchPage extends React.Component{
                 key={book._id}
               >
                 <ListItem
+                  className="list-item"
                   leftIcon={<FontIcon
                     className="fas fa-book"
                     color={cyan500}
+                    innerDivStyle={{width: "50%"}}
                   />}
-                  primaryText={book.title}
-                  secondaryText={book.author}
+                  primaryText={
+                    <p className="result-text">{book.title}</p>
+                  }
+                  secondaryText={
+                    <p className="result-text">{book.author}</p>
+                  }
+                  rightIcon={
+                    <FontIcon
+                      className="far fa-envelope"
+                      color={cyan500}
+                      hoverColor={pinkA200}
+                    />}
                 />
                 <Divider />
               </div>
