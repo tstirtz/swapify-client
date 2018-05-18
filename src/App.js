@@ -10,6 +10,7 @@ import SignUpForm from './landing-page/sign-up-form';
 import LoginForm from './landing-page/login-form';
 import SearchPage from './search-page/search-page';
 import MessagesOverview from './messages/messages-overview';
+import MessageThread from './messages/message-thread';
 import { navAction } from './actions/nav-action';
 import './App.css';
 
@@ -46,6 +47,7 @@ export class App extends React.Component {
             <Route exact path='/sign-up-form' component={SignUpForm} />
             <Route exact path='/search' component={SearchPage} />
             <Route exact path='/:username/messages' component={MessagesOverview} />
+            <Route exact path='/:username/message-thread' component={MessageThread} />
           </main>
         </div>
       </Router>
