@@ -8,7 +8,8 @@ import Dashboard from './dashboard/dashboard';
 import LandingPage from './landing-page/landing-page';
 import SignUpForm from './landing-page/sign-up-form';
 import LoginForm from './landing-page/login-form';
-import SearchPage from './search-page/search-page'
+import SearchPage from './search-page/search-page';
+import MessagesOverview from './messages/messages-overview';
 import { navAction } from './actions/nav-action';
 import './App.css';
 
@@ -28,8 +29,14 @@ export class App extends React.Component {
             docked={false}
             onRequestChange={() => this.props.dispatch(navAction(!this.props.open))}
           >
-            <Link to={`/${this.props.username}/dashboard`}>
+            <Link to={`/${localStorage.getItem('userId')}/dashboard`}>
               <MenuItem onClick={this.handleNav}>My Books</MenuItem>
+            </Link>
+            <Link to={`/${localStorage.getItem('userId')}/messages`}>
+              <MenuItem onClick={this.handleNav}>Messages</MenuItem>
+            </Link>
+            <Link to={`/search`}>
+              <MenuItem onClick={this.handleNav}>Search Books</MenuItem>
             </Link>
           </Drawer>
           <main>
@@ -38,6 +45,7 @@ export class App extends React.Component {
             <Route exact path='/login-form' component={LoginForm} />
             <Route exact path='/sign-up-form' component={SignUpForm} />
             <Route exact path='/search' component={SearchPage} />
+            <Route exact path='/:username/messages' component={MessagesOverview} />
           </main>
         </div>
       </Router>
