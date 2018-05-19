@@ -17,8 +17,12 @@ export class SearchPage extends React.Component{
       // books: this.props.books,
       search: '',
       modalRendered: false,
+      bookOwnerUsername: '',
     }
+    this.closeModal = this.closeModal.bind(this);
+    this.openModal = this.openModal.bind(this);
   }
+
   componentDidMount(){
     this.props.dispatch(getAllBooks());
   }
@@ -26,10 +30,21 @@ export class SearchPage extends React.Component{
   updateSearch(event){
     this.setState({search: event.target.value})
   }
-  toggleModal(){
+
+  closeModal(){
     console.log(this);
-    this.setState({modalRendered: !this.state.modalRendered});
+    this.setState({
+      modalRendered: !this.state.modalRendered,
+    });
   }
+  openModal(username){
+    console.log(username);
+    this.setState({
+      modalRendered: !this.state.modalRendered,
+      bookOwnerUsername: username,
+    });
+  }
+
   render(){
     console.log(this.props.books);
     let filteredBooks = this.props.books.filter((book) => {
@@ -39,7 +54,7 @@ export class SearchPage extends React.Component{
     const errorCode = this.props.books.code;
     const errorMessage = this.props.books.message;
     const list = this.props.books.code ? (
-      <p className= "error-message">{`${errorCode} ${errorMessage}`}</p>
+      <p className="error-message">{`${errorCode} ${errorMessage}`}</p>
     ) : (
       <List className="search-results">
         {
@@ -62,7 +77,7 @@ export class SearchPage extends React.Component{
                   }
                   rightIcon={
                     <FontIcon
-                      onClick={this.toggleModal.bind(this)}
+                      onClick={() => this.openModal(book.username)}
                       className="far fa-envelope"
                       color={cyan500}
                       hoverColor={pinkA200}
@@ -89,7 +104,8 @@ export class SearchPage extends React.Component{
         {this.state.modalRendered === true &&
           <MessageModal
             modalState={this.state.modalRendered}
-            closeModal={() => this.toggleModal()}
+            closeModal={this.closeModal}
+            recipientUsername={this.state.bookOwnerUsername}
           />
         }
         {list}
