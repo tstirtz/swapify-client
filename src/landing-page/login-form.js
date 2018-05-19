@@ -20,11 +20,9 @@ export class LoginForm extends React.Component {
     console.log('handleLoginSubmit called');
     this.props.dispatch(login(userCredentials))
     .then(res => {
-      console.log(res);
-      console.log(store.getState());
       saveAuthToken(this.props.jwt);
       localStorage.setItem('userId', this.props.userId);
-      console.log(localStorage.getItem('authToken'));
+      localStorage.setItem('username', this.props.username);
     }).catch(err => {console.log(err)});
     this.props.reset();
   }
@@ -80,6 +78,7 @@ function mapStateToProps(state) {
     jwt: state.login.jwt,
     error: state.login.error,
     userId: state.login.id,
+    username: state.login.username,
   }
 }
 
