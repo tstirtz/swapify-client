@@ -2,26 +2,46 @@ import React from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
+import { connect } from 'react-redux';
+import { sendMessage } from '../actions/send-message-action';
 
-export default class MessageModal extends React.Component{
+export class MessageModal extends React.Component{
   constructor(props){
     super(props)
+    this.state = {
+      messageContent: '',
+    }
 
     this.close = this.close.bind(this);
+    this.handleTextFieldChange = this.handleTextFieldChange.bind(this);
+    this.sendMessage = this.sendMessage.bind(this);
   }
   close(){
     this.props.closeModal();
+  }
+  handleTextFieldChange(event){
+    this.setState({ messageContent: event.target.value });
+  }
+  sendMessage(){
+    const message = this.state.messageContent;
+    console.log(message);
+    const recipient = this.props.recipientUsername;
+    this.props.dispatch(sendMessage(message, recipient))
   }
   render() {
     const actions = [
       <FlatButton
         label='Cancel'
+        key={1}
         primary={true}
         onClick={this.close}
       />,
       <FlatButton
+        key={2}
         label='Send'
         primary={true}
+        onClick={this.sendMessage}
+        //onClick get value from the TextField component and send it as a fetch request (called in componentDidMount) to backend to create message document
       />
     ];
     return (
@@ -47,9 +67,13 @@ export default class MessageModal extends React.Component{
             inputStyle={{
               height: "60%",
             }}
+            onChange={this.handleTextFieldChange}
+            value={this.state.messageContent}
           />
         </Dialog>
       </div>
     );
   }
 }
+
+export default connect()(MessageModal);
