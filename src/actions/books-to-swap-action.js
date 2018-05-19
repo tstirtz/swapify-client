@@ -7,7 +7,12 @@ export const addBookToSwap = (values, id) => ({
   payload() {
     return fetch(`${API_BASE_URL}/book-to-swap`, {
       method: 'POST',
-      body: JSON.stringify({title: values.title, author: values.author, userId: `${localStorage.getItem('userId')}`}),
+      body: JSON.stringify({
+        title: values.title,
+        author: values.author,
+        userId: `${localStorage.getItem('userId')}`,
+        username: `${localStorage.getItem('username')}`
+      }),
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
         'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
