@@ -39,27 +39,35 @@ export class MessagesOverview extends React.Component{
     this.props.dispatch(getMessages());
   }
   render(){
+    let usernames = [];
+    this.props.messages.map( message => {
+        if(usernames.includes(message.from)){
+          return
+        }
+        usernames.push(message.from)
+      });
     return(
       <List>
-        {this.props.messages.map( message => {
-          return(
-            <div key={message._id}>
-              <Link to={`/${localStorage.getItem('userId')}/message-thread`}>
-                <ListItem
-                  leftIcon={<FontIcon
-                    className="fas fa-user-circle"
-                    // color={cyan500}
-                  />}
-                  primaryText={message.from}
-                  style={{
-                    textDecoration:'none'
-                  }}
-                />
-                <Divider />
-              </Link>
-            </div>
-          )
-        })
+        {
+          usernames.map(username => {
+            return(
+              <div key={username}>
+                <Link to={`/${localStorage.getItem('userId')}/message-thread`}>
+                  <ListItem
+                    leftIcon={<FontIcon
+                      className="fas fa-user-circle"
+                      // color={cyan500}
+                    />}
+                    primaryText={username}
+                    style={{
+                      textDecoration:'none'
+                    }}
+                  />
+                  <Divider />
+                </Link>
+              </div>
+            );
+          })
         }
       </List>
     );
