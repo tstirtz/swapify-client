@@ -4,9 +4,11 @@ import TextField from 'material-ui/TextField';
 import {List, ListItem} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import FontIcon from 'material-ui/FontIcon';
+import Snackbar from 'material-ui/Snackbar';
 import { cyan500, pinkA200 } from 'material-ui/styles/colors';
 import { getAllBooks } from '../actions/get-all-books-action';
 import MessageModal from './message-modal';
+
 
 import './search-page.css';
 
@@ -17,10 +19,13 @@ export class SearchPage extends React.Component{
       // books: this.props.books,
       search: '',
       modalRendered: false,
+      snackbarRendered: false,
       bookOwnerUsername: '',
     }
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
+    this.openSnackbar = this.openSnackbar.bind(this);
+    this.closeSnackBar = this.closeSnackBar.bind(this);
   }
 
   componentDidMount(){
@@ -37,12 +42,26 @@ export class SearchPage extends React.Component{
       modalRendered: !this.state.modalRendered,
     });
   }
+
   openModal(username){
     console.log(username);
     this.setState({
       modalRendered: !this.state.modalRendered,
       bookOwnerUsername: username,
     });
+  }
+
+  openSnackbar(){
+    console.log('------------- openSnackBar called');
+    this.setState({
+      snackbarRendered: true,
+    })
+  }
+
+  closeSnackBar(){
+    this.setState({
+      snackbarRendered: false,
+    })
   }
 
   render(){
@@ -105,10 +124,18 @@ export class SearchPage extends React.Component{
           <MessageModal
             modalState={this.state.modalRendered}
             closeModal={this.closeModal}
+            renderSnackbar={this.openSnackbar}
             recipientUsername={this.state.bookOwnerUsername}
           />
         }
         {list}
+        <Snackbar
+          className="snackbar"
+          open={this.state.snackbarRendered}
+          autoHideDuration={4000}
+          onRequestClose={this.closeSnackBar}
+          message={this.props.messageStatus}
+        />
       </div>
     );
   }
@@ -117,6 +144,7 @@ export class SearchPage extends React.Component{
 function mapStateToProps(state){
   return {
     books: state.allBooks.books,
+    messageStatus: state.sendMessage.status,
   }
 }
 
