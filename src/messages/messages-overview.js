@@ -14,25 +14,6 @@ import './messages.css';
 export class MessagesOverview extends React.Component{
   constructor(props){
     super(props)
-    this.state = {
-    //   messages: [
-    //     {
-    //       from: 'jimBo123',
-    //       timeStamp: faker.date.past,
-    //       _id: 1,
-    //     },
-    //     {
-    //       from: 'masterChief117',
-    //       timeStamp: faker.date.past,
-    //       _id: 2,
-    //     },
-    //     {
-    //       from: 'bigFudge97',
-    //       timeStamp: faker.date.past,
-    //       _id: 3,
-    //     },
-    //   ]
-     }
   }
   componentDidMount(){
     console.log('componentDidMount called');
@@ -46,17 +27,17 @@ export class MessagesOverview extends React.Component{
         }
         usernames.push(message.from)
       });
+      //link should render message thread with specific user
     return(
       <List>
         {
           usernames.map(username => {
             return(
               <div key={username}>
-                <Link to={`/${localStorage.getItem('userId')}/message-thread`}>
+                <Link to={`/${username}/message-thread`}>
                   <ListItem
                     leftIcon={<FontIcon
                       className="fas fa-user-circle"
-                      // color={cyan500}
                     />}
                     primaryText={username}
                     style={{
