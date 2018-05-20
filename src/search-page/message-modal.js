@@ -14,7 +14,7 @@ export class MessageModal extends React.Component{
 
     this.close = this.close.bind(this);
     this.handleTextFieldChange = this.handleTextFieldChange.bind(this);
-    this.sendMessage = this.sendMessage.bind(this);
+    this.handleSend = this.handleSend.bind(this);
   }
   close(){
     this.props.closeModal();
@@ -22,11 +22,14 @@ export class MessageModal extends React.Component{
   handleTextFieldChange(event){
     this.setState({ messageContent: event.target.value });
   }
-  sendMessage(){
+  handleSend(){
     const message = this.state.messageContent;
-    console.log(message);
     const recipient = this.props.recipientUsername;
     this.props.dispatch(sendMessage(message, recipient))
+      .then(() => {
+        this.close();
+        this.props.renderSnackbar();
+      });
   }
   render() {
     const actions = [
@@ -40,7 +43,7 @@ export class MessageModal extends React.Component{
         key={2}
         label='Send'
         primary={true}
-        onClick={this.sendMessage}
+        onClick={this.handleSend}
         //onClick get value from the TextField component and send it as a fetch request (called in componentDidMount) to backend to create message document
       />
     ];
@@ -75,5 +78,6 @@ export class MessageModal extends React.Component{
     );
   }
 }
+
 
 export default connect()(MessageModal);
