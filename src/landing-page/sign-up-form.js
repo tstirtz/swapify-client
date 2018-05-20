@@ -27,6 +27,10 @@ export class SignUpForm extends React.Component{
       console.log(store.getState());
       // this.forceUpdate();
     }).then(() => this.props.dispatch(login({username: values.username, password: values.password})))
+    .then(res => {
+      localStorage.setItem('userId', this.props.userId);
+      localStorage.setItem('username', this.props.username);
+    })
     .catch(err => {
       console.log(err);
       console.log(store.getState());
@@ -111,6 +115,8 @@ function mapStateToProps(state) {
     statusCode: state.login.statusCode,
     jwt: state.login.jwt,
     error: state.signUp.error,
+    userId: state.login.id,
+    username: state.login.username,
   }
 }
 
