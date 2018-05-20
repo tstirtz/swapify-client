@@ -16,6 +16,12 @@
   margin-bottom: 5px;
 }
 
+.snackbar div{
+  background-color: rgba(0, 0, 0, 0.87)!important;
+  color: white !important;
+  text-align: center !important;
+}
+
 /* .list-item{
   width: 50%;
   margin-right: 0px;
