@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import IconButton from 'material-ui/IconButton';
 import Textarea from "react-textarea-autosize";
 import { cyan500, pinkA200 } from 'material-ui/styles/colors';
+import { getMessages } from '../actions/get-messages-action';
 
 export class MessageThread extends React.Component{
-  constructor(props){
-    super(props)
+  // constructor(props){
+  //   super(props)
     // this.state = {
     //   messages: [
     //     {
@@ -31,12 +32,11 @@ export class MessageThread extends React.Component{
     //     },
     //   ]
     // }
-  }
+  // }
   componentDidMount(){
-    //filter messages by the 'from' and 'to' property
+    this.props.dispatch(getMessages());
   }
   render() {
-    let filteredMessages = [];
     let pathname = window.location.pathname
     let pathnameValues = pathname.split('/')
     console.log(pathnameValues[1]);
