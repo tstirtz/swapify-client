@@ -3,7 +3,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { Field, reduxForm } from 'redux-form';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { store } from '../store';
+import store from '../store';
 import renderTextField from './materialUI-text-field';
 import validate from '../validators';
 import { signUp } from '../actions/sign-up-actions';

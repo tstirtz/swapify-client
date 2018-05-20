@@ -9,8 +9,9 @@ import addBookToSwapReducer from './reducers/books-to-swap-reducer';
 import getUserBooksReducer from './reducers/get-user-books-reducer';
 import getAllBooksReducer from './reducers/get-all-books-reducer';
 import sendMessageReducer from './reducers/send-message-reducer';
+import getMessagesReducer from './reducers/get-messages-reducer';
 
-export const store = createStore(combineReducers({
+const store = createStore(combineReducers({
   form: formReducer,
   signUp: signUpReducer,
   login: loginReducer,
@@ -19,4 +20,7 @@ export const store = createStore(combineReducers({
   userBooks: getUserBooksReducer,
   allBooks: getAllBooksReducer,
   sendMessage: sendMessageReducer,
+  getMessages: getMessagesReducer,
 }),applyMiddleware(promiseMiddleware(), logger));
+
+export default store;

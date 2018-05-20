@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SignUpForm from './sign-up-form';
 import validate from '../validators';
-import { store } from '../store';
+import store from '../store';
 
 describe('<SignUpForm>', ()=> {
     it('Should render without crashing',() =>{

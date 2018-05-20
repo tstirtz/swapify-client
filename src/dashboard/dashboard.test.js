@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import DashBoard from './dashboard';
 import BooksToSwap from './books-to-swap';
-import { store } from '../store';
+import store from '../store';
 
 describe('Dashboard page', () => {
   it('<Dashboard /> should render without crashing', () => {

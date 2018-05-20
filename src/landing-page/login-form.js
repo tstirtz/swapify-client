@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import renderTextField from './materialUI-text-field';
 import validate from '../validators';
 import { login } from '../actions/login-action';
-import { store } from '../store';
+import store from '../store';
 import { saveAuthToken } from '../local-storage';
 
 import './login-signup-form.css';

@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import promiseMiddleware from 'redux-promise-middleware';
 import { signUp, setFirstName, setLastName, setEmail, setUsername, setPassword } from '../actions/sign-up-actions';
 import { SubmissionError } from 'redux-form';
-import { store } from '../store';
+import store from '../store';
 
 xit('signUp', async () => {
   const user = {
