@@ -1,5 +1,4 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
 import IconButton from 'material-ui/IconButton';
 import Textarea from "react-textarea-autosize";
 import { cyan500, pinkA200 } from 'material-ui/styles/colors';
@@ -31,6 +30,9 @@ export default class MessageThread extends React.Component{
         },
       ]
     }
+  }
+  componentDidMount(){
+    //filter messages by the 'from' and 'to' property
   }
   render() {
     return(

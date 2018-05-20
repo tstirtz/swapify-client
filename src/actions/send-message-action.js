@@ -1,5 +1,4 @@
 import { API_BASE_URL } from '../config';
-import { normalizeResponseError } from './utils';
 
 export const SEND_MESSAGE = 'SEND_MESSAGE';
 export const sendMessage = (message, recipientUsername) => ({
