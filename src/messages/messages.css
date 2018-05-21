@@ -41,15 +41,17 @@ p{
 .input-container{
   display: flex;
   justify-content: flex-end;
+  background-color: rgba(45, 45, 45, .9); 
   align-items: center;
   position: fixed;
   bottom: 0;
   right: 0;
   width: 100%;
+  margin-top: 5px;
 }
-.message-input{
+.input-container .message-input{
   display: inline-block;
-  width: 70%;
+  width: 80%;
   margin: 0;
   resize: none;
   outline: none;

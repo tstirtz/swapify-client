@@ -106,6 +106,11 @@ export class MessageThread extends React.Component{
             className="message-input"
             value={this.state.newMessage}
             onChange={this.handleTextAreaChange}
+            style={{
+              fontSize: '16px',
+              padding: '7.5px',
+              margin: '10px',
+            }}
           />
           <Button
             onClick={this.sendMessage}
