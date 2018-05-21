@@ -4,6 +4,7 @@ import IconButton from 'material-ui/IconButton';
 import Button from '@material-ui/core/Button';
 import Textarea from "react-textarea-autosize";
 import Snackbar from 'material-ui/Snackbar';
+import Divider from 'material-ui/Divider';
 import { pinkA200 } from 'material-ui/styles/colors';
 import { getMessages } from '../actions/get-messages-action';
 import { sendMessage } from '../actions/send-message-action';
@@ -76,6 +77,10 @@ export class MessageThread extends React.Component{
       <div
         className="messages-container"
       >
+        <div className="sub-header">
+          <h2>{`${pathnameValues[1]}`}</h2>
+        </div>
+        <Divider />
         {
           this.props.messages.map(message => {
             if(message.from === `${localStorage.getItem('username')}`){
