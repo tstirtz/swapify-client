@@ -1,12 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import IconButton from 'material-ui/IconButton';
+import Button from '@material-ui/core/Button';
 import Textarea from "react-textarea-autosize";
 import Snackbar from 'material-ui/Snackbar';
 import { pinkA200 } from 'material-ui/styles/colors';
 import { getMessages } from '../actions/get-messages-action';
 import { sendMessage } from '../actions/send-message-action';
 
+const style = {
+  background: 'linear-gradient(to right, #bc4e9c, #f80759)',
+  borderRadius: 3,
+  border: 0,
+  color: 'white',
+  height: '20px',
+  padding: '0 30px',
+  margin: '10px',
+  boxShadow: '0 3px 5px 2px rgba(0, 43, 128, .30)',
+};
 
 export class MessageThread extends React.Component{
   constructor(props){
@@ -30,6 +41,7 @@ export class MessageThread extends React.Component{
   }
 
   sendMessage(){
+    console.log('SendMessage called');
     let pathname = window.location.pathname;
     let pathnameValues = pathname.split('/');
     let recipient = pathnameValues[1];
@@ -95,13 +107,12 @@ export class MessageThread extends React.Component{
             value={this.state.newMessage}
             onChange={this.handleTextAreaChange}
           />
-          <IconButton
-            iconClassName="fas fa-arrow-circle-up"
-            iconStyle={{
-              iconHoverColor:`${pinkA200}`,
-            }}
+          <Button
             onClick={this.sendMessage}
-          />
+            style={style}
+          >
+            Send
+          </Button>
         </div>
         <Snackbar
           className="snackbar"
