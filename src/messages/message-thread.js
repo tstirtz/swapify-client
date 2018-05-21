@@ -2,39 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux';
 import IconButton from 'material-ui/IconButton';
 import Textarea from "react-textarea-autosize";
-import { cyan500, pinkA200 } from 'material-ui/styles/colors';
+import { pinkA200 } from 'material-ui/styles/colors';
 import { getMessages } from '../actions/get-messages-action';
 
 export class MessageThread extends React.Component{
-  // constructor(props){
-  //   super(props)
-    // this.state = {
-    //   messages: [
-    //     {
-    //       from: 'masterChief117',
-    //       to: 'me',
-    //       content: 'Hello swapify world'
-    //     },
-    //     {
-    //       from: 'me',
-    //       to: 'masterChief117',
-    //       content: 'Hey Chief'
-    //     },
-    //     {
-    //       from: 'masterChief117',
-    //       to: 'me',
-    //       content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.'
-    //     },
-    //     {
-    //       from: 'me',
-    //       to: 'masterChief117',
-    //       content: "...I don't know what that means."
-    //     },
-    //   ]
-    // }
-  // }
+  constructor(props){
+    super(props)
+    this.state = {
+      newMessage: '',
+    }
+    this.handleTextAreaChange =this.handleTextAreaChange.bind(this);
+  }
   componentDidMount(){
     this.props.dispatch(getMessages());
+  }
+  handleTextAreaChange(event){
+    this.setState({ newMessage: event.target.value})
   }
   render() {
     let pathname = window.location.pathname
@@ -73,6 +56,8 @@ export class MessageThread extends React.Component{
         >
           <Textarea
             className="message-input"
+            value={this.state.newMessage}
+            onChange={this.handleTextAreaChange}
           />
           {/* <TextField
             name="message-field"
