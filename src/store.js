@@ -10,6 +10,7 @@ import getUserBooksReducer from './reducers/get-user-books-reducer';
 import getAllBooksReducer from './reducers/get-all-books-reducer';
 import sendMessageReducer from './reducers/send-message-reducer';
 import getMessagesReducer from './reducers/get-messages-reducer';
+import deleteBookReducer from './reducers/delete-book-reducer';
 
 const store = createStore(combineReducers({
   form: formReducer,
@@ -21,6 +22,7 @@ const store = createStore(combineReducers({
   allBooks: getAllBooksReducer,
   sendMessage: sendMessageReducer,
   getMessages: getMessagesReducer,
+  deletedBook: deleteBookReducer,
 }),applyMiddleware(promiseMiddleware(), logger));
 
 export default store;
