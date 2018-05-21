@@ -59,7 +59,7 @@ p{
   overflow: hidden;
 }
 
-.sub-header{
+.message-thread-sub-header{
   display: flex;
   justify-content: center;
   align-items: center;

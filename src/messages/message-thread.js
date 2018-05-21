@@ -77,7 +77,7 @@ export class MessageThread extends React.Component{
       <div
         className="messages-container"
       >
-        <div className="sub-header">
+        <div className="meassage-thread-sub-header">
           <h2>{`${pathnameValues[1]}`}</h2>
         </div>
         <Divider />
