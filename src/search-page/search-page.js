@@ -94,12 +94,15 @@ export class SearchPage extends React.Component{
                   secondaryText={
                     <p className="result-text">{book.author}</p>
                   }
-                  rightIcon={
+                  rightIconButton={
                     <FontIcon
                       onClick={() => this.openModal(book.username)}
                       className="far fa-envelope"
                       color={cyan500}
                       hoverColor={pinkA200}
+                      style={{
+                        margin: "15px",
+                      }}
                     />}
                 />
                 <Divider />
