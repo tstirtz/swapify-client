@@ -41,6 +41,40 @@ export class Dashboard extends React.Component{
   }
 
   render(){
+    let list;
+    if(this.props.books.length === 0){
+      list = <p className="user-feedback">No books to display</p>
+    }else if(this.props.books.length >= 1){
+      list = this.props.books.map( book => {
+        return(
+          <div
+            key={book._id}
+          >
+            <ListItem
+              hoverColor="none"
+              leftIcon={<FontIcon
+                className="fas fa-book"
+                color={cyan500}
+              />}
+              primaryText={book.title}
+              secondaryText={book.author}
+              rightIconButton={
+                <FontIcon
+                  onClick={() => this.deleteBook(book._id)}
+                  className="fas fa-minus delete-button"
+                  color="white"
+                  hoverColor={pinkA200}
+                  style={{
+                    fontSize:"18px",
+                    margin: "15px"
+                  }}
+                />}
+            />
+            <Divider />
+          </div>
+        );
+      });
+    }
     return(
       <div>
         <div className='sub-header'>
@@ -62,36 +96,7 @@ export class Dashboard extends React.Component{
           />
         </div>
         <List>
-          {this.props.books.map( book => {
-            return(
-              <div
-                key={book._id}
-              >
-                <ListItem
-                  hoverColor="none"
-                  leftIcon={<FontIcon
-                    className="fas fa-book"
-                    color={cyan500}
-                  />}
-                  primaryText={book.title}
-                  secondaryText={book.author}
-                  rightIconButton={
-                    <FontIcon
-                      onClick={() => this.deleteBook(book._id)}
-                      className="fas fa-minus delete-button"
-                      color="white"
-                      hoverColor={pinkA200}
-                      style={{
-                        fontSize:"18px",
-                        margin: "15px"
-                      }}
-                    />}
-                />
-                <Divider />
-              </div>
-            )
-          })
-          }
+          {list}
         </List>
       </div>
     );
