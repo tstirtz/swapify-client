@@ -68,6 +68,7 @@ export class Dashboard extends React.Component{
                 key={book._id}
               >
                 <ListItem
+                  hoverColor="none"
                   leftIcon={<FontIcon
                     className="fas fa-book"
                     color={cyan500}
@@ -78,8 +79,8 @@ export class Dashboard extends React.Component{
                     <FontIcon
                       onClick={() => this.deleteBook(book._id)}
                       className="fas fa-minus delete-button"
-                      // color={cyan500}
-                      color={pinkA200}
+                      color="white"
+                      hoverColor={pinkA200}
                       style={{
                         fontSize:"18px",
                         margin: "15px"
