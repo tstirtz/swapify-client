@@ -74,14 +74,15 @@ export class Dashboard extends React.Component{
                   />}
                   primaryText={book.title}
                   secondaryText={book.author}
-                  rightIcon={
+                  rightIconButton={
                     <FontIcon
                       onClick={() => this.deleteBook(book._id)}
-                      className="fas fa-minus"
+                      className="fas fa-minus delete-button"
                       // color={cyan500}
                       color={pinkA200}
                       style={{
-                        fontSize:"18px"
+                        fontSize:"18px",
+                        margin: "15px"
                       }}
                     />}
                 />
