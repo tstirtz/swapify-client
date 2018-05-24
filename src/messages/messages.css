@@ -75,3 +75,8 @@ p{
   /* margin-left: auto;
   margin-right: auto; */
 }
+
+.user-feedback{
+  text-align: center;
+  font-size: 18px;
+}
