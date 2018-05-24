@@ -21,6 +21,7 @@ export class MessagesOverview extends React.Component{
   }
   render(){
     let usernames = [];
+    let list;
     this.props.messages.map( message => {
         if(usernames.includes(message.from)){
           return
@@ -28,28 +29,31 @@ export class MessagesOverview extends React.Component{
         usernames.push(message.from)
       });
       //link should render message thread with specific user
+    if(this.props.messages.length === 0){
+      list = <p className="user-feedback">No messages to display</p>
+    }else{
+      list = usernames.map(username => {
+        return(
+          <div key={username}>
+            <Link to={`/${username}/message-thread`}>
+              <ListItem
+                leftIcon={<FontIcon
+                  className="fas fa-user-circle"
+                />}
+                primaryText={username}
+                style={{
+                  textDecoration:'none'
+                }}
+              />
+              <Divider />
+            </Link>
+          </div>
+        );
+      })
+    }
     return(
       <List>
-        {
-          usernames.map(username => {
-            return(
-              <div key={username}>
-                <Link to={`/${username}/message-thread`}>
-                  <ListItem
-                    leftIcon={<FontIcon
-                      className="fas fa-user-circle"
-                    />}
-                    primaryText={username}
-                    style={{
-                      textDecoration:'none'
-                    }}
-                  />
-                  <Divider />
-                </Link>
-              </div>
-            );
-          })
-        }
+        {list}
       </List>
     );
   }
