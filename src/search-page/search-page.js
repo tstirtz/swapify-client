@@ -65,53 +65,46 @@ export class SearchPage extends React.Component{
   }
 
   render(){
-    console.log(this.props.books);
+    let list;
     let filteredBooks = this.props.books.filter((book) => {
       return book.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
     });
-
-    const errorCode = this.props.books.code;
-    const errorMessage = this.props.books.message;
-    const list = this.props.books.code ? (
-      <p className="error-message">{`${errorCode} ${errorMessage}`}</p>
-    ) : (
-      <List className="search-results">
-        {
-          filteredBooks.map(book => {
-            return (
-              <div
-                key={book._id}
-              >
-                <ListItem
-                  className="list-item"
-                  leftIcon={<FontIcon
-                    className="fas fa-book"
-                    color={cyan500}
-                  />}
-                  primaryText={
-                    <p className="result-text">{book.title}</p>
-                  }
-                  secondaryText={
-                    <p className="result-text">{book.author}</p>
-                  }
-                  rightIconButton={
-                    <FontIcon
-                      onClick={() => this.openModal(book.username)}
-                      className="far fa-envelope"
-                      color={cyan500}
-                      hoverColor={pinkA200}
-                      style={{
-                        margin: "15px",
-                      }}
-                    />}
-                />
-                <Divider />
-              </div>
-            )
-          })
-        }
-      </List>
-    )
+    if(this.props.books.length === 0){
+      list = <p className="user-feedback">No books to display</p>
+    }else{
+      list = filteredBooks.map(book => {
+        return (
+          <div
+            key={book._id}
+          >
+            <ListItem
+              className="list-item"
+              leftIcon={<FontIcon
+                className="fas fa-book"
+                color={cyan500}
+              />}
+              primaryText={
+                <p className="result-text">{book.title}</p>
+              }
+              secondaryText={
+                <p className="result-text">{book.author}</p>
+              }
+              rightIconButton={
+                <FontIcon
+                  onClick={() => this.openModal(book.username)}
+                  className="far fa-envelope"
+                  color={cyan500}
+                  hoverColor={pinkA200}
+                  style={{
+                    margin: "15px",
+                  }}
+                />}
+            />
+            <Divider />
+          </div>
+        );
+      });
+    }
     return(
       <div>
         <div className="search-field">
@@ -131,7 +124,9 @@ export class SearchPage extends React.Component{
             recipientUsername={this.state.bookOwnerUsername}
           />
         }
-        {list}
+        <List className="search-results">
+          {list}
+        </List>
         <Snackbar
           className="snackbar"
           open={this.state.snackbarRendered}
