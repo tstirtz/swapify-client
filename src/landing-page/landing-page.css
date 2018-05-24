@@ -1,10 +1,31 @@
-.signUp-login-buttons{
-  display: flex;
-  width: 50%;
+.landing-page-container{
+  height: 100%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.signUp-login-buttons{
+  /* position: absolute;
+  bottom: 200px; */
+  display: flex;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
   justify-content: space-between;
 }
+
+.logo{
+  display: block;
+  height: 200px;
+  width: 200px;
+}
+
 .button{
   width: 150px;
   text-align: center;
