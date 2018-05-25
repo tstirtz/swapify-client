@@ -92,12 +92,22 @@ export class Dashboard extends React.Component{
               toggleBookForm={this.renderForm}
               addBookFormState={this.state.addBookForm}
             />}
-          <FontIcon
-            onClick={this.renderForm}
-            className='fas fa-plus render-form-button'
-            hoverColor={cyan500}
-            style={{fontSize: "18px"}}
-          />
+          <IconButton
+            className="render-form-button"
+            style={{
+              alignSelf: "center",
+              fontSize: "12px"
+            }}
+          >
+            <FontIcon
+              style={{
+                fontSize: "18px"
+              }}
+              onClick={this.renderForm}
+              className='fas fa-plus font-icon'
+              hoverColor={cyan500}
+            />
+          </IconButton>
         </div>
         <List>
           {list}
