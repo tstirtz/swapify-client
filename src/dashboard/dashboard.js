@@ -20,6 +20,7 @@ export class Dashboard extends React.Component{
 
     this.renderForm = this.renderForm.bind(this);
     this.deleteBook = this.deleteBook.bind(this);
+    this.closeForm = this.closeForm.bind(this);
   }
 
   componentDidMount() {
@@ -34,6 +35,13 @@ export class Dashboard extends React.Component{
   deleteBook(bookId){
     this.props.dispatch(deleteBook(bookId))
       .then(() => this.props.dispatch(getUserBooks()));
+  }
+
+  closeForm(){
+    console.log(this);
+    this.setState({
+      addBookForm: !this.state.addBookForm,
+    });
   }
 
   renderForm(){
@@ -91,6 +99,7 @@ export class Dashboard extends React.Component{
             <BooksToSwap
               toggleBookForm={this.renderForm}
               addBookFormState={this.state.addBookForm}
+              closeModal={this.closeForm}
             />}
           <IconButton
             className="render-form-button"
