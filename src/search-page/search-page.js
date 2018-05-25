@@ -4,6 +4,7 @@ import TextField from 'material-ui/TextField';
 import {List, ListItem} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import FontIcon from 'material-ui/FontIcon';
+import IconButton from 'material-ui/IconButton';
 import Snackbar from 'material-ui/Snackbar';
 import { cyan500, pinkA200 } from 'material-ui/styles/colors';
 import { getAllBooks } from '../actions/get-all-books-action';
@@ -90,15 +91,18 @@ export class SearchPage extends React.Component{
                 <p className="result-text">{book.author}</p>
               }
               rightIconButton={
-                <FontIcon
-                  onClick={() => this.openModal(book.username)}
-                  className="far fa-envelope"
-                  color={cyan500}
-                  hoverColor={pinkA200}
-                  style={{
-                    margin: "15px",
-                  }}
-                />}
+                <IconButton>
+                  <FontIcon
+                    onClick={() => this.openModal(book.username)}
+                    className="far fa-envelope"
+                    color={cyan500}
+                    hoverColor={pinkA200}
+                    style={{
+                      margin: "15px",
+                    }}
+                  />
+                </IconButton>
+                }
             />
             <Divider />
           </div>
