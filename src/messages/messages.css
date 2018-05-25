@@ -66,6 +66,14 @@ p{
   height: 40px;
 }
 
+h2.sub-header-username{
+  display: block;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  padding-left: 40px;
+}
+
 .sub-header h2{
   /* display: block; */
   color: white;

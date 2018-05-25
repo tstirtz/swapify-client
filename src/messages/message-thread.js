@@ -10,7 +10,7 @@ import { getMessages } from '../actions/get-messages-action';
 import { sendMessage } from '../actions/send-message-action';
 
 const style = {
-  background: 'linear-gradient(to right, #bc4e9c, #f80759)',
+  background: 'rgb(255, 64, 129)',
   borderRadius: 3,
   border: 0,
   color: 'white',
@@ -78,7 +78,9 @@ export class MessageThread extends React.Component{
         className="messages-container"
       >
         <div className="meassage-thread-sub-header">
-          <h2>{`${pathnameValues[1]}`}</h2>
+          <h2
+            className="sub-header-username"
+          >{`${pathnameValues[1]}`}</h2>
         </div>
         <Divider />
         {
