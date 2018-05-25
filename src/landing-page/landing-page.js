@@ -1,7 +1,19 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
+import Button from '@material-ui/core/Button';
 import {Link} from 'react-router-dom';
 import './landing-page.css';
+
+const style = {
+  background: 'rgb(0, 151, 167)',
+  borderRadius: 3,
+  border: 0,
+  color: 'rgb(48, 48, 48)',
+  height: '20px',
+  padding: '0 30px',
+  margin: '10px',
+  boxShadow: '0 3px 5px 2px rgba(0, 43, 128, .30)',
+};
 
 export default function LandingPage(){
     return(
@@ -13,18 +25,22 @@ export default function LandingPage(){
         />
         <div className='signUp-login-buttons'>
           <Link to='/sign-up-form'>
-            <RaisedButton
+            <Button
               className='sign-up-button button'
               label='Sign up'
-              primary={true}
-            />
+              style={style}
+            >
+              Sign up
+            </Button>
           </Link>
           <Link to='/login-form'>
-            <RaisedButton
+            <Button
               className='login-button button'
               label='Login'
-              primary={true}
-            />
+              style={style}
+            >
+              Login
+            </Button>
           </Link>
         </div>
       </div>
