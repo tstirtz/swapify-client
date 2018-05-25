@@ -1,5 +1,6 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
+import Button from '@material-ui/core/Button';
 import { Field, reduxForm } from 'redux-form';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -10,6 +11,15 @@ import { signUp } from '../actions/sign-up-actions';
 import { login } from '../actions/login-action';
 
 import './login-signup-form.css';
+
+const style = {
+  background: 'rgb(0, 151, 167)',
+  borderRadius: 3,
+  border: 0,
+  color: 'rgb(48, 48, 48)',
+  height: '20px',
+  boxShadow: '0 3px 5px 2px rgba(0, 43, 128, .30)',
+};
 
 export class SignUpForm extends React.Component{
   handleFormSubmit(values){
@@ -96,14 +106,16 @@ export class SignUpForm extends React.Component{
           >
             {message}
           </div>
-          <RaisedButton
+          <Button
             className="submit-button"
             type="submit"
             htmlFor="sign-up-form"
             label="Submit"
-            primary={true}
             disabled={this.props.pristine || this.props.submitting}
-          />
+            style={style}
+          >
+            Submit
+          </Button>
         </form>
       </div>
     );
