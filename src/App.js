@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
+import FontIcon from 'material-ui/FontIcon';
+import IconButton from 'material-ui/IconButton';
 import MenuItem from 'material-ui/MenuItem';
 import Dashboard from './dashboard/dashboard';
 import LandingPage from './landing-page/landing-page';
@@ -15,15 +17,43 @@ import { navAction } from './actions/nav-action';
 import './App.css';
 
 export class App extends React.Component {
-  handleNav = () => this.props.dispatch(navAction(!this.props.open));
+  constructor(props){
+    super(props)
 
+    this.handleNav = this.handleNav.bind(this);
+    this.handleKeyPressEvent = this.handleKeyPressEvent.bind(this);
+  }
+  handleNav(){
+    this.props.dispatch(navAction(!this.props.open));
+  }
+  handleKeyPressEvent(event){
+    if(event.key === 'Enter'){
+      this.props.dispatch(navAction(!this.props.open));
+    }
+  }
   render() {
     return (
       <Router>
         <div className='app'>
           <AppBar
             title='Swapify'
-            onLeftIconButtonClick={this.handleNav}
+            iconElementLeft={
+              <IconButton
+                onClick={this.handleNav}
+                onKeyPress={this.handleKeyPressEvent}
+              >
+                <FontIcon
+                  className="fas fa-bars"
+                  color="rgb(48, 48, 48)"
+                  hoverColor="rgb(255, 64, 129)"
+                  style={{
+                    fontSize:"18px",
+                    margin: "15px"
+                  }}
+                />
+              </IconButton>
+            }
+            // onLeftIconButtonClick={this.handleNav}
           />
           <Drawer
             open={this.props.open}
