@@ -4,6 +4,7 @@ import {List, ListItem} from 'material-ui/List';
 import { cyan500, pinkA200 } from 'material-ui/styles/colors';
 import Divider from 'material-ui/Divider';
 import FontIcon from 'material-ui/FontIcon';
+import IconButton from 'material-ui/IconButton';
 import BooksToSwap from './books-to-swap';
 import { getUserBooks } from '../actions/get-user-books-action';
 import { deleteBook } from '../actions/delete-book-action';
@@ -59,16 +60,19 @@ export class Dashboard extends React.Component{
               primaryText={book.title}
               secondaryText={book.author}
               rightIconButton={
-                <FontIcon
-                  onClick={() => this.deleteBook(book._id)}
-                  className="fas fa-minus delete-button"
-                  color="white"
-                  hoverColor={pinkA200}
-                  style={{
-                    fontSize:"18px",
-                    margin: "15px"
-                  }}
-                />}
+                <IconButton>
+                  <FontIcon
+                    onClick={() => this.deleteBook(book._id)}
+                    className="fas fa-minus delete-button"
+                    color="white"
+                    hoverColor={pinkA200}
+                    style={{
+                      fontSize:"18px",
+                      margin: "15px"
+                    }}
+                  />
+                </IconButton>
+                }
             />
             <Divider />
           </div>
