@@ -2,7 +2,9 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
+import Dialog from 'material-ui/Dialog';
 import { grey400, grey500 } from 'material-ui/styles/colors';
 import FontIcon from 'material-ui/FontIcon';
 // import renderTextField from '../landing-page/materialUI-text-field';
@@ -61,42 +63,97 @@ export class BooksToSwap extends React.Component{
   render(){
     return(
       <div className='add-book-form'>
-        <div className='form-header'>
-          <h3>Add Book</h3>
-          <FontIcon
+        {/* <div className='form-header'> */}
+        <Dialog
+          title="Add Book"
+          titleStyle={{
+            fontSize: "18px",
+            width: "80%",
+            textAlign: "center",
+            marginRight: "10%",
+            marginLeft: "10%",
+          }}
+          // actions={
+          //   [
+              // <RaisedButton
+              //   key='cancel'
+              //   className="cancel-button"
+              //   type="submit"
+              //   label="Cancel"
+              //   onClick={this.props.toggleBookForm}
+              // />,
+              // <RaisedButton
+              //   key='add'
+              //   className="add-button"
+              //   type="submit"
+              //   htmlFor="bookToSwapForm"
+              //   label="Add"
+              //   onClick={this.dispatchAction}
+              //   disabled={this.props.pristine || this.props.submitting}
+              // />
+          //   ]
+          // }
+          open={this.props.toggleBookForm}
+          onRequestClose={this.props.closeModal}
+        >
+          {/* <FontIcon
             className="far fa-window-close close-button"
             color={grey400}
             hoverColor={grey500}
             onClick={this.props.toggleBookForm}
-          />
-        </div>
-        <form
-          id="bookToSwapForm"
-          onSubmit={this.props.handleSubmit(values => this.dispatchAction(values))}
-        >
-          <Field
-            name="title"
-            component={renderTextField}
-            label="Book Title"
-            type="text"
-          />
-          <Field
-            name="author"
-            component={renderTextField}
-            label="Author"
-            type="text"
-          />
-          <RaisedButton
-            className="add-button"
-            type="submit"
-            htmlFor="bookToSwapForm"
-            label="Add"
-            primary={true}
-            disabled={this.props.pristine || this.props.submitting}
-          />
-          {this.props.response === 'Already exists as a needed book' &&
-            <p className='add-book-response'>{`${this.props.response}`}</p>}
-        </form>
+          /> */}
+        {/* </div> */}
+          <form
+            id="bookToSwapForm"
+            className="add-book-form"
+            onSubmit={this.props.handleSubmit(values => this.dispatchAction(values))}
+          >
+            <Field
+              name="title"
+              component={renderTextField}
+              label="Book Title"
+              type="text"
+            />
+            <Field
+              name="author"
+              component={renderTextField}
+              label="Author"
+              type="text"
+            />
+            {/* <RaisedButton
+              className="add-button"
+              type="submit"
+              htmlFor="bookToSwapForm"
+              label="Add"
+              primary={true}
+              disabled={this.props.pristine || this.props.submitting}
+            /> */}
+            <div className="form-buttons">
+              <FlatButton
+                key='cancel'
+                className="cancel-button"
+                type="submit"
+                label="Cancel"
+                onClick={this.props.toggleBookForm}
+                // backgroundColor="rgb(0, 151, 167)"
+                style={{
+                  color: "rgb(255, 64, 129)"
+                }}
+              />
+              <FlatButton
+                key='add'
+                className="add-button"
+                type="submit"
+                htmlFor="bookToSwapForm"
+                label="Add"
+                disabled={this.props.pristine || this.props.submitting}
+                primary={true}
+              />
+            </div>
+            {this.props.response === 'Already exists as a needed book' &&
+              <p className='add-book-response'>{`${this.props.response}`}</p>}
+          </form>
+        </Dialog>
       </div>
     )
   }
