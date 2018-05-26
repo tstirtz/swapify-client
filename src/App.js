@@ -49,8 +49,26 @@ export class App extends React.Component {
   //   }
   // }
   render() {
+//Disable menu icon if no user is logged in
     let menuIcon;
-    if(localStorage.getItem('authToken') !== null){
+    // if(localStorage.getItem('authToken') !== null){
+    //   menuIcon = (
+    //     <IconButton
+    //       disabled={false}
+    //       onClick={this.handleNav}
+    //       onKeyPress={this.handleKeyPressEvent}
+    //     >
+    //       <FontIcon
+    //         className="fas fa-bars"
+    //         color="rgb(48, 48, 48)"
+    //         hoverColor="rgb(255, 64, 129)"
+    //         style={{
+    //           fontSize:"18px",
+    //           margin: "15px"
+    //         }}
+    //       />
+    //     </IconButton>)
+    // }else{
       menuIcon = (
         <IconButton
           disabled={false}
@@ -67,24 +85,7 @@ export class App extends React.Component {
             }}
           />
         </IconButton>)
-    }else{
-      menuIcon = (
-        <IconButton
-          disabled={true}
-          onClick={this.handleNav}
-          onKeyPress={this.handleKeyPressEvent}
-        >
-          <FontIcon
-            className="fas fa-bars"
-            color="rgb(48, 48, 48)"
-            hoverColor="rgb(255, 64, 129)"
-            style={{
-              fontSize:"18px",
-              margin: "15px"
-            }}
-          />
-        </IconButton>)
-    }
+    // }
     return (
       <Router>
         <div className='app'>
