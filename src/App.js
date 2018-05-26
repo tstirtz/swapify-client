@@ -19,6 +19,9 @@ import './App.css';
 export class App extends React.Component {
   constructor(props){
     super(props)
+    this.state = {
+      menuIconDisabled: true,
+    }
 
     this.handleNav = this.handleNav.bind(this);
     this.handleKeyPressEvent = this.handleKeyPressEvent.bind(this);
@@ -31,27 +34,64 @@ export class App extends React.Component {
       this.props.dispatch(navAction(!this.props.open));
     }
   }
+  toggleMenuIcon(){
+    console.log(localStorage.getItem('authToken'));
+    if(localStorage.getItem('authToken').length !== 0){
+      this.setState({menuIconDisabled: true});
+    }
+  }
+  // componentWillRecieveProps(){
+  //   console.log(localStorage.getItem('authToken'));
+  //   if(localStorage.getItem('authToken').length !== 0){
+  //     this.setState({menuIconDisabled: true})
+  //   }else{
+  //     return
+  //   }
+  // }
   render() {
+    let menuIcon;
+    if(localStorage.getItem('authToken') !== null){
+      menuIcon = (
+        <IconButton
+          disabled={false}
+          onClick={this.handleNav}
+          onKeyPress={this.handleKeyPressEvent}
+        >
+          <FontIcon
+            className="fas fa-bars"
+            color="rgb(48, 48, 48)"
+            hoverColor="rgb(255, 64, 129)"
+            style={{
+              fontSize:"18px",
+              margin: "15px"
+            }}
+          />
+        </IconButton>)
+    }else{
+      menuIcon = (
+        <IconButton
+          disabled={true}
+          onClick={this.handleNav}
+          onKeyPress={this.handleKeyPressEvent}
+        >
+          <FontIcon
+            className="fas fa-bars"
+            color="rgb(48, 48, 48)"
+            hoverColor="rgb(255, 64, 129)"
+            style={{
+              fontSize:"18px",
+              margin: "15px"
+            }}
+          />
+        </IconButton>)
+    }
     return (
       <Router>
         <div className='app'>
           <AppBar
             title='Swapify'
             iconElementLeft={
-              <IconButton
-                onClick={this.handleNav}
-                onKeyPress={this.handleKeyPressEvent}
-              >
-                <FontIcon
-                  className="fas fa-bars"
-                  color="rgb(48, 48, 48)"
-                  hoverColor="rgb(255, 64, 129)"
-                  style={{
-                    fontSize:"18px",
-                    margin: "15px"
-                  }}
-                />
-              </IconButton>
+              menuIcon
             }
             // onLeftIconButtonClick={this.handleNav}
           />
