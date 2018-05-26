@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import {Link} from 'react-router-dom';
 import SignUpForm from './sign-up-form';
 import LoginForm from './login-form';
+import DemoLogin from './demo-login';
 
 import './landing-page.css';
 
@@ -89,6 +90,7 @@ export default class LandingPage extends React.Component{
             Login
           </Button>
         </div>
+        <DemoLogin />
       </div>
     );
   }
