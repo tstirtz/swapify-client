@@ -43,15 +43,15 @@ export class LoginForm extends React.Component {
     // this.props.reset();
   }
   render(){
-    if(this.props.jwt !== undefined){
-      saveAuthToken(this.props.jwt);
-    }
-    if(this.props.userId !== undefined){
-      localStorage.setItem('userId', this.props.userId);
-    }
-    if(this.props.username !== undefined){
-      localStorage.setItem('username', this.props.username);
-    }
+    // if(this.props.jwt !== undefined){
+    //   saveAuthToken(this.props.jwt);
+    // }
+    // if(this.props.userId !== undefined){
+    //   localStorage.setItem('userId', this.props.userId);
+    // }
+    // if(this.props.username !== undefined){
+    //   localStorage.setItem('username', this.props.username);
+    // }
 
       const {jwt, error } = this.props;
       let message;
