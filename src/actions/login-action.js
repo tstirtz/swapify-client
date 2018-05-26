@@ -24,9 +24,7 @@ export function login(credentials) {
             code === 401
               ? 'Incorrect username or password'
               : 'Unable to login, please try again';
-          return Promise.reject(
-             new SubmissionError(message)
-          );
+          return Promise.reject(message);
         });
         // let data = await response;
         // if(response.status === 200){
