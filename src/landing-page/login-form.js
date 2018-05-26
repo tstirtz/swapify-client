@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
+import Dialog from 'material-ui/Dialog';
 import { Field, reduxForm } from 'redux-form';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -45,38 +46,54 @@ export class LoginForm extends React.Component {
       }
       return(
         <div className="redux-form-container">
-          <h2 className='login-heading'>Login</h2>
-          <form
-            id='loginForm'
-            onSubmit={this.props.handleSubmit(values => this.handleLoginSubmit(values))}
+          <Dialog
+            title="Login"
+            titleStyle={{
+              fontSize: "18px",
+              width: "80%",
+              textAlign: "center",
+              marginRight: "10%",
+              marginLeft: "10%",
+            }}
+            // bodyStyle={{
+            //   width: "60%"
+            // }}
+            open={this.props.openForm}
+            onRequestClose={this.props.closeForm}
+            autoScrollBodyContent={true}
           >
-            <Field
-              name="username"
-              component={renderTextField}
-              label="Username"
-            />
-            <Field
-              name="password"
-              type="password"
-              component={renderTextField}
-              label="Password"
-            />
-            <div
-              className="error-message"
+            <form
+              id='loginForm'
+              onSubmit={this.props.handleSubmit(values => this.handleLoginSubmit(values))}
             >
-              {message}
-            </div>
-            <Button
-              className="submit-button"
-              type="submit"
-              htmlFor="loginForm"
-              label="Submit"
-              disabled={this.props.pristine || this.props.submitting}
-              style={style}
-            >
-              Submit
-            </Button>
-          </form>
+              <Field
+                name="username"
+                component={renderTextField}
+                label="Username"
+              />
+              <Field
+                name="password"
+                type="password"
+                component={renderTextField}
+                label="Password"
+              />
+              <div
+                className="error-message"
+              >
+                {message}
+              </div>
+              <Button
+                className="submit-button"
+                type="submit"
+                htmlFor="loginForm"
+                label="Submit"
+                disabled={this.props.pristine || this.props.submitting}
+                style={style}
+              >
+                Submit
+              </Button>
+            </form>
+          </Dialog>
         </div>
       );
   }

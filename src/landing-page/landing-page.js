@@ -47,6 +47,7 @@ export default class LandingPage extends React.Component{
   closeLoginForm(){
     this.setState({loginFormRendered: false});
   }
+
   render(){
     return(
       <div className='landing-page-container'>
@@ -60,6 +61,13 @@ export default class LandingPage extends React.Component{
           <SignUpForm
             openForm={this.openSignUpForm}
             closeForm={this.closeSignUpForm}
+          />
+        }
+
+        {this.state.loginFormRendered &&
+          <LoginForm
+            openForm={this.openLoginForm}
+            closeForm={this.closeLoginForm}
           />
         }
 
