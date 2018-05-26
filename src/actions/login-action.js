@@ -18,6 +18,12 @@ export function login(credentials) {
           redirect: 'follow',
         }).then(res => normalizeResponseError(res))
         .then(res => res.json())
+        .then(userCredentials => {
+          localStorage.setItem('authToken', userCredentials.jwt);
+          localStorage.setItem('userId', userCredentials.id);
+          localStorage.setItem('username', userCredentials.username);
+          return userCredentials;
+        })
         .catch(err => {
           const { code } = err;
           const message =
