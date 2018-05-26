@@ -45,10 +45,10 @@ export class SignUpForm extends React.Component{
       console.log(store.getState());
       // this.forceUpdate();
     }).then(() => this.props.dispatch(login({username: values.username, password: values.password})))
-    .then(res => {
-      localStorage.setItem('userId', this.props.userId);
-      localStorage.setItem('username', this.props.username);
-    })
+    // .then(res => {
+    //   localStorage.setItem('userId', this.props.userId);
+    //   localStorage.setItem('username', this.props.username);
+    // })
     .catch(err => {
       console.log(err);
       console.log(store.getState());
