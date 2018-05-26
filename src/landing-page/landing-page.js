@@ -14,6 +14,7 @@ const style = {
   border: 0,
   color: 'rgb(48, 48, 48)',
   height: '20px',
+  width: "150px",
   padding: '0 30px',
   margin: '10px',
   boxShadow: '0 3px 5px 2px rgba(0, 43, 128, .30)',
@@ -74,7 +75,7 @@ export default class LandingPage extends React.Component{
 
         <div className='signUp-login-buttons'>
           <Button
-            className='sign-up-button button'
+            // className='sign-up-button button'
             label='Sign up'
             style={style}
             onClick={this.openSignUpForm}
@@ -89,8 +90,10 @@ export default class LandingPage extends React.Component{
           >
             Login
           </Button>
+          <DemoLogin
+            className="button"
+          />
         </div>
-        <DemoLogin />
       </div>
     );
   }

@@ -13,7 +13,7 @@
   /* position: absolute;
   bottom: 200px; */
   display: flex;
-  width: 60%;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
@@ -29,4 +29,5 @@
 .button{
   width: 150px;
   text-align: center;
+  /* margin: 15px; */
 }
