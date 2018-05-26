@@ -1,6 +1,7 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import Button from '@material-ui/core/Button';
+import Dialog from 'material-ui/Dialog';
 import { Field, reduxForm } from 'redux-form';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -22,6 +23,13 @@ const style = {
 };
 
 export class SignUpForm extends React.Component{
+  constructor(props){
+    super(props)
+    this.state = {
+      formRendered: false,
+    }
+  }
+
   handleFormSubmit(values){
     const newUser = {
       first: values.first,
@@ -60,63 +68,72 @@ export class SignUpForm extends React.Component{
     }
     return(
       <div className="redux-form-container">
-        <h2
-          className='sign-up-heading'
+        <Dialog
+          title="Sign up"
+          titleStyle={{
+            fontSize: "18px",
+            width: "80%",
+            textAlign: "center",
+            marginRight: "10%",
+            marginLeft: "10%",
+          }}
+          open={this.props.openForm}
+          onRequestClose={this.props.closeForm}
+          autoScrollBodyContent={true}
         >
-          Sign up
-        </h2>
-        <form
-          id="sign-up-form"
-          onSubmit={this.props.handleSubmit(values => this.handleFormSubmit(values))}
-        >
-          <Field
-            name="first"
-            component={renderTextField}
-            label="First Name"
-          />
-          <Field
-            name="last"
-            component={renderTextField}
-            label="Last Name"
-          />
-          <Field
-            name="email"
-            component={renderTextField}
-            label="Email"
-          />
-          <Field
-            name="username"
-            component={renderTextField}
-            label="Username"
-          />
-          <Field
-            name="password"
-            type="password"
-            component={renderTextField}
-            label="Password"
-          />
-          <Field
-            name="confirmPassword"
-            type="password"
-            component={renderTextField}
-            label="Confirm Password"
-          />
-          <div
-            className="error-message"
+          <form
+            id="sign-up-form"
+            onSubmit={this.props.handleSubmit(values => this.handleFormSubmit(values))}
           >
-            {message}
-          </div>
-          <Button
-            className="submit-button"
-            type="submit"
-            htmlFor="sign-up-form"
-            label="Submit"
-            disabled={this.props.pristine || this.props.submitting}
-            style={style}
-          >
-            Submit
-          </Button>
-        </form>
+            <Field
+              name="first"
+              component={renderTextField}
+              label="First Name"
+            />
+            <Field
+              name="last"
+              component={renderTextField}
+              label="Last Name"
+            />
+            <Field
+              name="email"
+              component={renderTextField}
+              label="Email"
+            />
+            <Field
+              name="username"
+              component={renderTextField}
+              label="Username"
+            />
+            <Field
+              name="password"
+              type="password"
+              component={renderTextField}
+              label="Password"
+            />
+            <Field
+              name="confirmPassword"
+              type="password"
+              component={renderTextField}
+              label="Confirm Password"
+            />
+            <div
+              className="error-message"
+            >
+              {message}
+            </div>
+            <Button
+              className="submit-button"
+              type="submit"
+              htmlFor="sign-up-form"
+              label="Submit"
+              disabled={this.props.pristine || this.props.submitting}
+              style={style}
+            >
+              Submit
+            </Button>
+          </form>
+        </Dialog>
       </div>
     );
   }
