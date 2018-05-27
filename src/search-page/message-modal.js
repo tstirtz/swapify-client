@@ -85,10 +85,10 @@ export class MessageModal extends React.Component{
           title="Message The Owner"
           titleStyle={{
             fontSize: "18px",
-            width: "80%",
+            width: "90%",
             textAlign: "center",
-            marginRight: "10%",
-            marginLeft: "10%",
+            marginRight: "5%",
+            marginLeft: "5%",
           }}
           actions={actions}
           open={this.props.modalState}
