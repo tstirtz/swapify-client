@@ -6,16 +6,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 
 .signUp-login-buttons{
   /* position: absolute;
   bottom: 200px; */
   display: flex;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  /* margin-left: 5%;
+  margin-right: 5%; */
   margin-top: 10px;
   justify-content: space-between;
 }
@@ -31,4 +31,23 @@
   width: 150px;
   text-align: center;
   /* margin: 15px; */
+}
+
+.demo-login-container{
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+div .demo-login-button{
+  font-size: 12px;
+  width: 100px;
+}
+
+@media only screen and (max-width: 425px){
+  .landing-page-container .signUp-login-buttons .button{
+    width: 50px;
+    text-align: center;
+    /* margin: 15px; */
+  }
 }
