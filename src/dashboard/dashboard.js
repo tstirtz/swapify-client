@@ -72,7 +72,7 @@ export class Dashboard extends React.Component{
                   <FontIcon
                     onClick={() => this.deleteBook(book._id)}
                     className="fas fa-minus delete-button"
-                    color="white"
+                    color="rgba(255, 255, 255, 0.6)"
                     hoverColor={pinkA200}
                     style={{
                       fontSize:"18px",
