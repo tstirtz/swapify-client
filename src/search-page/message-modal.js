@@ -94,6 +94,7 @@ export class MessageModal extends React.Component{
           }}
           actions={actions}
           actionsContainerClassName='modal-button-container'
+          contentClassName='modal-content-container'
           open={this.props.modalState}
           onRequestClose={this.close}
         >
