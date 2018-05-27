@@ -4,10 +4,10 @@
 .sub-header{
   display: flex;
   justify-content: space-between;
-  width: 95%;
+  width: 99%;
   height: 70px;
-  margin-left: 2.5%;
-  margin-right: 2.5%;
+  margin-left: .5%;
+  margin-right: .5%;
 }
 div h2.sub-header-title{
   display: inline-block;
