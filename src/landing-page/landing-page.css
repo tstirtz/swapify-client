@@ -1,6 +1,6 @@
 .landing-page-container{
   height: 100%;
-  width: 80%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -23,7 +23,8 @@
 .logo{
   display: block;
   height: 200px;
-  width: 200px;
+  width: 300px;
+  color: grey;
 }
 
 .button{
