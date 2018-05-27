@@ -61,9 +61,9 @@ export class DemoLoginButton extends React.Component{
       return <Redirect to='/search' />
     }
     return(
-      <div>
+      <div className="demo-login-container">
         <Button
-          className='login-button button'
+          className='demo-login-button button'
           label='Demo Account'
           style={style}
           onClick={() => this.props.dispatch(login(userCredentials))}
