@@ -95,6 +95,7 @@ export class BooksToSwap extends React.Component{
           // }
           open={this.props.toggleBookForm}
           onRequestClose={this.props.closeModal}
+          contentClassName='modal-content-container'
         >
           {/* <FontIcon
             className="far fa-window-close close-button"

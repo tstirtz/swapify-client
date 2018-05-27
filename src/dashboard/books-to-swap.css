@@ -100,3 +100,21 @@ h3{
     margin-top: 25px;
   }
 }
+
+@media only screen and (max-width: 425px){
+  .modal-content-container{
+    width: 100% !important;
+  }
+  div .modal-button-container{
+    display: flex;
+    justify-content: center;
+  }
+  .modal-button-container .modal-button{
+    width: 30%;
+  }
+  div.form-buttons{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+  }
+}
