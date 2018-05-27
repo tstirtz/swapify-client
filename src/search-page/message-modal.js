@@ -47,6 +47,7 @@ export class MessageModal extends React.Component{
   render() {
     const actions = [
       <Button
+        className='modal-button'
         onClick={this.close}
         label='Cancel'
         key={1}
@@ -63,6 +64,7 @@ export class MessageModal extends React.Component{
         Cancel
       </Button>,
       <Button
+        className='modal-button'
         key={2}
         label='Send'
         onClick={this.handleSend}
@@ -91,6 +93,7 @@ export class MessageModal extends React.Component{
             marginLeft: "5%",
           }}
           actions={actions}
+          actionsContainerClassName='modal-button-container'
           open={this.props.modalState}
           onRequestClose={this.close}
         >
