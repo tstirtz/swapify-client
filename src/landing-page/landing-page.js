@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 import SignUpForm from './sign-up-form';
 import LoginForm from './login-form';
 import DemoLogin from './demo-login';
+import logo from './swapify-logo.png';
 
 import './landing-page.css';
 
@@ -54,8 +55,8 @@ export default class LandingPage extends React.Component{
     return(
       <div className='landing-page-container'>
         <img
-          src='https://www.colourbox.com/preview/13896125-doodle-recycle-symbol.jpg'
-          alt='three arrows makings a triangle'
+          src={logo}
+          alt='Two hands swaping books'
           className='logo'
         />
 
@@ -90,10 +91,11 @@ export default class LandingPage extends React.Component{
           >
             Login
           </Button>
-          <DemoLogin
+          {/* <DemoLogin
             className="button"
-          />
+          /> */}
         </div>
+        <DemoLogin />
       </div>
     );
   }
