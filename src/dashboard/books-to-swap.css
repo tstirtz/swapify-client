@@ -33,12 +33,7 @@ div h2.sub-header-title{
   margin-right: 10px;
   margin-top: 25px;
 }
-.text-field{
-  width: 60% !important;
-  /* max-width: 200px !important; */
-  margin-left: 20%;
-  margin-right: 20%;
-}
+
 input{
   width: 15%;
 }
@@ -88,12 +83,11 @@ h3{
     margin-left: 5%;
     margin-right: 5%;
   }
-  .text-field{
+  /* .text-field{
     width: 70% !important;
-    /* max-width: 200px !important; */
     margin-left: 15%;
     margin-right: 15%;
-  }
+  } */
   .add-button{
     margin-left: 15%;
     margin-right: 15%;
@@ -116,5 +110,10 @@ h3{
     display: flex;
     justify-content: center;
     margin: 10px;
+  }
+  .text-field{
+    width: 90% !important;
+    margin-left: 5% !important;
+    margin-right: 5% !important;
   }
 }
