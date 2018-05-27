@@ -41,6 +41,11 @@ const renderTextField = ({
     className="text-field"
     {...input}
     type={type}
+    style={{
+      width: '60%',
+      marginLeft: '20%',
+      marginRight: '20%'
+    }}
   />
 );
 
