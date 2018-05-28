@@ -73,6 +73,9 @@ export class SignUpForm extends React.Component{
           titleStyle={{
             fontSize: "18px",
             width: "80%",
+            marginTop: "15px",
+            marginBottom: "15px",
+            padding: "0px",
             textAlign: "center",
             marginRight: "10%",
             marginLeft: "10%",
