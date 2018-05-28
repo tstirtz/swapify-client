@@ -15,7 +15,7 @@ p{
 
 .sent-message p{
   display: inline-block;
-  max-width: 60%;
+  max-width: 75%;
   height: 100%;
   margin: 0;
   padding: 7.5px;
@@ -32,7 +32,7 @@ p{
 
 .recieved-message p{
   display: inline-block;
-  max-width: 60%;
+  max-width: 75%;
   height: 100%;
   margin: 0;
   padding: 7.5px;
