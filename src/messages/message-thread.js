@@ -74,15 +74,12 @@ export class MessageThread extends React.Component{
     console.log(pathnameValues[1]);
 
     return(
-      <div
-        className="messages-container"
-      >
-        <div className="meassage-thread-sub-header">
-          <h2
-            className="sub-header-username"
-          >{`${pathnameValues[1]}`}</h2>
+      <div className="messages-container">
+        <div className="message-thread-sub-header">
+          <h2 className="sub-header-username">
+            {`${pathnameValues[1]}`}
+          </h2>
         </div>
-        <Divider />
         {
           this.props.messages.map(message => {
             if(message.from === `${localStorage.getItem('username')}`){
