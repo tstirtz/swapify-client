@@ -15,12 +15,13 @@ p{
 
 .sent-message p{
   display: inline-block;
-  max-width: 75%;
+  max-width: 60%;
   height: 100%;
   margin: 0;
   padding: 7.5px;
   background-color: rgb(0, 151, 167);
   border-radius: 10px;
+  overflow-wrap: break-word;
 }
 
 .recieved-message{
@@ -31,12 +32,13 @@ p{
 
 .recieved-message p{
   display: inline-block;
-  max-width: 75%;
+  max-width: 60%;
   height: 100%;
   margin: 0;
   padding: 7.5px;
   background-color: grey;
   border-radius: 10px;
+  overflow-wrap: break-word;
 }
 .input-container{
   display: flex;
