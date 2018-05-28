@@ -79,6 +79,7 @@ export class SignUpForm extends React.Component{
           }}
           open={this.props.openForm}
           onRequestClose={this.props.closeForm}
+          contentClassName='modal-content-container'
           autoScrollBodyContent={true}
         >
           <form
