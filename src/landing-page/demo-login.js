@@ -6,7 +6,7 @@ import { login } from '../actions/login-action';
 import { saveAuthToken } from '../local-storage';
 
 const style = {
-  background: 'rgb(255, 64, 129)',
+  background: 'rgba(255, 64, 129, .4)',
   borderRadius: 3,
   border: 0,
   color: 'rgb(48, 48, 48)',
