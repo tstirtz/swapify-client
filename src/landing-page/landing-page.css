@@ -24,7 +24,7 @@
   display: block;
   height: 200px;
   width: 300px;
-  margin: 25% 15px 40px 15px;
+  margin: 25% 15px 70px 15px;
   color: grey;
 }
 
@@ -38,6 +38,15 @@
   position: absolute;
   bottom: 5px;
   right: 5px;
+}
+
+@media only screen and (min-width: 500px) and (max-width: 800px){
+  .logo{
+    margin: 35% 15px 100px 15px;
+  }
+  .signUp-login-buttons{
+    width: 60%;
+  }
 }
 
 /* @media only screen and (max-width: 425px){
