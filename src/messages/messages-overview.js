@@ -25,11 +25,14 @@ export class MessagesOverview extends React.Component{
     this.props.messages.map( message => {
         if(usernames.includes(message.from)){
           return
+        }else if(message.from === localStorage.getItem('username')){
+          return
+        }else {
+          usernames.push(message.from)
         }
-        usernames.push(message.from)
       });
       //link should render message thread with specific user
-    if(this.props.messages.length === 0){
+    if(usernames.length === 0){
       list = <p className="user-feedback">No messages to display</p>
     }else{
       list = usernames.map(username => {
