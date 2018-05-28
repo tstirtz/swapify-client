@@ -94,6 +94,10 @@ export class App extends React.Component {
             iconElementLeft={
               menuIcon
             }
+            titleStyle={{
+              width: '100%',
+              marginRight: '40px'
+            }}
             // onLeftIconButtonClick={this.handleNav}
           />
           <Drawer
