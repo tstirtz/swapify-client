@@ -59,6 +59,15 @@ export default class LandingPage extends React.Component{
           alt='Two hands swaping books'
           className='logo'
         />
+        <h2 className="landing-page-sub-title">Why spend hundreds on text books?</h2>
+        <div className="app-description">
+          {/* <p>
+            You{" ' "}re already spending thousands on tuition.
+          </p> */}
+          <p>
+            Save your money and swap text books with other students at your school with <span>Swapify</span>.
+          </p>
+        </div>
 
         {this.state.signUpFormRendered &&
           <SignUpForm

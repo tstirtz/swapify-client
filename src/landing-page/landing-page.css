@@ -37,7 +37,18 @@
 .demo-login-container{
   position: fixed;
   bottom: 5px;
-  right: 5px;
+  left: 5px;
+}
+
+.app-description{
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.landing-page-sub-title{
+  text-align: center;
+  color: rgb(255, 64, 129);
 }
 
 @media only screen and (min-width: 500px) and (max-width: 800px){
@@ -61,9 +72,23 @@
   }
 }
 
-/* @media only screen and (max-width: 425px){
-  .landing-page-container .signUp-login-buttons .button{
-    width: 50px;
+@media only screen and (max-width: 425px){
+  .logo{
+    display: block;
+    height: 70px;
+    width: 105px;
+    margin: 25% 15px 15px 15px;
+    color: grey;
+  }
+  .landing-page-sub-title{
+    width: 90%;
+    max-width: 375px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  .app-description p{
+    font-size: 12px;
     text-align: center;
-  } */
-/* } */
+    color: rgba(191, 191, 191, 0.7);
+  }
+}
