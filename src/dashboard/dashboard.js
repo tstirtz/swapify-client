@@ -91,7 +91,7 @@ export class Dashboard extends React.Component{
       });
     }
     return(
-      <div>
+      <section>
         <div className='sub-header'>
           <h2
             className='sub-header-title'
@@ -126,7 +126,7 @@ export class Dashboard extends React.Component{
         <List>
           {list}
         </List>
-      </div>
+      </section>
     );
   }
 }
