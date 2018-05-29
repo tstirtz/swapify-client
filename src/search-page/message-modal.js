@@ -82,7 +82,7 @@ export class MessageModal extends React.Component{
       </Button>
     ];
     return (
-      <div>
+      <section>
         <Dialog
           title="Message The Owner"
           titleStyle={{
@@ -99,6 +99,7 @@ export class MessageModal extends React.Component{
           onRequestClose={this.close}
         >
           <TextField
+            aria-label="message owner of book"
             name="message-field"
             hintText="Want to swap?"
             fullWidth={true}
@@ -110,7 +111,7 @@ export class MessageModal extends React.Component{
             value={this.state.messageContent}
           />
         </Dialog>
-      </div>
+      </section>
     );
   }
 }
