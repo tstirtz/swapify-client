@@ -3,9 +3,9 @@
 
 ![screen shot 2018-05-28 at 8 42 51 pm](https://user-images.githubusercontent.com/13411490/40637222-6af3a61e-62b8-11e8-9fbf-3ace06588635.png)
 
-##Stack
+## Stack
 
-###Front End
+### Front End
  - React
  - Redux
  - Javascript
