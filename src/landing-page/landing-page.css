@@ -72,6 +72,8 @@
   }
   .logo{
     margin: 15% 15px 100px 15px;
+    height: 150px;
+    width: 225px;
   }
   .demo-login-container .demo-login-button{
     width: 150px !important;
