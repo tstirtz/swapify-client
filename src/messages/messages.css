@@ -4,9 +4,13 @@ a{
 p{
   color: white;
 }
-.messages-container{
-  height: 100%;
+.messages-thread-container{
+  height: 82.5vh;
+  overflow: scroll;
 }
+/* .messages-container{
+  height: 90%;
+} */
 .sent-message{
   display: flex;
   margin: 10px;
@@ -46,6 +50,7 @@ p{
   background-color: rgba(45, 45, 45, .9);
   align-items: center;
   position: fixed;
+  height: 10vh;
   bottom: 0;
   right: 0;
   width: 100%;
