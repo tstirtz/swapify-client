@@ -71,11 +71,16 @@ export class App extends React.Component {
     // }else{
       menuIcon = (
         <IconButton
+          value="Menu"
+          arial-label="Menu"
+          tabIndex="0"
           disabled={false}
           onClick={this.handleNav}
           onKeyPress={this.handleKeyPressEvent}
         >
           <FontIcon
+            value="Menu"
+            arial-label="Menu"
             className="fas fa-bars"
             color="rgb(48, 48, 48)"
             hoverColor="rgb(255, 64, 129)"
