@@ -1,2 +1,2 @@
-[build.environment]
-  API_BASE_URL = "https://peaceful-garden-13000.herokuapp.com/"
+[build]
+  environment = { API_BASE_URL = "https://peaceful-garden-13000.herokuapp.com/" }
