@@ -68,7 +68,10 @@ export class Dashboard extends React.Component{
               primaryText={book.title}
               secondaryText={book.author}
               rightIconButton={
-                <IconButton>
+                <IconButton
+                  value="delete"
+                  aria-label="delete"
+                >
                   <FontIcon
                     onClick={() => this.deleteBook(book._id)}
                     className="fas fa-minus delete-button"
@@ -102,6 +105,8 @@ export class Dashboard extends React.Component{
               closeModal={this.closeForm}
             />}
           <IconButton
+            value="add new book"
+            aria-label="add new book"
             className="render-form-button"
             style={{
               alignSelf: "center",
