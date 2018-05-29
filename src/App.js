@@ -72,7 +72,7 @@ export class App extends React.Component {
       menuIcon = (
         <IconButton
           value="Menu"
-          arial-label="Menu"
+          aria-label="Menu"
           tabIndex="0"
           disabled={false}
           onClick={this.handleNav}
@@ -80,7 +80,7 @@ export class App extends React.Component {
         >
           <FontIcon
             value="Menu"
-            arial-label="Menu"
+            aria-label="Menu"
             className="fas fa-bars"
             color="rgb(48, 48, 48)"
             hoverColor="rgb(255, 64, 129)"
