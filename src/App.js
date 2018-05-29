@@ -101,18 +101,43 @@ export class App extends React.Component {
             // onLeftIconButtonClick={this.handleNav}
           />
           <Drawer
+            role="menu"
             open={this.props.open}
             docked={false}
             onRequestChange={() => this.props.dispatch(navAction(!this.props.open))}
           >
-            <Link to={`/${localStorage.getItem('userId')}/dashboard`}>
-              <MenuItem onClick={this.handleNav}>My Books</MenuItem>
+            <Link
+              to={`/${localStorage.getItem('userId')}/dashboard`}
+              role="menu"
+            >
+              <MenuItem
+                onClick={this.handleNav}
+                role="menuitem"
+              >
+                My Books
+              </MenuItem>
             </Link>
-            <Link to={`/${localStorage.getItem('userId')}/messages`}>
-              <MenuItem onClick={this.handleNav}>Messages</MenuItem>
+            <Link
+              to={`/${localStorage.getItem('userId')}/messages`}
+              role="menu"
+            >
+              <MenuItem
+                onClick={this.handleNav}
+                menu="menuitem"
+              >
+                Messages
+              </MenuItem>
             </Link>
-            <Link to={`/search`}>
-              <MenuItem onClick={this.handleNav}>Search Books</MenuItem>
+            <Link
+              to={`/search`}
+              role="menu"
+            >
+              <MenuItem
+                onClick={this.handleNav}
+                role="menuitem"
+              >
+                Search Books
+              </MenuItem>
             </Link>
           </Drawer>
           <main>
