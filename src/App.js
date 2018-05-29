@@ -94,57 +94,59 @@ export class App extends React.Component {
     return (
       <Router>
         <div className='app'>
-          <AppBar
-            title='Swapify'
-            iconElementLeft={
-              menuIcon
-            }
-            titleStyle={{
-              width: '100%',
-              marginRight: '40px'
-            }}
-            // onLeftIconButtonClick={this.handleNav}
-          />
-          <Drawer
-            role="menu"
-            open={this.props.open}
-            docked={false}
-            onRequestChange={() => this.props.dispatch(navAction(!this.props.open))}
-          >
-            <Link
-              to={`/${localStorage.getItem('userId')}/dashboard`}
+          <header>
+            <AppBar
+              title='Swapify'
+              iconElementLeft={
+                menuIcon
+              }
+              titleStyle={{
+                width: '100%',
+                marginRight: '40px'
+              }}
+              // onLeftIconButtonClick={this.handleNav}
+            />
+            <Drawer
               role="menu"
+              open={this.props.open}
+              docked={false}
+              onRequestChange={() => this.props.dispatch(navAction(!this.props.open))}
             >
-              <MenuItem
-                onClick={this.handleNav}
-                role="menuitem"
+              <Link
+                to={`/${localStorage.getItem('userId')}/dashboard`}
+                role="menu"
               >
-                My Books
-              </MenuItem>
-            </Link>
-            <Link
-              to={`/${localStorage.getItem('userId')}/messages`}
-              role="menu"
-            >
-              <MenuItem
-                onClick={this.handleNav}
-                menu="menuitem"
+                <MenuItem
+                  onClick={this.handleNav}
+                  role="menuitem"
+                >
+                  My Books
+                </MenuItem>
+              </Link>
+              <Link
+                to={`/${localStorage.getItem('userId')}/messages`}
+                role="menu"
               >
-                Messages
-              </MenuItem>
-            </Link>
-            <Link
-              to={`/search`}
-              role="menu"
-            >
-              <MenuItem
-                onClick={this.handleNav}
-                role="menuitem"
+                <MenuItem
+                  onClick={this.handleNav}
+                  menu="menuitem"
+                >
+                  Messages
+                </MenuItem>
+              </Link>
+              <Link
+                to={`/search`}
+                role="menu"
               >
-                Search Books
-              </MenuItem>
-            </Link>
-          </Drawer>
+                <MenuItem
+                  onClick={this.handleNav}
+                  role="menuitem"
+                >
+                  Search Books
+                </MenuItem>
+              </Link>
+            </Drawer>
+          </header>
           <main>
             <Route exact path='/' component={LandingPage} />
             <Route exact path='/:username/dashboard' component={Dashboard} />
