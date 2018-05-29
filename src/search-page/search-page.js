@@ -91,8 +91,13 @@ export class SearchPage extends React.Component{
                 <p className="result-text">{book.author}</p>
               }
               rightIconButton={
-                <IconButton>
+                <IconButton
+                  value="message owner"
+                  aria-label="message owner"
+                >
                   <FontIcon
+                    value="message owner"
+                    aria-label="message owner"
                     onClick={() => this.openModal(book.username)}
                     className="far fa-envelope"
                     color={cyan500}
