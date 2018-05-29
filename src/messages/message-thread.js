@@ -109,6 +109,7 @@ export class MessageThread extends React.Component{
           className="input-container"
         >
           <Textarea
+            aria-label="message to send"
             className="message-input"
             value={this.state.newMessage}
             onChange={this.handleTextAreaChange}
