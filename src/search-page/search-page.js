@@ -118,6 +118,7 @@ export class SearchPage extends React.Component{
       <div>
         <div className="search-field">
           <TextField
+            aria-label="search books"
             onChange={this.updateSearch.bind(this)}
             value={this.state.search}
             hintText="Search"
