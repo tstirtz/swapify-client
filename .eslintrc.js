@@ -8,6 +8,7 @@ module.exports = {
         "plugin:react/recommended"
     ],
     "rules": {
+      "array-callback-return": "off",
       "no-console": "warn",
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
       "react/require-default-props": [0, { forbidDefaultForRequired: false }],
