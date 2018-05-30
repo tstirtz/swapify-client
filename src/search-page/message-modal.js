@@ -1,21 +1,18 @@
 import React from 'react';
 import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
 import Button from '@material-ui/core/Button';
 import TextField from 'material-ui/TextField';
-import { cyan500, pinkA200 } from 'material-ui/styles/colors';
+import { cyan500 } from 'material-ui/styles/colors';
 import { connect } from 'react-redux';
 import { sendMessage } from '../actions/send-message-action';
 
 const style = {
-  // background: 'linear-gradient(to right, #bc4e9c, #f80759)',
   borderRadius: 3,
   border: 0,
   color: '#f80759',
   height: '20px',
   padding: '0 30px',
   margin: '10px',
-  // boxShadow: '0 3px 5px 2px rgba(0, 43, 128, .30)',
 };
 
 export class MessageModal extends React.Component{
@@ -76,7 +73,6 @@ export class MessageModal extends React.Component{
           padding: '0 30px',
           margin: '10px',
         }}
-        //onClick get value from the TextField component and send it as a fetch request (called in componentDidMount) to backend to create message document
       >
         Send
       </Button>

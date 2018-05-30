@@ -17,7 +17,6 @@ export class SearchPage extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      // books: this.props.books,
       search: '',
       modalRendered: false,
       snackbarRendered: false,
@@ -38,14 +37,12 @@ export class SearchPage extends React.Component{
   }
 
   closeModal(){
-    console.log(this);
     this.setState({
       modalRendered: !this.state.modalRendered,
     });
   }
 
   openModal(username){
-    console.log(username);
     this.setState({
       modalRendered: !this.state.modalRendered,
       bookOwnerUsername: username,
@@ -53,16 +50,15 @@ export class SearchPage extends React.Component{
   }
 
   openSnackbar(){
-    console.log('------------- openSnackBar called');
     this.setState({
       snackbarRendered: true,
-    })
+    });
   }
 
   closeSnackBar(){
     this.setState({
       snackbarRendered: false,
-    })
+    });
   }
 
   render(){
@@ -70,6 +66,7 @@ export class SearchPage extends React.Component{
     let filteredBooks = this.props.books.filter((book) => {
       return book.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
     });
+
     if(this.props.books.length === 0){
       list = <p className="user-feedback">No books to display</p>
     }else{
