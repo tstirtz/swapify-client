@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import { Redirect } from 'react-router-dom';
 import { login } from '../actions/login-action';
@@ -31,10 +32,7 @@ export class DemoLoginButton extends React.Component{
       username: "demoAccount",
       password: "demopassword",
     };
-    const {jwt, error } = this.props;
-    if( error ){
-      message = (<p>Incorrect username or password</p>);
-    }
+    const { jwt } = this.props;
     if( jwt  && jwt !== "undefined" ){
       return <Redirect to='/search' />
     }
@@ -61,6 +59,11 @@ function mapStateToProps(state){
     userId: state.login.id,
     username: state.login.username,
   }
+}
+
+DemoLoginButton.propTypes = {
+  dispatch: PropTypes.func,
+  jwt: PropTypes.string.isRequired,
 }
 
 export default connect(mapStateToProps)(DemoLoginButton);
