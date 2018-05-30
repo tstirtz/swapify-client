@@ -1,5 +1,5 @@
 import { SubmissionError } from 'redux-form';
-import {API_BASE_URL} from './../config';
+import {API_BASE_URL, } from './../config';
 import { normalizeResponseError } from './utils';
 
 export const SIGN_UP = 'SIGN_UP';
@@ -12,6 +12,7 @@ export function signUp(user){
         headers: {
           'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
           'content-type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
         },
         method: 'POST',
         mode: 'cors',
