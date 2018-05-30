@@ -18,14 +18,6 @@ const style = {
   boxShadow: '0 3px 5px 2px rgba(0, 43, 128, .30)',
 };
 
-MessageThread.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  messageStatus: PropTypes.string,
-}
-
-MessageThread.defaultProps = {
-  messageStatus: ''
-}
 export class MessageThread extends React.Component{
   constructor(props){
     super(props)
@@ -146,6 +138,17 @@ function mapStateToProps(state){
     messages: state.getMessages.messages,
     messageStatus: state.sendMessage.status,
   }
+}
+
+MessageThread.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  messageStatus: PropTypes.string,
+  messages: PropTypes.arrayOf(PropTypes.object)
+}
+
+MessageThread.defaultProps = {
+  messageStatus: '',
+  messages: [],
 }
 
 export default connect(mapStateToProps)(MessageThread);
