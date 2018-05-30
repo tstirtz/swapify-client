@@ -1,8 +1,8 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 import { Provider } from 'react-redux';
-import store from '../store';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import store from '../store';
 import { LoginForm } from './login-form';
 
 describe('<LoginForm/>', () => {

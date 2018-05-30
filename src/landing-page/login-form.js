@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import renderTextField from './materialUI-text-field';
 import validate from '../validators';
 import { login } from '../actions/login-action';
-import { saveAuthToken } from '../local-storage';
 
 import './login-signup-form.css';
 
@@ -24,35 +23,15 @@ export class LoginForm extends React.Component {
   constructor(props){
     super(props)
 
-    // this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
   }
   handleLoginSubmit(credentials){
     const userCredentials = {
       username: credentials.username,
       password: credentials.password,
     }
-    console.log('handleLoginSubmit called');
     this.props.dispatch(login(userCredentials))
-    // .then(res => {
-    //   console.log(this.props.jwt);
-    //   saveAuthToken(this.props.jwt);
-    //   localStorage.setItem('authToken', this.props.jwt);
-    //   localStorage.setItem('userId', this.props.userId);
-    //   localStorage.setItem('username', this.props.username);
-    // }).catch(err => {console.log(err)});
-    // this.props.reset();
   }
   render(){
-    // if(this.props.jwt !== undefined){
-    //   saveAuthToken(this.props.jwt);
-    // }
-    // if(this.props.userId !== undefined){
-    //   localStorage.setItem('userId', this.props.userId);
-    // }
-    // if(this.props.username !== undefined){
-    //   localStorage.setItem('username', this.props.username);
-    // }
-
       const {jwt, error } = this.props;
       let message;
       if( error ){
@@ -72,9 +51,6 @@ export class LoginForm extends React.Component {
               marginRight: "10%",
               marginLeft: "10%",
             }}
-            // bodyStyle={{
-            //   width: "60%"
-            // }}
             open={this.props.openForm}
             onRequestClose={this.props.closeForm}
             contentClassName='modal-content-container'

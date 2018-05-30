@@ -1,7 +1,5 @@
 import React from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
 import Button from '@material-ui/core/Button';
-import {Link} from 'react-router-dom';
 import SignUpForm from './sign-up-form';
 import LoginForm from './login-form';
 import DemoLogin from './demo-login';
@@ -35,7 +33,6 @@ export default class LandingPage extends React.Component{
   }
 
   openSignUpForm(){
-    console.log("openSignUpForm called");
     this.setState({signUpFormRendered: true});
   }
 
@@ -61,9 +58,6 @@ export default class LandingPage extends React.Component{
         />
         <h2 className="landing-page-sub-title">Why spend hundreds on text books?</h2>
         <div className="app-description">
-          {/* <p>
-            You{" ' "}re already spending thousands on tuition.
-          </p> */}
           <p>
             Save your money and swap text books with other students at your school with <span>Swapify</span>.
           </p>
@@ -85,7 +79,6 @@ export default class LandingPage extends React.Component{
 
         <div className='signUp-login-buttons'>
           <Button
-            // className='sign-up-button button'
             label='Sign up'
             style={style}
             onClick={this.openSignUpForm}
@@ -100,9 +93,6 @@ export default class LandingPage extends React.Component{
           >
             Login
           </Button>
-          {/* <DemoLogin
-            className="button"
-          /> */}
         </div>
         <DemoLogin />
       </div>

@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import { Redirect } from 'react-router-dom';
 import { login } from '../actions/login-action';
-import { saveAuthToken } from '../local-storage';
 
 const style = {
   background: 'rgba(255, 64, 129, .4)',
@@ -22,7 +21,6 @@ export class DemoLoginButton extends React.Component{
   constructor(props){
     super(props)
 
-    // this.demoLogin = this.demoLogin.bind(this)
   }
   demoLogin(){
     const userCredentials = {
@@ -31,25 +29,8 @@ export class DemoLoginButton extends React.Component{
     };
 
     this.props.dispatch(login(userCredentials))
-      // .then(() => {
-        // console.log(this.props.jwt);
-        // saveAuthToken(this.props.jwt);
-        //
-        // localStorage.setItem('userId', this.props.userId);
-        // localStorage.setItem('username', this.props.username);
-      // }).catch(err => {console.log(err)});
-      // this.props.reset();
   }
   render(){
-    // if(this.props.jwt !== undefined){
-    //   saveAuthToken(this.props.jwt);
-    // }
-    // if(this.props.userId !== undefined){
-    //   localStorage.setItem('userId', this.props.userId);
-    // }
-    // if(this.props.username !== undefined){
-    //   localStorage.setItem('username', this.props.username);
-    // }
     const userCredentials = {
       username: "demoAccount",
       password: "demopassword",
@@ -87,12 +68,4 @@ function mapStateToProps(state){
   }
 }
 
-// function mapDispatchToProps(dispatch){
-//   return({
-//     dispatchLogin: (credentials) => dispatch(login(credentials))
-//   })
-// }
-
 export default connect(mapStateToProps)(DemoLoginButton);
-
-// export default demoLogin;

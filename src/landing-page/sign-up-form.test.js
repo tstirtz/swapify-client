@@ -1,6 +1,5 @@
 import { shallow, mount } from 'enzyme';
 import React from 'react';
-import TestRenderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SignUpForm from './sign-up-form';
@@ -14,11 +13,11 @@ describe('<SignUpForm>', ()=> {
 
     xit('Should update input', () => {
       const wrapper = mount(
-         <Provider store={store}>
+        <Provider store={store}>
           <MuiThemeProvider>
             <SignUpForm />
-           </MuiThemeProvider>
-         </Provider>
+          </MuiThemeProvider>
+        </Provider>
       );
 
       wrapper.find('input[name="first"]').simulate("change", {target: {val: 'Test'}})

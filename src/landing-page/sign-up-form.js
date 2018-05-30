@@ -1,5 +1,4 @@
 import React from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
 import Button from '@material-ui/core/Button';
 import Dialog from 'material-ui/Dialog';
 import { Field, reduxForm } from 'redux-form';
@@ -38,26 +37,17 @@ export class SignUpForm extends React.Component{
       password: values.password,
       username: values.username,
     };
-    console.log(newUser);
     this.props.dispatch(signUp(newUser))
     .then((response) => {
       console.log(response);
-      console.log(store.getState());
-      // this.forceUpdate();
     }).then(() => this.props.dispatch(login({username: values.username, password: values.password})))
-    // .then(res => {
-    //   localStorage.setItem('userId', this.props.userId);
-    //   localStorage.setItem('username', this.props.username);
-    // })
     .catch(err => {
       console.log(err);
-      console.log(store.getState());
     });
     this.props.reset();
   }
 
   render() {
-    console.log(store.getState());
     const { jwt, error } = this.props;
     let message;
     if (error){

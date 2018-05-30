@@ -10,12 +10,8 @@
 }
 
 .signUp-login-buttons{
-  /* position: absolute;
-  bottom: 200px; */
   display: flex;
   width: 100%;
-  /* margin-left: 5%;
-  margin-right: 5%; */
   margin-top: 10px;
   justify-content: space-around;
 }
@@ -31,7 +27,6 @@
 .button{
   width: 150px;
   text-align: center;
-  /* margin: 15px; */
 }
 
 .demo-login-container{
