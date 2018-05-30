@@ -141,7 +141,7 @@ function mapStateToProps(state){
 }
 
 MessageThread.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  dispatch: PropTypes.func,
   messageStatus: PropTypes.string,
   messages: PropTypes.arrayOf(PropTypes.object)
 }
