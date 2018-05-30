@@ -11,14 +11,6 @@ export default function addBookToSwapReducer(state=initialState, action){
       ...state,
       pending: false,
       response: `${action.payload}`
-      // books: [
-      //   ...state.books,
-      //   {
-      //     title: `${action.payload.title}`,
-      //     author: `${action.payload.author}`,
-      //     userId: `${action.payload.userId}`
-      //   }
-      //  ]
     });
   }
   if (action.type === 'BOOKS_TO_SWAP_REJECTED') {
