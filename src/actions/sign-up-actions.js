@@ -1,5 +1,5 @@
 import { SubmissionError } from 'redux-form';
-import {API_BASE_URL, } from './../config';
+import { API_BASE_URL } from './../config';
 import { normalizeResponseError } from './utils';
 
 export const SIGN_UP = 'SIGN_UP';
