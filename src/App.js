@@ -44,7 +44,7 @@ export class App extends React.Component {
         <IconButton
           value="Menu"
           aria-label="Menu"
-          tabIndex="0"
+          tabIndex={0}
           disabled={false}
           onClick={this.handleNav}
           onKeyPress={this.handleKeyPressEvent}
