@@ -1,2 +1,2 @@
 [context.production]
-  API_BASE_URL = "https://peaceful-garden-13000.herokuapp.com/"
+  REACT_APP_API_BASE_URL = "https://peaceful-garden-13000.herokuapp.com/"
