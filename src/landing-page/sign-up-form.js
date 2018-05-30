@@ -1,10 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import Dialog from 'material-ui/Dialog';
 import { Field, reduxForm } from 'redux-form';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import store from '../store';
 import renderTextField from './materialUI-text-field';
 import validate from '../validators';
 import { signUp } from '../actions/sign-up-actions';
@@ -22,13 +22,6 @@ const style = {
 };
 
 export class SignUpForm extends React.Component{
-  constructor(props){
-    super(props)
-    this.state = {
-      formRendered: false,
-    }
-  }
-
   handleFormSubmit(values){
     const newUser = {
       first: values.first,
@@ -141,6 +134,23 @@ function mapStateToProps(state) {
     userId: state.login.id,
     username: state.login.username,
   }
+}
+
+SignUpForm.propTypes = {
+  dispatch: PropTypes.func,
+  reset: PropTypes.func,
+  jwt: PropTypes.string,
+  error: PropTypes.string,
+  openForm: PropTypes.bool.isRequired,
+  closeForm: PropTypes.bool.isRequired,
+  pristine: PropTypes.bool.isRequired,
+  submitting: PropTypes.bool.isRequired,
+  handleSubmit: PropTypes.func,
+}
+
+SignUpForm.defaultProps = {
+  jwt: '',
+  error: '',
 }
 
 const SignUpWithStore = connect(
