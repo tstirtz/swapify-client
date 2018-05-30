@@ -5,9 +5,6 @@ import FontIcon from 'material-ui/FontIcon';
 import Divider from 'material-ui/Divider';
 import { Link } from 'react-router-dom';
 import { getMessages } from '../actions/get-messages-action';
-// import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-// import Avatar from '@material-ui/core/Avatar';
-// import People from '@material-ui/icons/People';
 
 import './messages.css';
 
@@ -16,7 +13,6 @@ export class MessagesOverview extends React.Component{
     super(props)
   }
   componentDidMount(){
-    console.log('componentDidMount called');
     this.props.dispatch(getMessages());
   }
   render(){
@@ -31,7 +27,6 @@ export class MessagesOverview extends React.Component{
           usernames.push(message.from)
         }
       });
-      //link should render message thread with specific user
     if(usernames.length === 0){
       list = <p className="user-feedback">No messages to display</p>
     }else{

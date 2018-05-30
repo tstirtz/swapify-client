@@ -1,11 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import IconButton from 'material-ui/IconButton';
 import Button from '@material-ui/core/Button';
 import Textarea from "react-textarea-autosize";
 import Snackbar from 'material-ui/Snackbar';
-import Divider from 'material-ui/Divider';
-import { pinkA200 } from 'material-ui/styles/colors';
 import { getMessages } from '../actions/get-messages-action';
 import { sendMessage } from '../actions/send-message-action';
 
@@ -42,7 +39,6 @@ export class MessageThread extends React.Component{
   }
 
   sendMessage(){
-    console.log('SendMessage called');
     let pathname = window.location.pathname;
     let pathnameValues = pathname.split('/');
     let recipient = pathnameValues[1];
@@ -57,21 +53,19 @@ export class MessageThread extends React.Component{
   }
 
   openSnackbar(){
-    console.log('------------- openSnackBar called');
     this.setState({
       snackbarRendered: true,
-    })
+    });
   }
 
   closeSnackbar(){
     this.setState({
       snackbarRendered: false,
-    })
+    });
   }
   render() {
-    let pathname = window.location.pathname
-    let pathnameValues = pathname.split('/')
-    console.log(pathnameValues[1]);
+    let pathname = window.location.pathname;
+    let pathnameValues = pathname.split('/');
 
     return(
       <div className="messages-thread-container">

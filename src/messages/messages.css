@@ -8,9 +8,6 @@ p{
   height: 82.5vh;
   overflow: scroll;
 }
-/* .messages-container{
-  height: 90%;
-} */
 .sent-message{
   display: flex;
   margin: 10px;
@@ -79,7 +76,6 @@ p{
 
 
 h2.sub-header-username{
-  /* position: fixed; */
   display: block;
   color: rgb(255, 64, 129);
   font-size: 18px;
@@ -88,13 +84,10 @@ h2.sub-header-username{
 }
 
 .sub-header h2{
-  /* display: block; */
   color: white;
   height: 14px;
   font-size: 14px;
   text-align: center;
-  /* margin-left: auto;
-  margin-right: auto; */
 }
 
 .user-feedback{
