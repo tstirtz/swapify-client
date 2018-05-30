@@ -1,19 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Dialog from 'material-ui/Dialog';
 import Button from '@material-ui/core/Button';
 import TextField from 'material-ui/TextField';
 import { cyan500 } from 'material-ui/styles/colors';
 import { connect } from 'react-redux';
 import { sendMessage } from '../actions/send-message-action';
-
-const style = {
-  borderRadius: 3,
-  border: 0,
-  color: '#f80759',
-  height: '20px',
-  padding: '0 30px',
-  margin: '10px',
-};
 
 export class MessageModal extends React.Component{
   constructor(props){
@@ -98,8 +90,8 @@ export class MessageModal extends React.Component{
             aria-label="message owner of book"
             name="message-field"
             hintText="Want to swap?"
-            fullWidth={true}
-            multiLine={true}
+            fullWidth
+            multiLine
             inputStyle={{
               height: "60%",
             }}
@@ -111,6 +103,15 @@ export class MessageModal extends React.Component{
     );
   }
 }
+
+MessageModal.propTypes = {
+  closeModal: PropTypes.func.isRequired,
+  recipientUsername: PropTypes.string.isRequired,
+  dispatch: PropTypes.func,
+  renderSnackbar: PropTypes.func.isRequired,
+  modalState: PropTypes.bool.isRequired,
+}
+
 
 
 export default connect()(MessageModal);
