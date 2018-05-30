@@ -14,7 +14,6 @@ import SearchPage from './search-page/search-page';
 import MessagesOverview from './messages/messages-overview';
 import MessageThread from './messages/message-thread';
 import { navAction } from './actions/nav-action';
-import './App.css';
 
 export class App extends React.Component {
   constructor(props){
@@ -35,40 +34,12 @@ export class App extends React.Component {
     }
   }
   toggleMenuIcon(){
-    console.log(localStorage.getItem('authToken'));
     if(localStorage.getItem('authToken').length !== 0){
       this.setState({menuIconDisabled: true});
     }
   }
-  // componentWillRecieveProps(){
-  //   console.log(localStorage.getItem('authToken'));
-  //   if(localStorage.getItem('authToken').length !== 0){
-  //     this.setState({menuIconDisabled: true})
-  //   }else{
-  //     return
-  //   }
-  // }
   render() {
-//Disable menu icon if no user is logged in
     let menuIcon;
-    // if(localStorage.getItem('authToken') !== null){
-    //   menuIcon = (
-    //     <IconButton
-    //       disabled={false}
-    //       onClick={this.handleNav}
-    //       onKeyPress={this.handleKeyPressEvent}
-    //     >
-    //       <FontIcon
-    //         className="fas fa-bars"
-    //         color="rgb(48, 48, 48)"
-    //         hoverColor="rgb(255, 64, 129)"
-    //         style={{
-    //           fontSize:"18px",
-    //           margin: "15px"
-    //         }}
-    //       />
-    //     </IconButton>)
-    // }else{
       menuIcon = (
         <IconButton
           value="Menu"
@@ -90,7 +61,6 @@ export class App extends React.Component {
             }}
           />
         </IconButton>)
-    // }
     return (
       <Router>
         <div className='app'>
@@ -104,7 +74,6 @@ export class App extends React.Component {
                 width: '100%',
                 marginRight: '40px'
               }}
-              // onLeftIconButtonClick={this.handleNav}
             />
             <Drawer
               role="menu"
