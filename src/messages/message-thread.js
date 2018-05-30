@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import Textarea from "react-textarea-autosize";
 import Snackbar from 'material-ui/Snackbar';
+import PropTypes from 'prop-types';
 import { getMessages } from '../actions/get-messages-action';
 import { sendMessage } from '../actions/send-message-action';
 
@@ -17,6 +18,14 @@ const style = {
   boxShadow: '0 3px 5px 2px rgba(0, 43, 128, .30)',
 };
 
+MessageThread.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  messageStatus: PropTypes.string,
+}
+
+MessageThread.defaultProps = {
+  messageStatus: ''
+}
 export class MessageThread extends React.Component{
   constructor(props){
     super(props)

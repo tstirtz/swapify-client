@@ -20,10 +20,6 @@ const style = {
 };
 
 export class LoginForm extends React.Component {
-  constructor(props){
-    super(props)
-
-  }
   handleLoginSubmit(credentials){
     const userCredentials = {
       username: credentials.username,

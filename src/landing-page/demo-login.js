@@ -18,10 +18,6 @@ const style = {
 };
 
 export class DemoLoginButton extends React.Component{
-  constructor(props){
-    super(props)
-
-  }
   demoLogin(){
     const userCredentials = {
       username: "demoAccount",
@@ -36,7 +32,6 @@ export class DemoLoginButton extends React.Component{
       password: "demopassword",
     };
     const {jwt, error } = this.props;
-    let message;
     if( error ){
       message = (<p>Incorrect username or password</p>);
     }

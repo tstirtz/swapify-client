@@ -9,16 +9,13 @@ import { getMessages } from '../actions/get-messages-action';
 import './messages.css';
 
 export class MessagesOverview extends React.Component{
-  constructor(props){
-    super(props)
-  }
   componentDidMount(){
     this.props.dispatch(getMessages());
   }
   render(){
     let usernames = [];
     let list;
-    this.props.messages.map( message => {
+    this.props.messages.forEach(function(message){
         if(usernames.includes(message.from)){
           return
         }else if(message.from === localStorage.getItem('username')){
