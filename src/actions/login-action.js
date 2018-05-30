@@ -32,11 +32,6 @@ export function login(credentials) {
               : 'Unable to login, please try again';
           return Promise.reject(message);
         });
-        // let data = await response;
-        // if(response.status === 200){
-        //   return response.json();
-        // }
-        // return data;
     }
   }
 }

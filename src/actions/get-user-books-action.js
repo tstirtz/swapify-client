@@ -15,11 +15,9 @@ export const getUserBooks = () => ({
     })
     .then(res => res.json())
     .then(jsonData => {
-      console.log(jsonData);
       return jsonData;
     })
     .catch(err => {
-      console.log(err);
       const message = "Couldn't retrieve data";
       return message;
     });

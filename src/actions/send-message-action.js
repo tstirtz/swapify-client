@@ -28,7 +28,6 @@ export const sendMessage = (message, recipientUsername) => ({
           code === 422
           ? `${err.reason}`
           : 'Unable to send message, please try again';
-          console.log(message);
           return message;
       })
   }

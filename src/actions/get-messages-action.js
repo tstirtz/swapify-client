@@ -22,7 +22,6 @@ export const getMessages = () => ({
         code === 422
         ? `${err.message}`
         : 'Unable to retrieve message, please try again';
-        console.log(message);
         return message;
     })
   }

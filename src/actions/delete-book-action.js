@@ -15,11 +15,9 @@ export const deleteBook = bookId => ({
     })
     .then(res => res.json())
     .then(jsonResponse => {
-        console.log(jsonResponse);
         return jsonResponse;
     })
     .catch(err => {
-      console.log(err);
       return err;
     })
   }

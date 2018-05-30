@@ -27,7 +27,6 @@ export const addBookToSwap = (values, id) => ({
         code === 422
           ? 'Already exists as a needed book'
           : 'Unable to create book, please try again';
-        console.log(message);
         return message;
     });
   }
