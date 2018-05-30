@@ -97,6 +97,7 @@ export class MessageThread extends React.Component{
                   </div>
                 );
               }
+              return;
             })
           }
         </div>
