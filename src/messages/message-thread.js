@@ -68,6 +68,15 @@ export class MessageThread extends React.Component{
     let pathname = window.location.pathname;
     let pathnameValues = pathname.split('/');
 
+    let messagesArray = this.props.messages.filter(function(message){
+      if(message.from === `${localStorage.getItem('username')}`){
+        return true;
+      }else if(message.from === pathnameValues[1]){
+        return true;
+      }
+      return false;
+    });
+
     return(
       <div className="messages-thread-container">
         <div className="message-thread-sub-header">
@@ -77,7 +86,7 @@ export class MessageThread extends React.Component{
         </div>
         <div className="messages-container">
           {
-            this.props.messages.map(message => {
+            messagesArray.map(message => {
               if(message.from === `${localStorage.getItem('username')}`){
                 return(
                   <div
@@ -86,19 +95,38 @@ export class MessageThread extends React.Component{
                   >
                     <p>{message.content}</p>
                   </div>
-                );
-              }else if(message.from === pathnameValues[1]){
-                return(
-                  <div
-                    className="recieved-message"
-                    key={message._id}
-                  >
-                    <p>{message.content}</p>
-                  </div>
-                );
+                 );
               }
-              return;
+              return(
+                <div
+                  className="recieved-message"
+                  key={message._id}
+                >
+                  <p>{message.content}</p>
+                </div>
+              );
             })
+            // this.props.messages.map(message => {
+            //   if(message.from === `${localStorage.getItem('username')}`){
+            //     return(
+            //       <div
+            //         className="sent-message"
+            //         key={message._id}
+            //       >
+            //         <p>{message.content}</p>
+            //       </div>
+            //     );
+            //   }else if(message.from === pathnameValues[1]){
+            //     return(
+            //       <div
+            //         className="recieved-message"
+            //         key={message._id}
+            //       >
+            //         <p>{message.content}</p>
+            //       </div>
+            //     );
+            //   }
+            // })
           }
         </div>
         <div
