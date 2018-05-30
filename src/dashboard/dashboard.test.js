@@ -15,20 +15,4 @@ describe('Dashboard page', () => {
         </MuiThemeProvider>
       </Provider>);
   });
-  // it('BookToSwap modal should render when addBookForm state is true', () => {
-  //   const spy = jest.fn();
-  //   const wrapper = shallow(
-  //     <Provider store={store}>
-  //       <MuiThemeProvider>
-  //         <DashBoard />
-  //       </MuiThemeProvider>
-  //     </Provider>);
-  //
-  //   wrapper.instance().renderForm;
-  //   wrapper.update();
-  //
-  //   const modal = wrapper.find('.subheader').dive().find('BooksToSwap');
-  //
-  //   expect(modal.length).toEqual(2);
-  // });
 });

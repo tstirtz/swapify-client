@@ -15,17 +15,4 @@ describe('BookToSwap component', () => {
         </MuiThemeProvider>
       </Provider>);
   });
-  // it('Should render error message', () => {
-  //   const wrapper = mount(
-  //     <Provider store={store}>
-  //       <MuiThemeProvider>
-  //         <BooksToSwap response="Already exists as a needed book" />
-  //       </MuiThemeProvider>
-  //     </Provider>);
-  //
-  //
-  //   console.log(wrapper.props());
-  //
-  //   expect(wrapper.find('.add-book-response')).toHaveLength(1);
-  // })
 });

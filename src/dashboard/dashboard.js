@@ -38,14 +38,12 @@ export class Dashboard extends React.Component{
   }
 
   closeForm(){
-    console.log(this);
     this.setState({
       addBookForm: !this.state.addBookForm,
     });
   }
 
   renderForm(){
-    console.log('renderForm called');
     this.setState({addBookForm: !this.state.addBookForm })
   }
 
