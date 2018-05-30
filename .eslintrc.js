@@ -8,6 +8,8 @@ module.exports = {
         "plugin:react/recommended"
     ],
     "rules": {
+       'react/jsx-boolean-value': ['error', 'never', { ignore: ['value']}]
+      "no-console": "warn",
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
       "react/require-default-props": [0, { forbidDefaultForRequired: false }],
        // "promise/catch-or-return": "error",
