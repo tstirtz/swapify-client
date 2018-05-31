@@ -9,11 +9,10 @@ export function signUp(user){
     payload(){
       return fetch(`${API_BASE_URL}/sign-up`, {
         body: JSON.stringify(user),
-        headers: new Headers({
+        headers: {
           'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
           'content-type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-        }),
+        },
         method: 'POST',
         mode: 'cors',
         redirect: 'follow',
