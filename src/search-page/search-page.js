@@ -113,6 +113,11 @@ export class SearchPage extends React.Component{
     }
     return(
       <div>
+        <h2
+          className='sub-header-title'
+        >
+          Available Books
+        </h2>
         <div className="search-field">
           <TextField
             aria-label="search books"
