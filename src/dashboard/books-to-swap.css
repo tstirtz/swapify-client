@@ -11,12 +11,13 @@
 }
 div h2.sub-header-title{
   display: inline-block;
-  width: 100px;
+  width: 150px;
   height: 24px;
   font-size: 20px;
   color: rgb(0, 188, 212);
-  text-align: center;
+  text-align: left;
   align-self: center;
+  margin-left: 2.5%;
 }
 
 .cancel-button{
