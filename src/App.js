@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import AppBar from 'material-ui/AppBar';
@@ -18,9 +19,6 @@ import { navAction } from './actions/nav-action';
 export class App extends React.Component {
   constructor(props){
     super(props)
-    this.state = {
-      menuIconDisabled: true,
-    }
 
     this.handleNav = this.handleNav.bind(this);
     this.handleKeyPressEvent = this.handleKeyPressEvent.bind(this);
@@ -102,7 +100,7 @@ export class App extends React.Component {
                 </MenuItem>
               </Link>
               <Link
-                to={`/search`}
+                to="/search"
                 role="menu"
               >
                 <MenuItem
@@ -134,6 +132,12 @@ function mapStateToProps(state) {
     open: state.nav.open,
     username: state.login.username,
   }
+}
+
+App.propTypes = {
+  dispatch: PropTypes.func,
+  open: PropTypes.bool,
+
 }
 
 export default connect(mapStateToProps)(App);
