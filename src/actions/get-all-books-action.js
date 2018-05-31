@@ -10,7 +10,7 @@ export const getAllBooks = () => ({
       mode: 'cors',
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
-        'Accept': 'application/json, application/xml, text/plain, text/html, *.*'
+        // 'Accept': 'application/json, application/xml, text/plain, text/html, *.*'
       }
     })
     .then(res => normalizeResponseError(res))
