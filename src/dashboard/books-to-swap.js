@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import FlatButton from 'material-ui/FlatButton';
@@ -121,6 +122,18 @@ export class BooksToSwap extends React.Component{
       </div>
     )
   }
+}
+
+BooksToSwap.propTypes = {
+  pristine: PropTypes.bool,
+  submitting: PropTypes.bool,
+  handleSubmit: PropTypes.func,
+  closeModal: PropTypes.func,
+  toggleBookForm: PropTypes.func,
+  response: PropTypes.string,
+  reset: PropTypes.func,
+  dispatch: PropTypes.func,
+  userId: PropTypes.string,
 }
 
 function mapStateToProps(state) {
