@@ -10,7 +10,7 @@ export function signUp(user){
       return fetch(`${API_BASE_URL}/sign-up`, {
         body: JSON.stringify(user),
         headers: {
-          'Accept': 'application/json',
+          'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
           'content-type': 'application/json',
         },
         method: 'POST',
