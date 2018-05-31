@@ -7,8 +7,7 @@ cache:
 script:
     - npm test
 env:
-    - CI=false
-    # - REACT_APP_API_BASE_URL=https://peaceful-garden-13000.herokuapp.com/
+    - CI=true
 before_deploy:
     - npm install netlify-cli -g
     - npm run build
