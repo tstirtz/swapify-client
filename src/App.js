@@ -25,19 +25,17 @@ export class App extends React.Component {
     this.handleNav = this.handleNav.bind(this);
     this.handleKeyPressEvent = this.handleKeyPressEvent.bind(this);
   }
+
   handleNav(){
     this.props.dispatch(navAction(!this.props.open));
   }
+
   handleKeyPressEvent(event){
     if(event.key === 'Enter'){
       this.props.dispatch(navAction(!this.props.open));
     }
   }
-  toggleMenuIcon(){
-    if(localStorage.getItem('authToken').length !== 0){
-      this.setState({menuIconDisabled: true});
-    }
-  }
+
   render() {
     let menuIcon;
       menuIcon = (
@@ -45,7 +43,7 @@ export class App extends React.Component {
           value="Menu"
           aria-label="Menu"
           tabIndex={0}
-          disabled={false}
+          disabled={localStorage.getItem('authToken') === null || localStorage.getItem('authToken').length === 0}
           onClick={this.handleNav}
           onKeyPress={this.handleKeyPressEvent}
         >
