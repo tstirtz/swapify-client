@@ -63,7 +63,7 @@ function mapStateToProps(state){
 
 DemoLoginButton.propTypes = {
   dispatch: PropTypes.func,
-  jwt: PropTypes.string.isRequired,
+  jwt: PropTypes.string,
 }
 
 export default connect(mapStateToProps)(DemoLoginButton);
