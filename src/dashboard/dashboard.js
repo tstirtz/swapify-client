@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {List, ListItem} from 'material-ui/List';
 import { cyan500, pinkA200 } from 'material-ui/styles/colors';
@@ -127,6 +128,11 @@ export class Dashboard extends React.Component{
       </section>
     );
   }
+}
+
+Dashboard.propTypes = {
+  books: PropTypes.arrayOf(PropTypes.object),
+  dispatch: PropTypes.func,
 }
 
 function mapStateToProps(state) {
