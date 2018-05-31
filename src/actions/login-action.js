@@ -9,7 +9,7 @@ export function login(credentials) {
         return fetch(`${API_BASE_URL}/login`, {
           body: JSON.stringify(credentials),
           headers: {
-            'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
+            'Accept': 'application/json',
             'content-type': 'application/json',
           },
           method: 'POST',
