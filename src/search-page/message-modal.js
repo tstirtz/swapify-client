@@ -105,11 +105,15 @@ export class MessageModal extends React.Component{
 }
 
 MessageModal.propTypes = {
-  closeModal: PropTypes.func.isRequired,
-  recipientUsername: PropTypes.string.isRequired,
+  closeModal: PropTypes.func,
+  recipientUsername: PropTypes.string,
   dispatch: PropTypes.func,
-  renderSnackbar: PropTypes.func.isRequired,
-  modalState: PropTypes.bool.isRequired,
+  renderSnackbar: PropTypes.func,
+  modalState: PropTypes.bool,
+}
+
+MessageModal.defaultProps = {
+  recipientUsername: '',
 }
 
 
