@@ -1,9 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import Dialog from 'material-ui/Dialog';
 import { Field, reduxForm } from 'redux-form';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import LinearProgress from 'material-ui/LinearProgress';
 import renderTextField from './materialUI-text-field';
 import validate from '../validators';
 import { login } from '../actions/login-action';
@@ -30,6 +32,21 @@ export class LoginForm extends React.Component {
   render(){
       const {jwt, error } = this.props;
       let message;
+      let loading;
+      if(this.props.pending === true){
+        loading = (
+          <LinearProgress
+            mode="indeterminate"
+            color="rgb(255, 64, 129)"
+            style={{
+              width: '80%',
+              marginLeft: '10%',
+              marginRight: '10%',
+              marginTop: '20px',
+              marginBottom: '20px',
+            }}
+          />);
+      }
       if( error ){
         message = (<p>Incorrect username or password</p>);
       }
@@ -83,6 +100,7 @@ export class LoginForm extends React.Component {
                 Submit
               </Button>
             </form>
+            {loading}
           </Dialog>
         </div>
       );
@@ -96,7 +114,20 @@ function mapStateToProps(state) {
     error: state.login.error,
     userId: state.login.id,
     username: state.login.username,
+    pending: state.login.pending
   }
+}
+
+LoginForm.propTypes = {
+  dispatch: PropTypes.func,
+  jwt: PropTypes.string,
+  error: PropTypes.string,
+  openForm: PropTypes.bool.isRequired,
+  closeForm: PropTypes.bool.isRequired,
+  pristine: PropTypes.bool.isRequired,
+  submitting: PropTypes.bool.isRequired,
+  handleSubmit: PropTypes.func,
+  pending: PropTypes.bool
 }
 
 const loginProps = connect(

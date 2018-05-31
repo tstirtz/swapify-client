@@ -5,6 +5,7 @@ import Dialog from 'material-ui/Dialog';
 import { Field, reduxForm } from 'redux-form';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import LinearProgress from 'material-ui/LinearProgress';
 import renderTextField from './materialUI-text-field';
 import validate from '../validators';
 import { signUp } from '../actions/sign-up-actions';
@@ -43,6 +44,21 @@ export class SignUpForm extends React.Component{
   render() {
     const { jwt, error } = this.props;
     let message;
+    let loading;
+    if(this.props.pending === true){
+      loading = (
+        <LinearProgress
+          mode="indeterminate"
+          color="rgb(255, 64, 129)"
+          style={{
+            width: '80%',
+            marginLeft: '10%',
+            marginRight: '10%',
+            marginTop: '20px',
+            marginBottom: '20px',
+          }}
+        />);
+    }
     if (error){
       message = (<p>{error}</p>);
     }
@@ -120,6 +136,7 @@ export class SignUpForm extends React.Component{
               Submit
             </Button>
           </form>
+          {loading}
         </Dialog>
       </div>
     );
@@ -133,6 +150,7 @@ function mapStateToProps(state) {
     error: state.signUp.error,
     userId: state.login.id,
     username: state.login.username,
+    pending: state.signUp.pending
   }
 }
 
@@ -146,6 +164,7 @@ SignUpForm.propTypes = {
   pristine: PropTypes.bool.isRequired,
   submitting: PropTypes.bool.isRequired,
   handleSubmit: PropTypes.func,
+  pending: PropTypes.bool
 }
 
 SignUpForm.defaultProps = {
