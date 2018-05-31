@@ -1,5 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
+import { connect } from 'react-redux';
+import CircularProgress from 'material-ui/CircularProgress';
 import SignUpForm from './sign-up-form';
 import LoginForm from './login-form';
 import DemoLogin from './demo-login';
@@ -19,7 +22,7 @@ const style = {
   boxShadow: '0 3px 5px 2px rgba(0, 43, 128, .30)',
 };
 
-export default class LandingPage extends React.Component{
+export class LandingPage extends React.Component{
   constructor(props){
     super(props)
     this.state = {
@@ -49,6 +52,20 @@ export default class LandingPage extends React.Component{
   }
 
   render(){
+    let pending;
+    if(this.props.pending === true){
+      pending =  (
+        <CircularProgress
+          size={150}
+          thickness={10}
+          style={{
+            zIndex: '3',
+            position: 'fixed',
+            top: '50%',
+          }}
+        />
+      )
+    }
     return(
       <div className='landing-page-container'>
         <img
@@ -56,13 +73,13 @@ export default class LandingPage extends React.Component{
           alt='Two hands swaping books'
           className='logo'
         />
+        {pending}
         <h2 className="landing-page-sub-title">Why spend hundreds on text books?</h2>
         <div className="app-description">
           <p>
             Save your money and swap text books with other students at your school with <span>Swapify</span>.
           </p>
         </div>
-
         {this.state.signUpFormRendered &&
           <SignUpForm
             openForm={this.openSignUpForm}
@@ -99,3 +116,16 @@ export default class LandingPage extends React.Component{
     );
   }
 }
+
+function mapStateToProps(state){
+  return{
+    pending: state.login.pending
+  }
+}
+
+LandingPage.propTypes = {
+  pending: PropTypes.bool
+}
+
+
+export default connect(mapStateToProps)(LandingPage);
