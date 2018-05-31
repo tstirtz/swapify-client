@@ -7,7 +7,7 @@ export function signUp(user){
   return {
     type: SIGN_UP,
     payload(){
-      return fetch(`${API_BASE_URL}sign-up`, {
+      return fetch(`${API_BASE_URL}/sign-up`, {
         body: JSON.stringify(user),
         headers: {
           'Accept': 'application/json, application/xml, text/html, *.*',
