@@ -106,27 +106,6 @@ export class MessageThread extends React.Component{
                 </div>
               );
             })
-            // this.props.messages.map(message => {
-            //   if(message.from === `${localStorage.getItem('username')}`){
-            //     return(
-            //       <div
-            //         className="sent-message"
-            //         key={message._id}
-            //       >
-            //         <p>{message.content}</p>
-            //       </div>
-            //     );
-            //   }else if(message.from === pathnameValues[1]){
-            //     return(
-            //       <div
-            //         className="recieved-message"
-            //         key={message._id}
-            //       >
-            //         <p>{message.content}</p>
-            //       </div>
-            //     );
-            //   }
-            // })
           }
         </div>
         <div
