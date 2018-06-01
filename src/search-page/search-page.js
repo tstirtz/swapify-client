@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import TextField from 'material-ui/TextField';
 import {List, ListItem} from 'material-ui/List';
@@ -149,6 +150,12 @@ export class SearchPage extends React.Component{
       </div>
     );
   }
+}
+
+SearchPage.propTypes = {
+  dispatch: PropTypes.func,
+  books: PropTypes.arrayOf(PropTypes.object),
+  messageStatus: PropTypes.string,
 }
 
 function mapStateToProps(state){
