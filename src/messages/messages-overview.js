@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {List, ListItem} from 'material-ui/List';
 import FontIcon from 'material-ui/FontIcon';
@@ -52,6 +53,12 @@ export class MessagesOverview extends React.Component{
       </List>
     );
   }
+}
+
+MessagesOverview.propTypes = {
+  dispatch: PropTypes.func,
+  messages: PropTypes.arrayOf(PropTypes.object),
+  
 }
 
 function mapStateToProps(state){
