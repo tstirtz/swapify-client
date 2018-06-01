@@ -4,7 +4,6 @@ import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
 import CircularProgress from 'material-ui/CircularProgress';
 import SignUpForm from './sign-up-form';
-import LoginForm from './login-form';
 import DemoLogin from './demo-login';
 import logo from './swapify-logo.png';
 import DialogBoxLogin from './dialog-box-login';
