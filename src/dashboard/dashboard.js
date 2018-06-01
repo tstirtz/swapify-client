@@ -104,6 +104,7 @@ export class Dashboard extends React.Component{
               closeModal={this.closeForm}
             />}
           <IconButton
+            onClick={this.renderForm}
             value="add new book"
             aria-label="add new book"
             className="render-form-button"
@@ -116,8 +117,7 @@ export class Dashboard extends React.Component{
               style={{
                 fontSize: "18px"
               }}
-              onClick={this.renderForm}
-              className='fas fa-plus font-icon'
+              className='fas fa-plus font-icon add-book-button'
               hoverColor={cyan500}
             />
           </IconButton>

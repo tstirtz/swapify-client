@@ -92,11 +92,12 @@ export class SearchPage extends React.Component{
                 <IconButton
                   value="message owner"
                   aria-label="message owner"
+                  onClick={() => this.openModal(book.username)}
                 >
                   <FontIcon
                     value="message owner"
                     aria-label="message owner"
-                    onClick={() => this.openModal(book.username)}
+                    // onClick={() => this.openModal(book.username)}
                     className="far fa-envelope"
                     color={cyan500}
                     hoverColor={pinkA200}
