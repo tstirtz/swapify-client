@@ -70,9 +70,9 @@ export class Dashboard extends React.Component{
                 <IconButton
                   value="delete"
                   aria-label="delete"
+                  onClick={() => this.deleteBook(book._id)}
                 >
                   <FontIcon
-                    onClick={() => this.deleteBook(book._id)}
                     className="fas fa-minus delete-button"
                     color="rgba(255, 255, 255, 0.6)"
                     hoverColor={pinkA200}
