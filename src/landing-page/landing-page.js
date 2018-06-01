@@ -7,6 +7,7 @@ import SignUpForm from './sign-up-form';
 import LoginForm from './login-form';
 import DemoLogin from './demo-login';
 import logo from './swapify-logo.png';
+import DialogBoxLogin from './dialog-box-login';
 
 import './landing-page.css';
 
@@ -82,14 +83,14 @@ export class LandingPage extends React.Component{
         </div>
         {this.state.signUpFormRendered &&
           <SignUpForm
-            openForm={this.openSignUpForm}
+            openForm={this.state.signUpFormRendered}
             closeForm={this.closeSignUpForm}
           />
         }
 
         {this.state.loginFormRendered &&
-          <LoginForm
-            openForm={this.openLoginForm}
+          <DialogBoxLogin
+            openForm={this.state.loginFormRendered}
             closeForm={this.closeLoginForm}
           />
         }
