@@ -121,6 +121,7 @@ export class SearchPage extends React.Component{
         </h2>
         <div className="search-field">
           <TextField
+            className="material-search-textfield"
             aria-label="search books"
             onChange={this.updateSearch.bind(this)}
             value={this.state.search}

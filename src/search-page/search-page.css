@@ -3,6 +3,9 @@ div .search-field{
   margin-left: auto;
   margin-right: auto;
 }
+.material-search-textfield input[type="search"] {
+  -webkit-appearance: textfield !important;
+}
 
 .message-owner{
   display: inline-block;
