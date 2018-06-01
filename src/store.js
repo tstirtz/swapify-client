@@ -1,7 +1,6 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import promiseMiddleware from 'redux-promise-middleware';
 import { reducer as formReducer } from 'redux-form';
-import logger from 'redux-logger';
 import signUpReducer from './reducers/sign-up-reducer';
 import loginReducer from './reducers/login-reducer';
 import navReducer from './reducers/nav-reducer';
@@ -11,6 +10,14 @@ import getAllBooksReducer from './reducers/get-all-books-reducer';
 import sendMessageReducer from './reducers/send-message-reducer';
 import getMessagesReducer from './reducers/get-messages-reducer';
 import deleteBookReducer from './reducers/delete-book-reducer';
+
+const middlewares = [promiseMiddleware()];
+
+if (process.env.NODE_ENV === `development`) {
+  const { logger } = require(`redux-logger`);
+
+  middlewares.push(logger);
+}
 
 const store = createStore(combineReducers({
   form: formReducer,
@@ -23,6 +30,6 @@ const store = createStore(combineReducers({
   sendMessage: sendMessageReducer,
   getMessages: getMessagesReducer,
   deletedBook: deleteBookReducer,
-}),applyMiddleware(promiseMiddleware(), logger));
+}),applyMiddleware(...middlewares));
 
 export default store;
