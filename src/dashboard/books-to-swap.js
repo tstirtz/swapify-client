@@ -73,7 +73,7 @@ export class BooksToSwap extends React.Component{
             marginRight: "10%",
             marginLeft: "10%",
           }}
-          open={this.props.toggleBookForm}
+          open={this.props.addBookFormState}
           onRequestClose={this.props.closeModal}
           contentClassName='modal-content-container'
         >
@@ -134,6 +134,7 @@ BooksToSwap.propTypes = {
   reset: PropTypes.func,
   dispatch: PropTypes.func,
   userId: PropTypes.string,
+  addBookFormState: PropTypes.bool,
 }
 
 function mapStateToProps(state) {
