@@ -68,7 +68,10 @@ export class App extends React.Component {
               }
               titleStyle={{
                 width: '100%',
-                marginRight: '40px'
+                marginRight: '40px',
+                fontFamily: 'Orbitron, sans-serif',
+                fontSize: '25px',
+                // fontWeight: 'bold',
               }}
             />
             <Drawer
