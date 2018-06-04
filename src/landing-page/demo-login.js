@@ -6,7 +6,7 @@ import { Redirect } from 'react-router-dom';
 import { login } from '../actions/login-action';
 
 const style = {
-  background: 'rgba(255, 64, 129, .4)',
+  background: 'rgba(255, 64, 129, .6)',
   borderRadius: 3,
   border: 0,
   color: 'rgb(48, 48, 48)',
