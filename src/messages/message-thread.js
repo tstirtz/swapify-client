@@ -50,6 +50,9 @@ export class MessageThread extends React.Component{
         if(this.props.messageStatus === 'Message sent'){
           this.setState({ newMessage: ''});
         }
+      }).then(() => {
+        this.props.dispatch(getMessages());
+        setTimeout(() => {this.setState({snackbarRendered: false})}, 4000);
       });
   }
 
@@ -60,10 +63,12 @@ export class MessageThread extends React.Component{
   }
 
   closeSnackbar(){
+    console.log("----closeSnackbar was called");
     this.setState({
       snackbarRendered: false,
     });
   }
+
   render() {
     let pathname = window.location.pathname;
     let pathnameValues = pathname.split('/');
