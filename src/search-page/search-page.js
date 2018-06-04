@@ -78,6 +78,7 @@ export class SearchPage extends React.Component{
           >
             <ListItem
               className="list-item"
+              disabled
               leftIcon={<FontIcon
                 className="fas fa-book"
                 color={cyan500}
