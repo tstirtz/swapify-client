@@ -63,7 +63,6 @@ export class MessageThread extends React.Component{
   }
 
   closeSnackbar(){
-    console.log("----closeSnackbar was called");
     this.setState({
       snackbarRendered: false,
     });
