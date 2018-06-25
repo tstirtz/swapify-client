@@ -20,7 +20,7 @@
   display: block;
   height: 200px;
   width: 300px;
-  margin: 25% 15px 70px 15px;
+  margin: 25% 15px 50px 15px;
   color: grey;
 }
 
@@ -54,7 +54,7 @@
 
 @media only screen and (min-width: 500px) and (max-width: 800px){
   .logo{
-    margin: 40% 15px 20px 15px;
+    margin: 20% 15px 20px 15px;
     height: 100px;
     width: 150px;
   }
@@ -68,7 +68,7 @@
     width: 50%;
   }
   .logo{
-    margin: 10% 15px 100px 15px;
+    margin: 10% 15px 50px 15px;
     height: 150px;
     width: 225px;
   }
