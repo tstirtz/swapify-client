@@ -42,7 +42,8 @@ export class SignUpForm extends React.Component{
   }
 
   render() {
-    const { jwt, error } = this.props;
+    const { error } = this.props;
+    const authToken = localStorage.getItem('authToken');
     let message;
     let loading;
     if(this.props.pending === true){
@@ -62,7 +63,7 @@ export class SignUpForm extends React.Component{
     if (error){
       message = (<p>{error}</p>);
     }
-    if( jwt  && jwt !== "undefined" ){
+    if( authToken  && authToken !== "undefined" && authToken !== null ){
       return <Redirect to='/search' />
     }
     return(

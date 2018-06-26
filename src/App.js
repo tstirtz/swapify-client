@@ -22,9 +22,14 @@ export class App extends React.Component {
 
     this.handleNav = this.handleNav.bind(this);
     this.handleKeyPressEvent = this.handleKeyPressEvent.bind(this);
+    this.logout = this.logout.bind(this);
+  }
+  handleNav(){
+    this.props.dispatch(navAction(!this.props.open));
   }
 
-  handleNav(){
+  logout(){
+    localStorage.clear();
     this.props.dispatch(navAction(!this.props.open));
   }
 
@@ -41,7 +46,7 @@ export class App extends React.Component {
           value="Menu"
           aria-label="Menu"
           tabIndex={0}
-          disabled={localStorage.getItem('authToken') === null || localStorage.getItem('authToken').length === 0}
+          disabled={localStorage.getItem('authToken') === 'undefined' || localStorage.getItem('authToken') === null}
           onClick={this.handleNav}
           onKeyPress={this.handleKeyPressEvent}
         >
@@ -113,10 +118,33 @@ export class App extends React.Component {
                   Search Books
                 </MenuItem>
               </Link>
+              <Link
+                to="/"
+                role="menu"
+              >
+                <MenuItem
+                  onClick={this.logout}
+                  role="menuitem"
+                  style={{
+                    color: "rgb(255, 64, 129)"
+                  }}
+                >
+                  Logout
+                </MenuItem>
+              </Link>
             </Drawer>
           </header>
           <main>
-            <Route exact path='/' component={LandingPage} />
+            <Route 
+              exact 
+              path='/' 
+              render={() => 
+              (
+                <div>
+                  <LandingPage />
+                </div>
+              )} 
+            />
             <Route exact path='/:username/dashboard' component={Dashboard} />
             <Route exact path='/login-form' component={LoginForm} />
             <Route exact path='/sign-up-form' component={SignUpForm} />
@@ -134,13 +162,14 @@ function mapStateToProps(state) {
   return {
     open: state.nav.open,
     username: state.login.username,
+    jwt: state.login.jwt,
   }
 }
 
 App.propTypes = {
   dispatch: PropTypes.func,
   open: PropTypes.bool,
-
+  jwt: PropTypes.string,
 }
 
 export default connect(mapStateToProps)(App);
