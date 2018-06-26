@@ -33,7 +33,7 @@ export class SignUpForm extends React.Component{
     };
     this.props.dispatch(signUp(newUser))
     .then((response) => {
-      console.log(response);
+      return response;
     }).then(() => this.props.dispatch(login({username: values.username, password: values.password})))
     .catch(err => {
       console.log(err);

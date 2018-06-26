@@ -98,7 +98,7 @@ export class BooksToSwap extends React.Component{
               <FlatButton
                 key='cancel'
                 className="cancel-button"
-                type="submit"
+                type="button"
                 label="Cancel"
                 onClick={this.props.toggleBookForm}
                 style={{
