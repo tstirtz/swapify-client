@@ -53,6 +53,9 @@ export class MessageThread extends React.Component{
       }).then(() => {
         this.props.dispatch(getMessages());
         setTimeout(() => {this.setState({snackbarRendered: false})}, 4000);
+        // console.log(document.getElementsByClassName("messages-container"));
+        // let messagesContainer = document.getElementsByClassName("messages-container");
+        // messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
       });
   }
 
