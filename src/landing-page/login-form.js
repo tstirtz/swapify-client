@@ -9,7 +9,7 @@ import './login-signup-form.css';
 
 export class LoginForm extends React.PureComponent {
   render(){
-      const { jwt } = this.props;
+    const authToken = localStorage.getItem('authToken');
       let loading;
       if(this.props.pending === true){
         loading = (
@@ -25,8 +25,7 @@ export class LoginForm extends React.PureComponent {
             }}
           />);
       }
-
-      if( jwt  && jwt !== "undefined" ){
+      if( authToken  && authToken !== "undefined" && authToken !== null ){
         return <Redirect to='/search' />
       }
       return(

@@ -32,8 +32,8 @@ export class DemoLoginButton extends React.Component{
       username: "demoAccount",
       password: "demopassword",
     };
-    const { jwt } = this.props;
-    if( jwt  && jwt !== "undefined" ){
+    const authToken = localStorage.getItem('authToken');  
+    if( authToken  && authToken !== "undefined" && authToken !== null ){
       return <Redirect to='/search' />
     }
     return(
