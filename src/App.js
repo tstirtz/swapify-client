@@ -41,12 +41,34 @@ export class App extends React.Component {
 
   render() {
     let menuIcon;
+    if(localStorage.getItem('authToken') === 'undefined' || localStorage.getItem('authToken') === null){
       menuIcon = (
         <IconButton
           value="Menu"
           aria-label="Menu"
           tabIndex={0}
-          disabled={localStorage.getItem('authToken') === 'undefined' || localStorage.getItem('authToken') === null}
+          onClick={this.handleNav}
+          onKeyPress={this.handleKeyPressEvent}
+          style={{display:'none'}}
+        >
+          <FontIcon
+            value="Menu"
+            aria-label="Menu"
+            className="fas fa-bars"
+            color="rgb(48, 48, 48)"
+            hoverColor="rgb(255, 64, 129)"
+            style={{
+              fontSize:"18px",
+              margin: "15px"
+            }}
+          />
+        </IconButton>)
+    }else{
+      menuIcon = (
+        <IconButton
+          value="Menu"
+          aria-label="Menu"
+          tabIndex={0}
           onClick={this.handleNav}
           onKeyPress={this.handleKeyPressEvent}
         >
@@ -62,6 +84,7 @@ export class App extends React.Component {
             }}
           />
         </IconButton>)
+      }
     return (
       <Router>
         <div className='app'>
