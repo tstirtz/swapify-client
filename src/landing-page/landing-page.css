@@ -16,12 +16,35 @@
   justify-content: space-around;
 }
 
+.tile-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 175px;
+  margin: 50px 20px 20px 20px;
+}
+
 .logo{
-  display: block;
-  height: 200px;
-  width: 300px;
-  margin: 25% 15px 50px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 130px;
+  width: 130px;
+  /* padding: 12.5px 0px 12.5px 0px; */
+  border: 1px solid rgb(33, 150, 167);
+  border-radius: 100px;
+  /* margin: 25% 15px 50px 15px; */
   color: grey;
+}
+.logo .swapping-icon{
+  height: 65px;
+  width: 86.5px;
+}
+
+.logo .money-icon{
+  height: 75px;
+  opacity: .5;
 }
 
 .button{
@@ -36,13 +59,16 @@
 }
 
 .app-description{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
   font-size: 18px;
 }
 .app-description p{
-  text-align: center;
+  /* text-align: center; */
   color: rgba(191, 191, 191, 0.7);
 }
 
@@ -67,11 +93,11 @@
   .signUp-login-buttons{
     width: 50%;
   }
-  .logo{
+  /* .logo{
     margin: 10% 15px 50px 15px;
     height: 150px;
     width: 225px;
-  }
+  } */
   .demo-login-container .demo-login-button{
     width: 150px !important;
   }

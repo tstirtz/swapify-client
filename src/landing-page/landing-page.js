@@ -6,6 +6,7 @@ import CircularProgress from 'material-ui/CircularProgress';
 import SignUpForm from './sign-up-form';
 import DemoLogin from './demo-login';
 import logo from './swapify-logo.png';
+import moneyIcon from './money-icon.png'
 import DialogBoxLogin from './dialog-box-login';
 
 import './landing-page.css';
@@ -68,18 +69,35 @@ export class LandingPage extends React.Component{
     }
     return(
       <div className='landing-page-container'>
-        <img
-          src={logo}
-          alt='Two hands swaping books'
-          className='logo'
-        />
         {pending}
-        <h2 className="landing-page-sub-title">Why spend hundreds on text books?</h2>
         <div className="app-description">
-          <p>
-            Save your money and swap text books with other students at your school with <span>Swapify</span>.
-          </p>
+          <div className='tile-container'>
+            <div className='logo'>
+              <img 
+                className='money-icon'
+                src={moneyIcon}
+                alt='dollar sign'
+              />
+            </div>
+            <p>
+              Save your money
+            </p>
+          </div>
+          <div className='tile-container'>
+            <div className='logo'>
+              <img
+                className='swapping-icon'
+                src={logo}
+                alt='Two hands swaping books'
+                // className='logo'
+              />
+            </div>
+            <p>
+              Swap textbooks with other students
+            </p>
+          </div>
         </div>
+        <h2 className="landing-page-sub-title">Why spend hundreds on text books?</h2>
         {this.state.signUpFormRendered &&
           <SignUpForm
             openForm={this.state.signUpFormRendered}
