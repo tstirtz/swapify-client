@@ -8,12 +8,16 @@
   margin-right: auto;
 }
 .button-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: absolute;
+  width: 90%;
   top: 32.5%;
 }
 .signUp-login-buttons{
   display: flex;
-  width: 100%;
+  width: 60%;
   margin-top: 10px;
   justify-content: space-around;
 }
@@ -33,10 +37,8 @@
   align-items: center;
   height: 110px;
   width: 110px;
-  /* padding: 12.5px 0px 12.5px 0px; */
   border: 1px solid rgb(33, 150, 167);
   border-radius: 100px;
-  /* margin: 25% 15px 50px 15px; */
   color: grey;
 }
 .logo .swapping-icon{
@@ -71,7 +73,6 @@
   bottom: 0;
   left: 0;
   width: 90%;
-  /* margin-top: 10%; */
   margin-left: 5%;
   margin-right: 5%;
   font-size: 18px;
@@ -87,47 +88,52 @@
   font-size: 30px;
 }
 
-@media only screen and (min-width: 500px) and (max-width: 800px){
+@media only screen and (max-width: 800px){
   .logo{
-    margin: 20% 15px 20px 15px;
-    height: 100px;
-    width: 150px;
+    height: 80px;
+    width: 80px;
   }
-  .signUp-login-buttons{
-    width: 60%;
+  .logo .swapping-icon{
+    height: 45px;
+    width: 55px;
+  }
+  
+  .logo .money-icon{
+    height: 55px;
+    opacity: .5;
+  }
+  
+  .logo .messaging-icon{
+    height: 40px;
+    width: 50px;
+  }
+  .app-description{
+    bottom: 10%;
+  }
+  .app-description p{
+    font-size: 14px;
+  }
+  .tile-container{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+@media only screen and (max-width: 490px){
+  .button-container{
+    top: 25%;
+  }
+  .app-description{
+    bottom: 5%;
+  }
+  .app-description p{
+    font-size: 12px;
   }
 }
 
 @media only screen and (min-width: 801px){
-  /* .signUp-login-buttons{
-    width: 50%;
-  } */
-  /* .logo{
-    margin: 10% 15px 50px 15px;
-    height: 150px;
-    width: 225px;
-  } */
   .demo-login-container .demo-login-button{
     width: 150px !important;
   }
 }
 
-@media only screen and (max-width: 500px){
-  .logo{
-    display: block;
-    height: 70px;
-    width: 105px;
-    margin: 25% 15px 15px 15px;
-    color: grey;
-  }
-  .landing-page-sub-title{
-    width: 90%;
-    max-width: 375px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    font-size: 26px;
-  }
-  .app-description p{
-    font-size: 17px;
-  }
-}
