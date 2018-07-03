@@ -72,10 +72,11 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 80%;
-  margin-left: 10%;
-  margin-right: 10%;
+  width: 100%;
+  padding-left: 10%;
+  padding-right: 10%;
   font-size: 18px;
+  background-color: rgb(37, 37, 37);
 }
 .app-description p{
   text-align: center;
@@ -109,12 +110,14 @@
     width: 50px;
   }
   .app-description{
-    bottom: 10%;
+    height: 30%;
   }
   .app-description p{
     font-size: 14px;
   }
   .tile-container{
+    position: relative;
+    top: 10%;
     margin-left: 10px;
     margin-right: 10px;
   }
@@ -125,15 +128,43 @@
   }
 }
 
+@media only screen and (max-width: 605px){
+  .app-description p{
+    font-size: 12px;
+  }
+}
+
 @media only screen and (max-width: 490px){
   .button-container{
     top: 25%;
   }
-  .app-description{
-    bottom: 5%;
+  .tile-container{
+    top: 0;
   }
-  .app-description p{
-    font-size: 12px;
+  .app-description{
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+}
+
+@media only screen and (max-width: 350px){
+  .logo{
+    height: 70px;
+    width: 70px;
+  }
+  .logo .swapping-icon{
+    height: 40px;
+    width: 50px;
+  }
+  
+  .logo .money-icon{
+    height: 50px;
+    opacity: .5;
+  }
+  
+  .logo .messaging-icon{
+    height: 35px;
+    width: 45px;
   }
 }
 

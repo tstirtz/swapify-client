@@ -128,7 +128,7 @@ export class LandingPage extends React.Component{
               />
             </div>
             <p>
-              Message other students on campus to coordinate exchange
+              Message students on campus to coordinate exchange
             </p>
           </div>
         </div>
