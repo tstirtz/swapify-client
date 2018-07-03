@@ -6,14 +6,13 @@ import { Redirect } from 'react-router-dom';
 import { login } from '../actions/login-action';
 
 const style = {
-  background: 'rgba(255, 64, 129, .6)',
+  background: 'rgb(255, 64, 129)',
   borderRadius: 3,
   border: 0,
   color: 'rgb(48, 48, 48)',
   height: '20px',
   width: '100px',
   padding: '0 30px',
-  margin: '2.5px',
   fontSize: '12px',
   boxShadow: '0 3px 5px 2px rgba(0, 43, 128, .30)',
 };

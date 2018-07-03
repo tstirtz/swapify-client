@@ -1,14 +1,16 @@
 .landing-page-container{
-  height: 100%;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  height: 90vh;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
-
+.button-container{
+  position: absolute;
+  top: 32.5%;
+}
 .signUp-login-buttons{
   display: flex;
   width: 100%;
@@ -22,15 +24,15 @@
   justify-content: flex-start;
   align-items: center;
   width: 175px;
-  margin: 50px 20px 20px 20px;
+  margin: 30px 40px 10px 40px;
 }
 
 .logo{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 130px;
-  width: 130px;
+  height: 110px;
+  width: 110px;
   /* padding: 12.5px 0px 12.5px 0px; */
   border: 1px solid rgb(33, 150, 167);
   border-radius: 100px;
@@ -38,13 +40,18 @@
   color: grey;
 }
 .logo .swapping-icon{
-  height: 65px;
-  width: 86.5px;
+  height: 55px;
+  width: 75px;
 }
 
 .logo .money-icon{
-  height: 75px;
+  height: 70px;
   opacity: .5;
+}
+
+.logo .messaging-icon{
+  height: 45px;
+  width: 55px;
 }
 
 .button{
@@ -53,23 +60,25 @@
 }
 
 .demo-login-container{
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
+  margin: 10px;
 }
 
 .app-description{
   display: flex;
   flex-direction: row;
   justify-content: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 90%;
+  /* margin-top: 10%; */
   margin-left: 5%;
   margin-right: 5%;
   font-size: 18px;
 }
 .app-description p{
-  /* text-align: center; */
-  color: rgba(191, 191, 191, 0.7);
+  text-align: center;
+  color: rgb(255, 255, 255);
 }
 
 .landing-page-sub-title{
@@ -90,9 +99,9 @@
 }
 
 @media only screen and (min-width: 801px){
-  .signUp-login-buttons{
+  /* .signUp-login-buttons{
     width: 50%;
-  }
+  } */
   /* .logo{
     margin: 10% 15px 50px 15px;
     height: 150px;

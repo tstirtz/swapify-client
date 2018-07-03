@@ -6,6 +6,7 @@ import CircularProgress from 'material-ui/CircularProgress';
 import SignUpForm from './sign-up-form';
 import DemoLogin from './demo-login';
 import logo from './swapify-logo.png';
+import messageIcon from './messaging-icon.png';
 import moneyIcon from './money-icon.png'
 import DialogBoxLogin from './dialog-box-login';
 
@@ -70,6 +71,27 @@ export class LandingPage extends React.Component{
     return(
       <div className='landing-page-container'>
         {pending}
+        <div className='button-container'>
+          <h2 className="landing-page-sub-title">Why spend hundreds on text books?</h2>
+          <div className='signUp-login-buttons'>
+            <Button
+              label='Sign up'
+              style={style}
+              onClick={this.openSignUpForm}
+            >
+              Sign up
+            </Button>
+            <Button
+              className='login-button button'
+              label='Login'
+              style={style}
+              onClick={this.openLoginForm}
+            >
+              Login
+            </Button>
+            <DemoLogin />
+          </div>
+        </div>
         <div className="app-description">
           <div className='tile-container'>
             <div className='logo'>
@@ -96,8 +118,21 @@ export class LandingPage extends React.Component{
               Swap textbooks with other students
             </p>
           </div>
+          <div className='tile-container'>
+            <div className='logo'>
+              <img
+                className='messaging-icon'
+                src={messageIcon}
+                alt='Two message bubbles'
+                // className='logo'
+              />
+            </div>
+            <p>
+              Message other students on campus to coordinate exchange
+            </p>
+          </div>
         </div>
-        <h2 className="landing-page-sub-title">Why spend hundreds on text books?</h2>
+        {/* <h2 className="landing-page-sub-title">Why spend hundreds on text books?</h2> */}
         {this.state.signUpFormRendered &&
           <SignUpForm
             openForm={this.state.signUpFormRendered}
@@ -112,7 +147,7 @@ export class LandingPage extends React.Component{
           />
         }
 
-        <div className='signUp-login-buttons'>
+        {/* <div className='signUp-login-buttons'>
           <Button
             label='Sign up'
             style={style}
@@ -128,8 +163,8 @@ export class LandingPage extends React.Component{
           >
             Login
           </Button>
-        </div>
-        <DemoLogin />
+          <DemoLogin />
+        </div> */}
       </div>
     );
   }
