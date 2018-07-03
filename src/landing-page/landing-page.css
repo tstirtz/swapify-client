@@ -1,27 +1,59 @@
 .landing-page-container{
-  height: 100%;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  height: 90vh;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
-
+.button-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 90%;
+  top: 32.5%;
+}
 .signUp-login-buttons{
   display: flex;
-  width: 100%;
+  width: 60%;
   margin-top: 10px;
   justify-content: space-around;
 }
 
+.tile-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 175px;
+  margin: 30px 40px 10px 40px;
+}
+
 .logo{
-  display: block;
-  height: 200px;
-  width: 300px;
-  margin: 25% 15px 50px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 110px;
+  width: 110px;
+  border: 1px solid rgb(33, 150, 167);
+  border-radius: 100px;
   color: grey;
+}
+.logo .swapping-icon{
+  height: 55px;
+  width: 75px;
+}
+
+.logo .money-icon{
+  height: 70px;
+  opacity: .5;
+}
+
+.logo .messaging-icon{
+  height: 45px;
+  width: 55px;
 }
 
 .button{
@@ -30,12 +62,16 @@
 }
 
 .demo-login-container{
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
+  margin: 10px;
 }
 
 .app-description{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
@@ -43,7 +79,7 @@
 }
 .app-description p{
   text-align: center;
-  color: rgba(191, 191, 191, 0.7);
+  color: rgb(255, 255, 255);
 }
 
 .landing-page-sub-title{
@@ -52,47 +88,52 @@
   font-size: 30px;
 }
 
-@media only screen and (min-width: 500px) and (max-width: 800px){
+@media only screen and (max-width: 800px){
   .logo{
-    margin: 20% 15px 20px 15px;
-    height: 100px;
-    width: 150px;
+    height: 80px;
+    width: 80px;
   }
-  .signUp-login-buttons{
-    width: 60%;
+  .logo .swapping-icon{
+    height: 45px;
+    width: 55px;
+  }
+  
+  .logo .money-icon{
+    height: 55px;
+    opacity: .5;
+  }
+  
+  .logo .messaging-icon{
+    height: 40px;
+    width: 50px;
+  }
+  .app-description{
+    bottom: 10%;
+  }
+  .app-description p{
+    font-size: 14px;
+  }
+  .tile-container{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+@media only screen and (max-width: 490px){
+  .button-container{
+    top: 25%;
+  }
+  .app-description{
+    bottom: 5%;
+  }
+  .app-description p{
+    font-size: 12px;
   }
 }
 
 @media only screen and (min-width: 801px){
-  .signUp-login-buttons{
-    width: 50%;
-  }
-  .logo{
-    margin: 10% 15px 50px 15px;
-    height: 150px;
-    width: 225px;
-  }
   .demo-login-container .demo-login-button{
     width: 150px !important;
   }
 }
 
-@media only screen and (max-width: 500px){
-  .logo{
-    display: block;
-    height: 70px;
-    width: 105px;
-    margin: 25% 15px 15px 15px;
-    color: grey;
-  }
-  .landing-page-sub-title{
-    width: 90%;
-    max-width: 375px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    font-size: 26px;
-  }
-  .app-description p{
-    font-size: 17px;
-  }
-}
